@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Rewards | Donut Connection Charleston, WV</title>
+<meta name="description" content="Join Sweet Rewards at Donut Connection Charleston, WV for a birthday treat and future offers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="ring"></span>
+      <span>Donut Connection<br><small>CHARLESTON, WV &middot; EST. LOCAL TRADITION</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Donuts</a>
+      <a href="coffee.html">Coffee</a>
+      <a href="cakes-events.html">Custom Cakes</a>
+      <a href="catering.html">Catering</a>
+      <a href="rewards.html">Sweet Rewards</a>
+      <a href="about.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="btn btn-outline" style="padding:9px 18px;font-size:0.88rem;">Visit Us</a>
+      <a href="index.html#order-ahead" class="btn btn-primary" style="padding:9px 18px;font-size:0.88rem;">Order Ahead</a>
+    </nav>
+  </div>
+</header>
+<section class="page-banner">
+  <div class="container">
+    <p class="eyebrow">Join the Family</p>
+    <h1>Sweet Rewards</h1>
+    <p>A little something extra for our regulars &mdash; because Charleston has been showing up for us for decades, and we&rsquo;d like to show up for you too.</p>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container grid grid-2" style="align-items:start;">
+    <div>
+      <div class="sign-heading" style="text-align:left;margin-left:0;">
+        <span class="badge badge-gold">Birthday Favorite</span>
+        <h2 class="mt-0">A Birthday Treat, On Us</h2>
+      </div>
+      <p>Join Sweet Rewards and receive a birthday treat during your birthday week. It&rsquo;s our way of saying thanks for being part of the Donut Connection Charleston family.</p>
+      <p class="muted">More ways to save are on the way:</p>
+      <ul style="padding-left:20px;color:var(--chocolate-soft);">
+        <li>Buy-a-dozen, get-one-free style offers <span class="small">(coming soon)</span></li>
+        <li>Seasonal coupons <span class="small">(coming soon)</span></li>
+        <li>First word on new and returning flavors <span class="small">(coming soon)</span></li>
+      </ul>
+      <p class="small muted">We&rsquo;re keeping this simple to start &mdash; your info goes into a list Theresa uses to send birthday treats and the occasional sweet update. No complicated points or apps required.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sign Up for Sweet Rewards</h3>
+      <p class="small muted">Formspree-ready. Replace <code>REPLACE_WITH_FORM_ID</code> with your Formspree form ID. Submissions can also feed into a simple Google Sheet or email list &mdash; see note in code comments.</p>
+      <!--
+        NOTE TO OWNER / DEVELOPER: Sweet Rewards intentionally does not build
+        complex loyalty/points logic. For now, this form simply captures
+        customer info (name, email, phone, birthday month/day, and consent)
+        so Theresa can manually send birthday treats and occasional offers.
+        Formspree submissions can be routed into a Google Sheet via Zapier/
+        Make for easy list management, or exported into an email marketing
+        tool (Mailchimp, etc.) later if desired.
+      -->
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New Sweet Rewards Signup">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="rw-name">Name</label>
+            <input type="text" id="rw-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="rw-phone">Phone</label>
+            <input type="tel" id="rw-phone" name="phone">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="rw-email">Email</label>
+          <input type="email" id="rw-email" name="email" required>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="rw-bday-month">Birthday Month</label>
+            <select id="rw-bday-month" name="birthday_month" required>
+              <option value="">Select month</option>
+              <option>January</option><option>February</option><option>March</option>
+              <option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option>
+              <option>October</option><option>November</option><option>December</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rw-bday-day">Birthday Day</label>
+            <input type="number" id="rw-bday-day" name="birthday_day" min="1" max="31" required>
+          </div>
+        </div>
+
+        <div class="checkbox-row field">
+          <input type="checkbox" id="rw-permission" name="marketing_permission" value="yes" required>
+          <label for="rw-permission">Yes, I&rsquo;d like to receive birthday treat reminders and occasional offers from Donut Connection Charleston.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Join Sweet Rewards</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-vanilla">
+  <div class="container cta-band">
+    <h2>More to Come</h2>
+    <p style="color:var(--deep-coffee);">We&rsquo;re building Sweet Rewards step by step &mdash; punch cards, seasonal flavor drops, and more are on the way as the program grows.</p>
+    <a href="index.html#order-ahead" class="btn btn-secondary">Order Ahead in the Meantime</a>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Donut Connection Charleston</h4>
+        <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+        <p class="small">Phone: [PLACEHOLDER PHONE]<br>Email: [PLACEHOLDER EMAIL]</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google Reviews">G</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts</a></li>
+          <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee</a></li>
+          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+          <li style="border:none;padding:4px 0;"><a href="reviews.html">Wall of Smiles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order &amp; Tradition</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering</a></li>
+          <li style="border:none;padding:4px 0;"><a href="rewards.html">Sweet Rewards</a></li>
+          <li style="border:none;padding:4px 0;"><a href="about.html">Our Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="small">[PLACEHOLDER STORE HOURS &mdash; add days/times]</p>
+        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

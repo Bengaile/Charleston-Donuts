@@ -76,3 +76,13 @@ To swap in a real photo for a "text placeholder" card (menu/gallery items),
 just replace the <div class="photo">...</div> or <div class="gallery-item">...</div>
 with an <img src="assets/images/filename.jpg" alt="..."> tag — see homepage
 feature cards in index.html for the exact pattern to copy.
+
+---
+SITE REDESIGN UPDATE (2026-06-29): Site regenerated with the
+'Charleston's Sweetest Tradition' nostalgic neighborhood bakery design
+(warm cream/chocolate/gold/raspberry/teal palette, Playfair Display +
+Lato typography). New pages added: rewards.html (Sweet Rewards).
+about.html reframed as 'Our Story' with a history timeline.
+reviews.html reframed as 'Wall of Smiles' with memory-card prompts.
+A new 'Order Ahead' inquiry form lives at index.html#order-ahead.
+
