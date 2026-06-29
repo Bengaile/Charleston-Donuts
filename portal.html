@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Business Portal | Donut Connection Charleston</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!--
+  NOTE TO DEVELOPER / OWNER:
+  This page is intentionally left out of the main public navigation and marked
+  "noindex" so search engines won't list it. The simple passcode gate below is
+  a basic front-end deterrent only — it is NOT secure authentication, since
+  anyone can view the page source. For real protection, host this page behind
+  proper server-side authentication (e.g., password-protect via your hosting
+  provider, a login-gated CMS, or a private subdomain) before publishing real
+  account links or sensitive data here.
+-->
+
+<header class="site-header portal-banner" style="border-bottom:4px solid var(--gold);">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand" style="color:var(--gold-light);">
+      <span class="ring"></span>
+      <span>Donut Connection<br><small style="color:var(--gold-light);">OWNER PORTAL</small></span>
+    </a>
+    <a href="index.html" class="btn btn-outline" style="border-color:var(--gold-light);color:var(--gold-light);">&larr; Back to Public Site</a>
+  </div>
+</header>
+
+<!-- ============ SIMPLE PASSCODE GATE (front-end placeholder only) ============ -->
+<section id="portal-gate" class="bg-chocolate" style="min-height:60vh;display:flex;align-items:center;">
+  <div class="container" style="max-width:480px;">
+    <div class="portal-lock">&#128274; Restricted Area &mdash; Owner &amp; Staff Only</div>
+    <h1 style="color:var(--white);">Owner Business Portal</h1>
+    <p class="muted" style="color:var(--gold-light);">Enter the staff passcode to continue. Replace this placeholder gate with real authentication before launch.</p>
+    <div class="card" style="margin-top:18px;">
+      <div class="field">
+        <label for="portal-passcode">Passcode</label>
+        <input type="password" id="portal-passcode" placeholder="Enter passcode">
+      </div>
+      <button type="button" class="btn btn-primary btn-block" onclick="checkPortalPasscode()">Enter Portal</button>
+      <p id="portal-error" class="small" style="color:var(--raspberry); display:none; margin-top:10px;">Incorrect passcode. Please try again.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTAL CONTENT (hidden until passcode entered) ============ -->
+<div id="portal-content" style="display:none;">
+
+<section class="page-banner" style="background:var(--chocolate);">
+  <div class="container">
+    <div class="portal-lock">&#128274; Internal Use Only</div>
+    <h1>Owner Business Portal</h1>
+    <p style="color:var(--gold-light);">A private operations page for Theresa, vendors, merchant services, accounting, vendor invoices, customer inquiries, and business management links.</p>
+  </div>
+</section>
+
+<section class="bg-cream section-tight">
+  <div class="container">
+    <div class="notice-banner">
+      All links below are placeholders. Replace each with the real login URL for the corresponding account once available. None of these links store or contain actual credentials.
+    </div>
+  </div>
+</section>
+
+<!-- Merchant Account & Payment Processing -->
+<section class="bg-white section-tight">
+  <div class="container">
+    <h2>Merchant Account &amp; Payment Processing</h2>
+    <div class="card portal-section">
+      <ul class="link-list">
+        <li><span>Merchant Account Login</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>POS Provider Login</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Daily Sales Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Batch Settlement Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Credit Card Processing Statements</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Chargeback Notices</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Deposit Reconciliation</span> <a href="#" class="tag">Placeholder Link</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Vendor Invoice Upload -->
+<section class="bg-cream section-tight">
+  <div class="container grid grid-2" style="align-items:start;">
+    <div>
+      <h2>Vendor Invoice Upload</h2>
+      <p class="muted">Use this form to submit a vendor invoice for processing.</p>
+      <!--
+        ROUTING NOTES (for automation setup):
+        Formspree submission should email Theresa and accounting, then
+        optionally route attachments to Google Drive and log invoice
+        details in Google Sheets through automation (e.g., Zapier/Make
+        connected to the Formspree webhook).
+      -->
+      <p class="small muted">Submissions route to Theresa and accounting by email. Attachments and details can optionally be sent to Google Drive and logged in Google Sheets via automation &mdash; see code comments.</p>
+    </div>
+    <div class="card">
+      <h3>Vendor Invoice Form</h3>
+      <p class="small muted">Formspree-ready. Replace <code>REPLACE_WITH_FORM_ID</code> with your Formspree form ID.</p>
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New Vendor Invoice Submission">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="vi-vendor">Vendor Name</label>
+            <input type="text" id="vi-vendor" name="vendor_name" required>
+          </div>
+          <div class="field">
+            <label for="vi-contact">Vendor Contact</label>
+            <input type="text" id="vi-contact" name="vendor_contact">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="vi-email">Vendor Email</label>
+          <input type="email" id="vi-email" name="vendor_email" required>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="vi-invnum">Invoice Number</label>
+            <input type="text" id="vi-invnum" name="invoice_number">
+          </div>
+          <div class="field">
+            <label for="vi-amount">Invoice Amount</label>
+            <input type="text" id="vi-amount" name="invoice_amount" placeholder="$0.00">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="vi-invdate">Invoice Date</label>
+            <input type="date" id="vi-invdate" name="invoice_date">
+          </div>
+          <div class="field">
+            <label for="vi-duedate">Due Date</label>
+            <input type="date" id="vi-duedate" name="due_date">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="vi-doctype">Document Type</label>
+          <select id="vi-doctype" name="document_type">
+            <option>Invoice</option>
+            <option>Statement</option>
+            <option>Credit Memo</option>
+            <option>Receipt</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="vi-upload">Upload Invoice</label>
+          <input type="file" id="vi-upload" name="invoice_file" accept=".pdf,.jpg,.jpeg,.png">
+        </div>
+
+        <div class="field">
+          <label for="vi-message">Message</label>
+          <textarea id="vi-message" name="message"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Vendor Invoice</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Customer Requests Review -->
+<section class="bg-white section-tight">
+  <div class="container">
+    <h2>Customer Requests Review</h2>
+    <div class="card portal-section">
+      <ul class="link-list">
+        <li><span>Custom Cake Inquiries</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Catering Inquiries</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Customer Reviews</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Google Form Responses</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Google Sheets Tracker</span> <a href="#" class="tag">Placeholder Link</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Accounting / Admin Links -->
+<section class="bg-cream section-tight">
+  <div class="container">
+    <h2>Accounting / Admin Links</h2>
+    <div class="card portal-section">
+      <ul class="link-list">
+        <li><span>QuickBooks Online</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Bank Login</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Payroll Provider</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>POS System</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Google Drive Vendor Folders</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Monthly Financial Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Inventory Spreadsheet</span> <a href="#" class="tag">Placeholder Link</a></li>
+        <li><span>Sales Dashboard</span> <a href="#" class="tag">Placeholder Link</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Internal Notes -->
+<section class="bg-white section-tight">
+  <div class="container">
+    <h2>Internal Notes</h2>
+    <div class="grid grid-2">
+      <div class="reminder-card">
+        <strong>Monthly Reminders</strong>
+        [PLACEHOLDER &mdash; e.g., review sales reports, reconcile deposits]
+      </div>
+      <div class="reminder-card">
+        <strong>Vendor Payment Deadlines</strong>
+        [PLACEHOLDER &mdash; list recurring vendor due dates]
+      </div>
+      <div class="reminder-card">
+        <strong>Tax Deadlines</strong>
+        [PLACEHOLDER &mdash; quarterly/annual filing dates]
+      </div>
+      <div class="reminder-card">
+        <strong>Insurance Renewals</strong>
+        [PLACEHOLDER &mdash; policy renewal dates]
+      </div>
+      <div class="reminder-card">
+        <strong>License Renewals</strong>
+        [PLACEHOLDER &mdash; business/health permit renewal dates]
+      </div>
+      <div class="reminder-card">
+        <strong>Lease / Mortgage Reminders</strong>
+        [PLACEHOLDER &mdash; payment due dates]
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot; Internal Use Only
+    </div>
+  </div>
+</footer>
+
+</div><!-- /#portal-content -->
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Placeholder front-end passcode gate.
+  // NOT secure — visible in page source. Replace with real server-side auth before launch.
+  var PORTAL_PASSCODE = "donutowner2026"; // <-- change this placeholder passcode
+
+  function checkPortalPasscode() {
+    var input = document.getElementById('portal-passcode').value;
+    var error = document.getElementById('portal-error');
+    if (input === PORTAL_PASSCODE) {
+      document.getElementById('portal-gate').style.display = 'none';
+      document.getElementById('portal-content').style.display = 'block';
+    } else {
+      error.style.display = 'block';
+    }
+  }
+
+  // Allow Enter key to submit passcode
+  document.addEventListener('DOMContentLoaded', function () {
+    var input = document.getElementById('portal-passcode');
+    if (input) {
+      input.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') checkPortalPasscode();
+      });
+    }
+  });
+</script>
+</body>
+</html>

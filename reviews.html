@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews | Donut Connection Charleston, WV</title>
+<meta name="description" content="Read customer reviews and share your experience at Donut Connection Charleston, WV bakery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="ring"></span>
+      <span>Donut Connection<br><small>CHARLESTON, WV</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Donuts &amp; Menu</a>
+      <a href="coffee.html">Coffee &amp; Breakfast</a>
+      <a href="cakes-events.html">Custom Cakes &amp; Events</a>
+      <a href="catering.html">Catering &amp; Fundraisers</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About Theresa</a>
+      <a href="contact.html" class="btn btn-primary">Visit / Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="page-banner">
+  <div class="container">
+    <p class="eyebrow" style="color:var(--gold);">Charleston, WV</p>
+    <h1>Reviews</h1>
+    <p>See what Charleston has to say &mdash; and tell us about your visit.</p>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container text-center">
+    <h2>Read Our Google Reviews</h2>
+    <p class="muted">See the latest customer reviews on Google.</p>
+    <a href="#" class="btn btn-secondary">View Google Reviews [PLACEHOLDER LINK]</a>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container">
+    <h2 class="text-center">What Customers Are Saying</h2>
+    <div class="grid grid-3">
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Best donut shop in Charleston, WV &mdash; hands down. Fresh every time we stop in.&rdquo;</p>
+        <div class="author">&mdash; Local Customer</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Ordered a custom cake for my daughter&rsquo;s birthday and it was perfect. So friendly!&rdquo;</p>
+        <div class="author">&mdash; Local Customer</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Our office orders catering here for every meeting. Always fresh and on time.&rdquo;</p>
+        <div class="author">&mdash; Local Customer</div>
+      </div>
+    </div>
+    <p class="text-center small muted" style="margin-top:18px;">Sample reviews shown above for layout purposes &mdash; replace with real, permitted customer reviews.</p>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container grid grid-2" style="align-items:start;">
+    <div>
+      <h2>Tell Us About Your Visit</h2>
+      <p>We&rsquo;d love to hear how we did. Your feedback helps us keep Charleston&rsquo;s donuts, coffee, and service at their best.</p>
+      <img src="assets/images/reviews-placeholder.jpg" alt="Customers enjoying donuts at Donut Connection Charleston WV">
+    </div>
+
+    <div class="card">
+      <h3>Customer Feedback Form</h3>
+      <p class="small muted">Formspree-ready. Replace <code>REPLACE_WITH_FORM_ID</code> with your Formspree form ID.</p>
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New Customer Review Submission">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="rev-name">Name</label>
+            <input type="text" id="rev-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="rev-email">Email</label>
+            <input type="email" id="rev-email" name="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="rev-rating">Rating</label>
+          <select id="rev-rating" name="rating">
+            <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; &mdash; Excellent</option>
+            <option value="4">&#9733;&#9733;&#9733;&#9733; &mdash; Good</option>
+            <option value="3">&#9733;&#9733;&#9733; &mdash; Okay</option>
+            <option value="2">&#9733;&#9733; &mdash; Poor</option>
+            <option value="1">&#9733; &mdash; Very Poor</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="rev-text">Your Review</label>
+          <textarea id="rev-text" name="review" placeholder="Tell us about your visit..." required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="rev-photo">Upload a Photo (optional)</label>
+          <input type="file" id="rev-photo" name="customer_photo" accept="image/*">
+        </div>
+
+        <div class="checkbox-row field">
+          <input type="checkbox" id="rev-permission" name="feature_permission" value="yes">
+          <label for="rev-permission">Yes, Donut Connection Charleston may feature my review on the website.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Donut Connection Charleston</h4>
+        <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+        <p class="small">Phone: [PLACEHOLDER PHONE]<br>Email: [PLACEHOLDER EMAIL]</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google Reviews">G</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts &amp; Menu</a></li>
+          <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee &amp; Breakfast</a></li>
+          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+          <li style="border:none;padding:4px 0;"><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order &amp; Events</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering &amp; Fundraisers</a></li>
+          <li style="border:none;padding:4px 0;"><a href="about.html">About Theresa</a></li>
+          <li style="border:none;padding:4px 0;"><a href="contact.html">Visit / Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="small">[PLACEHOLDER STORE HOURS &mdash; add days/times]</p>
+        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      <a href="portal.html" style="opacity:0.6;font-size:0.78rem;">Owner Login</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

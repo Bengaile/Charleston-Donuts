@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Cakes &amp; Events | Donut Connection Charleston, WV</title>
+<meta name="description" content="Order custom cakes Charleston WV style. Birthday cakes, cupcakes, and event treats from Donut Connection Charleston.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="ring"></span>
+      <span>Donut Connection<br><small>CHARLESTON, WV</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Donuts &amp; Menu</a>
+      <a href="coffee.html">Coffee &amp; Breakfast</a>
+      <a href="cakes-events.html">Custom Cakes &amp; Events</a>
+      <a href="catering.html">Catering &amp; Fundraisers</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About Theresa</a>
+      <a href="contact.html" class="btn btn-primary">Visit / Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="page-banner">
+  <div class="container">
+    <p class="eyebrow" style="color:var(--gold);">Custom Orders</p>
+    <h1>Custom Cakes &amp; Events</h1>
+    <p>Celebrating a birthday, shower, or special event in Charleston, WV? Let&rsquo;s plan it together.</p>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container grid grid-2" style="align-items:start;">
+    <div>
+      <h2>Custom Cakes &amp; Treats for Every Occasion</h2>
+      <p>From birthday cakes to event dessert tables, our custom cakes Charleston WV customers love are made to order with the flavors, colors, and theme you have in mind.</p>
+      <p class="muted">Please submit your request at least <strong>7&ndash;10 days</strong> before your event date when possible. We&rsquo;ll follow up by phone or email to confirm details and pricing.</p>
+      <img src="assets/images/custom-cake-placeholder.jpg" alt="Custom cake from Donut Connection Charleston WV" style="margin-top:18px;">
+    </div>
+
+    <div class="card">
+      <h3>Cake &amp; Event Inquiry Form</h3>
+      <p class="small muted">This form is Formspree-ready. Replace <code>REPLACE_WITH_FORM_ID</code> below with your Formspree form ID.</p>
+      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New Custom Cake &amp; Event Inquiry">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="cake-name">Name</label>
+            <input type="text" id="cake-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="cake-phone">Phone</label>
+            <input type="tel" id="cake-phone" name="phone" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cake-email">Email</label>
+          <input type="email" id="cake-email" name="email" required>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="cake-event-date">Event Date</label>
+            <input type="date" id="cake-event-date" name="event_date">
+          </div>
+          <div class="field">
+            <label for="cake-pickup">Pickup Date / Time</label>
+            <input type="text" id="cake-pickup" name="pickup_datetime" placeholder="e.g., Friday 4:00 PM">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cake-event-type">Type of Event</label>
+          <select id="cake-event-type" name="event_type">
+            <option value="">Select one</option>
+            <option>Birthday</option>
+            <option>Wedding / Shower</option>
+            <option>Graduation</option>
+            <option>Corporate / Office</option>
+            <option>Holiday</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cake-items">Requested Items</label>
+          <textarea id="cake-items" name="requested_items" placeholder="e.g., 2-tier birthday cake, dozen cupcakes, donut tower..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="cake-servings">Servings Needed</label>
+          <input type="text" id="cake-servings" name="servings_needed" placeholder="e.g., 25 guests">
+        </div>
+
+        <div class="field">
+          <label for="cake-notes">Flavor / Theme / Color Notes</label>
+          <textarea id="cake-notes" name="flavor_theme_notes" placeholder="Flavors, colors, theme, inspiration..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="cake-photo">Upload Inspiration Photo</label>
+          <input type="file" id="cake-photo" name="inspiration_photo" accept="image/*">
+          <p class="hint">Optional &mdash; attach a photo for design inspiration.</p>
+        </div>
+
+        <div class="field">
+          <label for="cake-message">Message</label>
+          <textarea id="cake-message" name="message" placeholder="Anything else we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Cake &amp; Event Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="container cta-band" style="background:var(--white);">
+    <h2>Planning a Bigger Event?</h2>
+    <p class="muted">For office orders or fundraisers, visit our Catering &amp; Fundraisers page instead.</p>
+    <a href="catering.html" class="btn btn-secondary">Catering &amp; Fundraisers</a>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Donut Connection Charleston</h4>
+        <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+        <p class="small">Phone: [PLACEHOLDER PHONE]<br>Email: [PLACEHOLDER EMAIL]</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google Reviews">G</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts &amp; Menu</a></li>
+          <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee &amp; Breakfast</a></li>
+          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+          <li style="border:none;padding:4px 0;"><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order &amp; Events</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering &amp; Fundraisers</a></li>
+          <li style="border:none;padding:4px 0;"><a href="about.html">About Theresa</a></li>
+          <li style="border:none;padding:4px 0;"><a href="contact.html">Visit / Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="small">[PLACEHOLDER STORE HOURS &mdash; add days/times]</p>
+        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      <a href="portal.html" style="opacity:0.6;font-size:0.78rem;">Owner Login</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
