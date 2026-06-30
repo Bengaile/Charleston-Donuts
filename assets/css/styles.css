@@ -197,7 +197,7 @@ section { padding: 64px 0; }
 .brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--teal-dark); }
 
 .main-nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.main-nav a { font-weight: 600; color: var(--chocolate); font-size: 0.92rem; white-space: nowrap; }
+.main-nav a { font-weight: 600; color: var(--chocolate); font-size: 1.058rem; white-space: nowrap; }
 .main-nav a:hover { color: var(--raspberry); }
 .main-nav .btn { margin-left: 4px; }
 
