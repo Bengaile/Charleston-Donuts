@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.main-nav a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
     if (href === current) {
-      link.style.color = 'var(--raspberry)';
+      link.style.color = 'var(--gold)';
       link.style.textDecoration = 'underline';
     }
   });

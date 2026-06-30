@@ -148,7 +148,7 @@ section { padding: 64px 0; }
 .badge-gold { background: #f4e3c5; color: var(--gold-dark); }
 .badge-teal { background: #d7eef3; color: var(--teal-dark); }
 
-.site-header { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 3px solid var(--gold); }
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--deep-coffee); border-bottom: 3px solid var(--gold); }
 .home-hero-header {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -187,31 +187,68 @@ section { padding: 64px 0; }
   text-shadow: 0 1px 3px rgba(75,53,42,0.4);
 }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--max-width); margin: 0 auto; gap: 18px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--chocolate); flex-shrink: 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #FFFFFF; flex-shrink: 0; }
 .brand .ring {
   width: 36px; height: 36px; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--raspberry) 60%, var(--chocolate) 100%);
   position: relative; flex-shrink: 0; box-shadow: var(--shadow-card);
 }
 .brand .ring::after { content: ""; position: absolute; inset: 9px; background: var(--cream); border-radius: 50%; }
-.brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--teal-dark); }
+.brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--gold); }
 
-.main-nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.main-nav a { font-weight: 600; color: var(--chocolate); font-size: 1.058rem; white-space: nowrap; }
-.main-nav a:hover { color: var(--raspberry); }
+.main-nav { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.main-nav a { font-weight: 700; color: #FFFFFF; font-size: 1.25rem; white-space: nowrap; }
+.main-nav a:hover { color: var(--gold); }
 .main-nav .btn { margin-left: 4px; }
 
-.nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; color: var(--raspberry); cursor: pointer; }
+.nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; color: var(--gold); cursor: pointer; }
 
 @media (max-width: 980px) {
   .nav-toggle { display: block; }
   .main-nav {
-    display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream);
+    display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--deep-coffee);
     flex-direction: column; align-items: flex-start; padding: 18px 24px 26px;
     border-bottom: 3px solid var(--gold); box-shadow: var(--shadow-soft); gap: 14px;
   }
   .main-nav.open { display: flex; }
   .main-nav .btn { margin-left: 0; }
+}
+
+.hero-brand-link {
+  position: absolute;
+  top: 18px; left: 24px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  text-shadow: 0 2px 6px rgba(43,28,20,0.65), 0 1px 2px rgba(43,28,20,0.5);
+}
+.hero-brand-link:hover { color: var(--gold); }
+.hero-brand-link small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: #FFFDD0;
+  text-shadow: 0 1px 4px rgba(43,28,20,0.6);
+}
+.hero-brand-link .ring {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--raspberry) 60%, var(--chocolate) 100%);
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+.hero-brand-link .ring::after { content: ""; position: absolute; inset: 8px; background: #FFFDD0; border-radius: 50%; }
+@media (max-width: 880px) {
+  .hero-brand-link { font-size: 1rem; top: 14px; left: 16px; }
+  .hero-brand-link .ring { width: 26px; height: 26px; }
 }
 
 .hero {
@@ -287,12 +324,6 @@ section { padding: 64px 0; }
   .hero { min-height: 460px; background-position: 70% center; }
   .hero .container { padding-top: 36px; padding-bottom: 36px; }
   .hero-badge { width: 80px; height: 80px; font-size: 0.6rem; }
-  .hero p[style*="position:absolute"] {
-    white-space: normal !important;
-    font-size: 0.95rem !important;
-    width: 88%;
-    bottom: 16px !important;
-  }
 }
 
 .page-banner { background: var(--deep-coffee); color: var(--white); padding: 56px 0 42px; text-align: center; }
