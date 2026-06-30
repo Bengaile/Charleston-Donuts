@@ -188,10 +188,7 @@ section { padding: 64px 0; }
   min-height: 620px;
 }
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, rgba(255,253,208,0.78) 0%, rgba(255,253,208,0.5) 38%, rgba(255,253,208,0.08) 62%, rgba(255,253,208,0) 78%);
+  content: none;
 }
 .hero .container {
   position: relative;
@@ -266,7 +263,6 @@ section { padding: 64px 0; }
 @media (max-width: 880px) {
   .hero { min-height: 520px; background-position: 70% center; }
   .hero .container { padding-top: 36px; padding-bottom: 36px; }
-  .hero::before { background: linear-gradient(180deg, rgba(255,253,208,0.85) 0%, rgba(255,253,208,0.6) 55%, rgba(255,253,208,0.3) 100%); }
   .hero-badge { width: 80px; height: 80px; font-size: 0.6rem; }
 }
 
