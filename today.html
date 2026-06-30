@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today&rsquo;s Fresh Picks | Donut Connection Charleston, WV</title>
+<meta name="description" content="Today's Fresh Picks: fresh donuts, hot coffee, breakfast favorites, and Charleston's sweetest traditions at Donut Connection Charleston, WV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  /* =========================================================
+     Today's Fresh Picks — standalone pastel retro menu page
+     Self-contained styles layered on top of the site's base
+     reset/typography so this page can stand alone visually.
+     Palette: pastel yellow sprinkle bg, pink/mint/cream/teal/
+     retro red accents, chalkboard-black menu cards, neon
+     headings, rounded pill buttons with drop shadows.
+     ========================================================= */
+  :root {
+    --tfp-yellow: #FFFBE0;
+    --tfp-pink: #FFB6C1;
+    --tfp-mint: #98FF98;
+    --tfp-cream: #FFFDD0;
+    --tfp-teal: #1FB6C9;
+    --tfp-red: #E0334D;
+    --tfp-board: #1c1c1c;
+    --tfp-board-edge: #3a3a3a;
+    --tfp-ink: #2b2b2b;
+  }
+
+  body.tfp-body {
+    margin: 0;
+    font-family: 'Lato', Arial, sans-serif;
+    color: var(--tfp-ink);
+    background-color: var(--tfp-yellow);
+    background-image: radial-gradient(circle, #ffd1dc 2px, transparent 2.5px),
+                       radial-gradient(circle, #b9f3c2 2px, transparent 2.5px),
+                       radial-gradient(circle, #ffe79a 2px, transparent 2.5px);
+    background-size: 90px 90px, 110px 110px, 70px 70px;
+    background-position: 0 0, 30px 50px, 60px 10px;
+  }
+
+  .tfp-display { font-family: 'Baloo 2', 'Lato', sans-serif; }
+
+  .tfp-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Top bar ---------- */
+  .tfp-topbar {
+    background: var(--tfp-cream);
+    border-bottom: 4px solid var(--tfp-pink);
+    padding: 14px 0;
+  }
+  .tfp-topbar .tfp-wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .tfp-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; color: var(--tfp-red); }
+  .tfp-brand .ring { width: 30px; height: 30px; border-radius: 50%; background: conic-gradient(var(--tfp-red), var(--tfp-teal), var(--tfp-mint), var(--tfp-pink), var(--tfp-red)); position: relative; flex-shrink: 0; }
+  .tfp-brand .ring::after { content: ""; position: absolute; inset: 7px; background: var(--tfp-cream); border-radius: 50%; }
+  .tfp-back-link { font-weight: 700; font-size: 0.85rem; color: var(--tfp-teal); text-decoration: none; }
+  .tfp-back-link:hover { color: var(--tfp-red); }
+
+  /* ---------- Hero / title ---------- */
+  .tfp-hero { text-align: center; padding: 52px 20px 20px; position: relative; }
+  .tfp-hero h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    margin: 0 0 12px;
+    color: var(--tfp-red);
+    text-shadow: 3px 3px 0 var(--tfp-cream), 5px 5px 0 rgba(43,43,43,0.15);
+  }
+  .tfp-hero p.tfp-subtitle {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--tfp-ink);
+  }
+  .tfp-decor-photo {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 6px 14px rgba(43,43,43,0.22);
+    object-fit: cover;
+    display: none;
+  }
+  @media (min-width: 760px) {
+    .tfp-decor-photo { display: block; }
+    .tfp-decor-1 { width: 92px; height: 92px; top: 18px; left: 6%; transform: rotate(-8deg); }
+    .tfp-decor-2 { width: 78px; height: 78px; top: 60px; right: 8%; transform: rotate(10deg); }
+  }
+
+  /* ---------- Pill nav (section jump buttons) ---------- */
+  .tfp-pillnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 22px 20px 8px;
+  }
+  .tfp-pill {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 999px;
+    color: var(--tfp-ink);
+    box-shadow: 0 4px 0 rgba(43,43,43,0.35);
+    transition: transform 0.12s ease;
+    border: 2px solid rgba(43,43,43,0.12);
+  }
+  .tfp-pill:hover { transform: translateY(-2px); }
+  .tfp-pill-1 { background: var(--tfp-pink); }
+  .tfp-pill-2 { background: var(--tfp-mint); }
+  .tfp-pill-3 { background: var(--tfp-cream); }
+  .tfp-pill-4 { background: #aee9ef; }
+  .tfp-pill-5 { background: #ffd17a; }
+
+  /* ---------- CTA row ---------- */
+  .tfp-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 18px 20px 10px;
+  }
+  .tfp-btn {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 15px 34px;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 5px 0 rgba(43,43,43,0.35);
+    transition: transform 0.12s ease;
+  }
+  .tfp-btn:hover { transform: translateY(-2px); }
+  .tfp-btn-primary { background: var(--tfp-red); color: #fff; }
+  .tfp-btn-secondary { background: #fff; color: var(--tfp-teal); border: 3px solid var(--tfp-teal); box-shadow: 0 5px 0 rgba(31,182,201,0.35); }
+
+  /* ---------- Pricing note ---------- */
+  .tfp-note {
+    text-align: center;
+    max-width: 560px;
+    margin: 18px auto 0;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #5a5a5a;
+    padding: 0 20px;
+  }
+
+  /* ---------- Menu sections ---------- */
+  .tfp-section { padding: 46px 20px 10px; scroll-margin-top: 20px; }
+  .tfp-board {
+    background: var(--tfp-board);
+    border-radius: 22px;
+    border: 6px solid var(--tfp-board-edge);
+    box-shadow: 0 14px 0 rgba(0,0,0,0.18), 0 14px 30px rgba(0,0,0,0.25);
+    padding: 30px 26px 34px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .tfp-board-heading {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+    text-align: center;
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+  }
+  .tfp-neon-pink { color: #ff6fb0; text-shadow: 0 0 6px #ff6fb0a0, 0 0 14px #ff6fb060; }
+  .tfp-neon-mint { color: #6dffb0; text-shadow: 0 0 6px #6dffb0a0, 0 0 14px #6dffb060; }
+  .tfp-neon-teal { color: #5fe8ff; text-shadow: 0 0 6px #5fe8ffa0, 0 0 14px #5fe8ff60; }
+  .tfp-neon-gold { color: #ffd55f; text-shadow: 0 0 6px #ffd55fa0, 0 0 14px #ffd55f60; }
+  .tfp-neon-red  { color: #ff7a6e; text-shadow: 0 0 6px #ff7a6ea0, 0 0 14px #ff7a6e60; }
+  .tfp-board-sub {
+    text-align: center;
+    color: #cfcfcf;
+    font-size: 0.85rem;
+    margin: 0 0 22px;
+  }
+
+  .tfp-item-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 26px;
+  }
+  @media (max-width: 600px) {
+    .tfp-item-grid { grid-template-columns: 1fr; }
+  }
+  .tfp-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 4px;
+    border-bottom: 1px dashed rgba(255,255,255,0.18);
+    color: #f5f5f0;
+  }
+  .tfp-item:last-child { border-bottom: none; }
+  .tfp-item-name { font-weight: 700; font-size: 1rem; }
+  .tfp-item-price {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.92rem;
+    color: #ffd55f;
+    white-space: nowrap;
+    border-bottom: 2px dotted rgba(255,213,95,0.4);
+    min-width: 36px;
+    text-align: right;
+  }
+
+  .tfp-board-photo {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid var(--tfp-board-edge);
+    outline: 3px solid #fff;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    display: none;
+  }
+  @media (min-width: 820px) {
+    .tfp-board-photo { display: block; }
+  }
+  .tfp-photo-tr { width: 84px; height: 84px; top: -22px; right: 28px; transform: rotate(8deg); }
+  .tfp-photo-bl { width: 76px; height: 76px; bottom: -20px; left: 30px; transform: rotate(-7deg); }
+
+  /* ---------- Footer CTA band ---------- */
+  .tfp-footer-band {
+    margin: 60px auto 0;
+    max-width: 900px;
+    background: var(--tfp-mint);
+    border: 3px solid var(--tfp-ink);
+    border-radius: 22px;
+    padding: 34px 28px;
+    text-align: center;
+    box-shadow: 0 6px 0 rgba(43,43,43,0.25);
+  }
+  .tfp-footer-band h2 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    margin: 0 0 10px;
+    color: var(--tfp-ink);
+  }
+  .tfp-footer-band p { margin: 0 0 18px; font-weight: 600; color: #2b2b2b; }
+
+  .tfp-page-footer {
+    text-align: center;
+    padding: 36px 20px 50px;
+    font-size: 0.82rem;
+    color: #6b6b5a;
+  }
+  .tfp-page-footer a { color: var(--tfp-red); font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body class="tfp-body">
+
+<header class="tfp-topbar">
+  <div class="tfp-wrap">
+    <a href="index.html" class="tfp-brand">
+      <span class="ring"></span>
+      Donut Connection &middot; Charleston, WV
+    </a>
+    <a href="index.html" class="tfp-back-link">&larr; Back to Main Site</a>
+  </div>
+</header>
+
+<section class="tfp-hero">
+  <img src="assets/images/specialty-chocolate-chip.jpg" alt="" class="tfp-decor-photo tfp-decor-1">
+  <img src="assets/images/feature-coffee-placeholder.jpg" alt="" class="tfp-decor-photo tfp-decor-2">
+  <h1 class="tfp-display">Today&rsquo;s Fresh Picks</h1>
+  <p class="tfp-subtitle">Fresh donuts, hot coffee, breakfast favorites, and Charleston&rsquo;s sweetest traditions.</p>
+</section>
+
+<nav class="tfp-pillnav" aria-label="Menu sections">
+  <a href="#tfp-donuts" class="tfp-pill tfp-pill-1">Donuts</a>
+  <a href="#tfp-coffee" class="tfp-pill tfp-pill-2">Coffee</a>
+  <a href="#tfp-breakfast" class="tfp-pill tfp-pill-3">Breakfast</a>
+  <a href="#tfp-bakery" class="tfp-pill tfp-pill-4">Bakery Favorites</a>
+  <a href="#tfp-fancies" class="tfp-pill tfp-pill-5">Fancies</a>
+</nav>
+
+<div class="tfp-cta-row">
+  <a href="index.html#order-ahead" class="tfp-btn tfp-btn-primary">Order Ahead</a>
+  <a href="tel:" class="tfp-btn tfp-btn-secondary">Call the Shop</a>
+</div>
+
+<p class="tfp-note">Menu items and prices may vary. Please call or visit for today&rsquo;s availability.</p>
+
+<!-- ============ DONUTS ============ -->
+<section class="tfp-section" id="tfp-donuts">
+  <div class="tfp-board">
+    <img src="assets/images/gallery-donuts-03.jpg" alt="" class="tfp-board-photo tfp-photo-tr">
+    <h2 class="tfp-board-heading tfp-neon-pink">Donuts</h2>
+    <p class="tfp-board-sub">Fried fresh, glazed, filled, and frosted &mdash; every single day.</p>
+    <div class="tfp-item-grid">
+      <div class="tfp-item"><span class="tfp-item-name">Chocolate Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Blueberry Cake Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">French Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Homecut Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Honey Dip Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Boston Creme Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Charleston Delight Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Maple Iced Ring Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Jelly Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Bavarian Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Sour Creme Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Powdered Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Donut Holes</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Half Dozen Donuts</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Dozen Donuts</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COFFEE ============ -->
+<section class="tfp-section" id="tfp-coffee">
+  <div class="tfp-board">
+    <img src="assets/images/feature-coffee-placeholder.jpg" alt="" class="tfp-board-photo tfp-photo-bl">
+    <h2 class="tfp-board-heading tfp-neon-teal">Coffee</h2>
+    <p class="tfp-board-sub">Hot, iced, and always ready to go.</p>
+    <div class="tfp-item-grid">
+      <div class="tfp-item"><span class="tfp-item-name">Hot Coffee</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Hot Tea</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Iced Coffee</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Coffee Carafe</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cappuccino</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BREAKFAST ============ -->
+<section class="tfp-section" id="tfp-breakfast">
+  <div class="tfp-board">
+    <h2 class="tfp-board-heading tfp-neon-gold">Breakfast</h2>
+    <p class="tfp-board-sub">Hearty bites to start the morning right.</p>
+    <div class="tfp-item-grid">
+      <div class="tfp-item"><span class="tfp-item-name">Bagel with Cream Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Ham, Bacon, Sausage, or Pepperoni Sandwich with Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Ham, Bacon, or Sausage Sandwich with Egg &amp; Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Link Sausage and Egg Sandwich with Pepperjack Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAKERY FAVORITES ============ -->
+<section class="tfp-section" id="tfp-bakery">
+  <div class="tfp-board">
+    <img src="assets/images/fritters-rolls-bearclaws-cinnamon.jpg" alt="" class="tfp-board-photo tfp-photo-tr">
+    <h2 class="tfp-board-heading tfp-neon-mint">Bakery Favorites</h2>
+    <p class="tfp-board-sub">Old-fashioned bakery classics, made fresh.</p>
+    <div class="tfp-item-grid">
+      <div class="tfp-item"><span class="tfp-item-name">Apple Fritter</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cinnamon Roll</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Brownie</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Brownie Cream Finger</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cream Horn</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Apple Stick</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECIALTY & SWEETS (Fancies) ============ -->
+<section class="tfp-section" id="tfp-fancies">
+  <div class="tfp-board">
+    <img src="assets/images/specialty-drizzle-cookie.jpg" alt="" class="tfp-board-photo tfp-photo-bl">
+    <h2 class="tfp-board-heading tfp-neon-red">Specialty &amp; Sweets</h2>
+    <p class="tfp-board-sub">A few extra-special fancies worth saving room for.</p>
+    <div class="tfp-item-grid">
+      <div class="tfp-item"><span class="tfp-item-name">Lady Fingers</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Eclair</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cookies</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cream Filled Cookie</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Apple Pecan Cake</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Pecan Roll</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+      <div class="tfp-item"><span class="tfp-item-name">Cake Ball</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER CTA ============ -->
+<div class="tfp-wrap">
+  <div class="tfp-footer-band">
+    <h2 class="tfp-display">Need a Dozen for a Crowd?</h2>
+    <p>Need a dozen for the office, church, school, or family gathering? Call ahead and we&rsquo;ll help you build the perfect box.</p>
+    <a href="index.html#order-ahead" class="tfp-btn tfp-btn-primary">Order Ahead</a>
+  </div>
+</div>
+
+<footer class="tfp-page-footer">
+  Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+  <a href="index.html">Back to Main Site</a> &middot; <a href="contact.html">Visit / Contact</a>
+</footer>
+
+</body>
+</html>
