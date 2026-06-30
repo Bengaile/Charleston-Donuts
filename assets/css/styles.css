@@ -284,9 +284,15 @@ section { padding: 64px 0; }
   z-index: 3;
 }
 @media (max-width: 880px) {
-  .hero { min-height: 520px; background-position: 70% center; }
+  .hero { min-height: 620px; background-position: 70% center; }
   .hero .container { padding-top: 36px; padding-bottom: 36px; }
   .hero-badge { width: 80px; height: 80px; font-size: 0.6rem; }
+  .hero p[style*="position:absolute"] {
+    white-space: normal !important;
+    font-size: 0.95rem !important;
+    width: 88%;
+    bottom: 16px !important;
+  }
 }
 
 .page-banner { background: var(--deep-coffee); color: var(--white); padding: 56px 0 42px; text-align: center; }
