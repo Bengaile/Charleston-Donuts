@@ -192,23 +192,23 @@
   }
   .tfp-item {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 8px;
     padding: 10px 4px;
-    border-bottom: 1px dashed rgba(255,255,255,0.18);
     color: #f5f5f0;
   }
-  .tfp-item:last-child { border-bottom: none; }
-  .tfp-item-name { font-weight: 700; font-size: 1rem; }
+  .tfp-item-name { font-weight: 700; font-size: 1rem; white-space: nowrap; }
+  .tfp-item-leader {
+    flex: 1;
+    border-bottom: 3px dotted rgba(245,245,240,0.45);
+    margin-bottom: 5px;
+    min-width: 16px;
+  }
   .tfp-item-price {
     font-family: 'Baloo 2', sans-serif;
     font-size: 0.92rem;
     color: #ffd55f;
     white-space: nowrap;
-    border-bottom: 2px dotted rgba(255,213,95,0.4);
-    min-width: 36px;
-    text-align: right;
   }
 
   .tfp-board-photo {
@@ -274,13 +274,7 @@
   <p class="tfp-subtitle">Fresh donuts, hot coffee, breakfast favorites, and Charleston&rsquo;s sweetest traditions.</p>
 </section>
 
-<nav class="tfp-pillnav" aria-label="Menu sections">
-  <a href="#tfp-donuts" class="tfp-pill tfp-pill-1">Donuts</a>
-  <a href="#tfp-coffee" class="tfp-pill tfp-pill-2">Coffee</a>
-  <a href="#tfp-breakfast" class="tfp-pill tfp-pill-3">Breakfast</a>
-  <a href="#tfp-bakery" class="tfp-pill tfp-pill-4">Bakery Favorites</a>
-  <a href="#tfp-fancies" class="tfp-pill tfp-pill-5">Fancies</a>
-</nav>
+<nav class="tfp-pillnav" aria-label="Menu sections" id="tfp-pillnav"></nav>
 
 <div class="tfp-cta-row">
   <a href="index.html#order-ahead" class="tfp-btn tfp-btn-primary">Order Ahead</a>
@@ -289,96 +283,15 @@
 
 <p class="tfp-note">Menu items and prices may vary. Please call or visit for today&rsquo;s availability.</p>
 
-<!-- ============ DONUTS ============ -->
-<section class="tfp-section" id="tfp-donuts">
-  <div class="tfp-board">
-    <img src="assets/images/gallery-donuts-03.jpg" alt="" class="tfp-board-photo tfp-photo-tr">
-    <h2 class="tfp-board-heading tfp-neon-pink">Donuts</h2>
-    <p class="tfp-board-sub">Fried fresh, glazed, filled, and frosted &mdash; every single day.</p>
-    <div class="tfp-item-grid">
-      <div class="tfp-item"><span class="tfp-item-name">Chocolate Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Blueberry Cake Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">French Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Homecut Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Honey Dip Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Boston Creme Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Charleston Delight Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Maple Iced Ring Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Jelly Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Bavarian Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Sour Creme Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Powdered Donut</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Donut Holes</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Half Dozen Donuts</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Dozen Donuts</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-    </div>
-  </div>
-</section>
+<div id="tfp-menu-root"></div>
 
-<!-- ============ COFFEE ============ -->
-<section class="tfp-section" id="tfp-coffee">
-  <div class="tfp-board">
-    <img src="assets/images/feature-coffee-placeholder.jpg" alt="" class="tfp-board-photo tfp-photo-bl">
-    <h2 class="tfp-board-heading tfp-neon-teal">Coffee</h2>
-    <p class="tfp-board-sub">Hot, iced, and always ready to go.</p>
-    <div class="tfp-item-grid">
-      <div class="tfp-item"><span class="tfp-item-name">Hot Coffee</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Hot Tea</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Iced Coffee</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Coffee Carafe</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cappuccino</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BREAKFAST ============ -->
-<section class="tfp-section" id="tfp-breakfast">
-  <div class="tfp-board">
-    <h2 class="tfp-board-heading tfp-neon-gold">Breakfast</h2>
-    <p class="tfp-board-sub">Hearty bites to start the morning right.</p>
-    <div class="tfp-item-grid">
-      <div class="tfp-item"><span class="tfp-item-name">Bagel with Cream Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Ham, Bacon, Sausage, or Pepperoni Sandwich with Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Ham, Bacon, or Sausage Sandwich with Egg &amp; Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Link Sausage and Egg Sandwich with Pepperjack Cheese</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BAKERY FAVORITES ============ -->
-<section class="tfp-section" id="tfp-bakery">
-  <div class="tfp-board">
-    <img src="assets/images/fritters-rolls-bearclaws-cinnamon.jpg" alt="" class="tfp-board-photo tfp-photo-tr">
-    <h2 class="tfp-board-heading tfp-neon-mint">Bakery Favorites</h2>
-    <p class="tfp-board-sub">Old-fashioned bakery classics, made fresh.</p>
-    <div class="tfp-item-grid">
-      <div class="tfp-item"><span class="tfp-item-name">Apple Fritter</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cinnamon Roll</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Brownie</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Brownie Cream Finger</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cream Horn</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Apple Stick</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SPECIALTY & SWEETS (Fancies) ============ -->
-<section class="tfp-section" id="tfp-fancies">
-  <div class="tfp-board">
-    <img src="assets/images/specialty-drizzle-cookie.jpg" alt="" class="tfp-board-photo tfp-photo-bl">
-    <h2 class="tfp-board-heading tfp-neon-red">Specialty &amp; Sweets</h2>
-    <p class="tfp-board-sub">A few extra-special fancies worth saving room for.</p>
-    <div class="tfp-item-grid">
-      <div class="tfp-item"><span class="tfp-item-name">Lady Fingers</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Eclair</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cookies</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cream Filled Cookie</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Apple Pecan Cake</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Pecan Roll</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-      <div class="tfp-item"><span class="tfp-item-name">Cake Ball</span><span class="tfp-item-price">$&nbsp;&mdash;</span></div>
-    </div>
-  </div>
-</section>
+<noscript>
+  <p style="text-align:center;max-width:600px;margin:30px auto;color:#5a5a5a;">
+    This menu loads from a simple data file using JavaScript, which appears to be
+    disabled in your browser. Please enable JavaScript to view today&rsquo;s menu,
+    or call the shop directly for current offerings.
+  </p>
+</noscript>
 
 <!-- ============ FOOTER CTA ============ -->
 <div class="tfp-wrap">
@@ -394,5 +307,81 @@
   <a href="index.html">Back to Main Site</a> &middot; <a href="contact.html">Visit / Contact</a>
 </footer>
 
+<script src="assets/data/menu-data.js"></script>
+<script>
+(function () {
+  var pillNav = document.getElementById('tfp-pillnav');
+  var menuRoot = document.getElementById('tfp-menu-root');
+
+  if (typeof MENU_DATA === 'undefined' || !MENU_DATA.sections) {
+    menuRoot.innerHTML = '<p style="text-align:center;color:#5a5a5a;max-width:600px;margin:30px auto;">Menu data could not be loaded right now. Please call the shop for today\u2019s offerings.</p>';
+    return;
+  }
+
+  MENU_DATA.sections.forEach(function (section) {
+    var pill = document.createElement('a');
+    pill.href = '#tfp-' + section.id;
+    pill.className = 'tfp-pill ' + section.pillClass;
+    pill.textContent = section.label;
+    pillNav.appendChild(pill);
+
+    var sectionEl = document.createElement('section');
+    sectionEl.className = 'tfp-section';
+    sectionEl.id = 'tfp-' + section.id;
+
+    var board = document.createElement('div');
+    board.className = 'tfp-board';
+
+    if (section.photo) {
+      var img = document.createElement('img');
+      img.src = section.photo;
+      img.alt = '';
+      img.className = 'tfp-board-photo ' + (section.photoPosition === 'bl' ? 'tfp-photo-bl' : 'tfp-photo-tr');
+      board.appendChild(img);
+    }
+
+    var heading = document.createElement('h2');
+    heading.className = 'tfp-board-heading ' + section.neonClass;
+    heading.textContent = section.label;
+    board.appendChild(heading);
+
+    var sub = document.createElement('p');
+    sub.className = 'tfp-board-sub';
+    sub.textContent = section.subtitle;
+    board.appendChild(sub);
+
+    var grid = document.createElement('div');
+    grid.className = 'tfp-item-grid';
+    if (section.singleColumn) {
+      grid.style.gridTemplateColumns = '1fr';
+    }
+
+    section.items.forEach(function (item) {
+      var row = document.createElement('div');
+      row.className = 'tfp-item';
+
+      var name = document.createElement('span');
+      name.className = 'tfp-item-name';
+      name.textContent = item.name;
+
+      var leader = document.createElement('span');
+      leader.className = 'tfp-item-leader';
+
+      var price = document.createElement('span');
+      price.className = 'tfp-item-price';
+      price.textContent = item.price ? ('$' + item.price) : '$__';
+
+      row.appendChild(name);
+      row.appendChild(leader);
+      row.appendChild(price);
+      grid.appendChild(row);
+    });
+
+    board.appendChild(grid);
+    sectionEl.appendChild(board);
+    menuRoot.appendChild(sectionEl);
+  });
+})();
+</script>
 </body>
 </html>
