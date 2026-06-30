@@ -56,9 +56,11 @@ body {
   color: var(--chocolate);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(75,53,42,0.035) 1px, transparent 0);
-  background-size: 22px 22px;
+  background-image: url('../images/site-bg-sprinkles.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, .display {
@@ -187,14 +189,16 @@ section { padding: 64px 0; }
   text-shadow: 0 1px 3px rgba(75,53,42,0.4);
 }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--max-width); margin: 0 auto; gap: 18px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #FFFFFF; flex-shrink: 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: color 0.15s ease; }
+.brand:hover, .brand:active, .brand:focus { color: var(--raspberry); }
+.brand:hover small, .brand:active small, .brand:focus small { color: var(--raspberry); }
 .brand .ring {
   width: 36px; height: 36px; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--raspberry) 60%, var(--chocolate) 100%);
   position: relative; flex-shrink: 0; box-shadow: var(--shadow-card);
 }
 .brand .ring::after { content: ""; position: absolute; inset: 9px; background: var(--cream); border-radius: 50%; }
-.brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--gold); }
+.brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.62rem; letter-spacing: 0.05em; color: #000000; }
 
 .main-nav { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
 .main-nav a { font-weight: 700; color: #FFFFFF; font-size: 1.25rem; white-space: nowrap; }
