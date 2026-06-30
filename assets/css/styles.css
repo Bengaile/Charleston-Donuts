@@ -222,7 +222,7 @@ section { padding: 64px 0; }
   color: var(--chocolate);
   position: relative;
   overflow: hidden;
-  min-height: 620px;
+  min-height: 520px;
 }
 .hero::before {
   content: none;
@@ -230,7 +230,7 @@ section { padding: 64px 0; }
 .hero .container {
   position: relative;
   z-index: 1;
-  padding-top: 230px;
+  padding-top: 56px;
   padding-bottom: 220px;
 }
 .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
@@ -284,7 +284,7 @@ section { padding: 64px 0; }
   z-index: 3;
 }
 @media (max-width: 880px) {
-  .hero { min-height: 620px; background-position: 70% center; }
+  .hero { min-height: 460px; background-position: 70% center; }
   .hero .container { padding-top: 36px; padding-bottom: 36px; }
   .hero-badge { width: 80px; height: 80px; font-size: 0.6rem; }
   .hero p[style*="position:absolute"] {
