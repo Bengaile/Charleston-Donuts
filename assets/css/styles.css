@@ -149,6 +149,15 @@ section { padding: 64px 0; }
 .badge-teal { background: #d7eef3; color: var(--teal-dark); }
 
 .site-header { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 3px solid var(--gold); }
+.home-hero-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: none;
+  z-index: 50;
+}
+.home-hero-header .brand { color: var(--chocolate); text-shadow: 0 1px 6px rgba(255,253,208,0.8); }
+.home-hero-header .main-nav a { text-shadow: 0 1px 6px rgba(255,253,208,0.8); }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--max-width); margin: 0 auto; gap: 18px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--chocolate); flex-shrink: 0; }
 .brand .ring {
@@ -193,7 +202,7 @@ section { padding: 64px 0; }
 .hero .container {
   position: relative;
   z-index: 1;
-  padding-top: 56px;
+  padding-top: 130px;
   padding-bottom: 220px;
 }
 .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
