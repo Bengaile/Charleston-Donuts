@@ -259,12 +259,12 @@ section { padding: 64px 0; }
 .hero-cutout-pink {
   background: var(--raspberry);
   color: var(--white);
-  transform: rotate(-1.4deg);
+  transform: rotate(-2.2deg);
 }
 .hero-cutout-mint {
   background: #98FF98;
   color: #2f4a2f;
-  transform: rotate(-1.4deg);
+  transform: rotate(0deg);
 }
 .hero-badge {
   position: absolute;
