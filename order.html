@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Ahead | Donut Connection Charleston, WV</title>
+<meta name="description" content="Order fresh donuts, coffee, and bakery favorites for pickup at Donut Connection Charleston, WV. Choose your items, schedule your pickup time, and skip the wait.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/order.css">
+</head>
+<body>
+
+<!-- ============ HEADER (matches all other pages) ============ -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav" style="width:100%;justify-content:space-between;">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Donuts</a>
+      <a href="coffee.html">Coffee</a>
+      <a href="cakes-events.html">Custom Cakes</a>
+      <a href="catering.html">Catering</a>
+      <a href="rewards.html">Sweet Rewards</a>
+      <a href="about.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE BANNER ============ -->
+<section class="page-banner">
+  <div class="container">
+    <p class="eyebrow" style="color:var(--gold);justify-content:center;">Order Ahead</p>
+    <h1>Skip the Wait, Not the Tradition</h1>
+    <p>Build your order, choose a pickup time, and we&rsquo;ll have everything fresh and ready when you arrive.</p>
+  </div>
+</section>
+
+<!-- ============ ORDER UI ============ -->
+<div id="order-ui">
+<section class="bg-cream">
+  <div class="container">
+
+    <!-- Lead time notice (shows for large orders) -->
+    <div class="lead-time-notice" id="lead-time-notice">
+      &#9201; Orders of 12 or more items need at least 24 hours advance notice.
+      Please call us to arrange large orders: <strong>[STORE PHONE]</strong>.
+    </div>
+
+    <div class="order-layout">
+
+      <!-- ===== LEFT: MENU ===== -->
+      <div>
+
+        <!-- Step 1 -->
+        <div class="step-label">
+          <span class="step-num-circle">1</span>
+          Choose your items
+        </div>
+        <h2 style="font-size:1.55rem;margin-bottom:18px;">Today&rsquo;s Menu</h2>
+
+        <!-- Category tabs — built by order.js from MENU_DATA -->
+        <div class="category-tabs" id="category-tabs"></div>
+
+        <!-- Menu sections — built by order.js -->
+        <div id="menu-sections"></div>
+
+        <!-- Step 2: Pickup scheduler -->
+        <div style="margin-top:40px;">
+          <div class="step-label">
+            <span class="step-num-circle">2</span>
+            Choose your pickup time
+          </div>
+          <h2 style="font-size:1.55rem;margin-bottom:18px;">When Should We Have It Ready?</h2>
+
+          <div class="scheduler-section">
+            <h3 style="color:var(--teal-dark);">&#128197; Pick a date</h3>
+            <div class="day-picker" id="day-picker"></div>
+
+            <div id="time-grid-wrap" style="display:none;">
+              <h3 style="color:var(--teal-dark);margin-top:18px;">&#128336; Pick a time</h3>
+              <p style="font-size:0.82rem;color:var(--chocolate-soft);margin-bottom:10px;">
+                Slots available every 15 minutes during store hours.
+                Same-day orders must be placed at least 30 minutes in advance.
+              </p>
+              <div class="time-grid" id="time-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile: checkout button -->
+        <div style="margin-top:28px;display:none;" id="mobile-checkout-row">
+          <button class="btn btn-primary btn-block" onclick="mobileCheckout()">
+            Review &amp; Submit Order &darr;
+          </button>
+        </div>
+
+      </div>
+      <!-- END LEFT -->
+
+      <!-- ===== RIGHT: CART SIDEBAR ===== -->
+      <div class="cart-sidebar">
+        <div class="cart-header">
+          <h3>&#127873; Your Order</h3>
+          <span class="cart-count-badge" id="cart-count">0</span>
+        </div>
+
+        <!-- Cart items -->
+        <div class="cart-body" id="cart-body">
+          <div class="cart-empty">
+            <span class="script-accent">&#127849;</span>
+            Add something delicious!
+          </div>
+        </div>
+
+        <!-- Checkout section (hidden until items added) -->
+        <div id="checkout-section" style="display:none;">
+
+          <!-- Pickup summary -->
+          <div style="padding:0 20px 14px;">
+            <div style="background:var(--powder-pink);border-radius:var(--radius-sm);padding:10px 14px;font-size:0.84rem;color:var(--chocolate);">
+              <strong style="color:var(--raspberry);">&#128336; Pickup:</strong>
+              <span id="pickup-summary" style="color:var(--teal-dark);">
+                &nbsp;Choose a date &amp; time above
+              </span>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="cart-contact">
+            <div class="step-label" style="margin-bottom:10px;">
+              <span class="step-num-circle">3</span>
+              Your contact info
+            </div>
+
+            <form id="order-form"
+                  action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+                  method="POST"
+                  onsubmit="return submitOrder(event)">
+
+              <!-- Hidden fields populated by JS -->
+              <input type="hidden" name="_subject" value="New Order Ahead — Donut Connection">
+              <input type="hidden" name="order_number" id="order-number">
+              <input type="hidden" name="order_summary" id="order-summary">
+              <input type="hidden" name="pickup_date" id="pickup-date">
+              <input type="hidden" name="pickup_time" id="pickup-time">
+
+              <div class="field">
+                <label for="cust-name">Your name <span style="color:var(--raspberry);">*</span></label>
+                <input type="text" id="cust-name" name="customer_name" placeholder="First and last name" required>
+              </div>
+
+              <div class="field">
+                <label for="cust-phone">Phone number <span style="color:var(--raspberry);">*</span></label>
+                <input type="tel" id="cust-phone" name="customer_phone" placeholder="(304) 555-0100" required>
+              </div>
+
+              <div class="field">
+                <label for="cust-email">Email <span style="font-weight:400;color:var(--chocolate-soft);">(optional — for receipt)</span></label>
+                <input type="email" id="cust-email" name="customer_email" placeholder="your@email.com">
+              </div>
+
+              <div class="field">
+                <label for="cust-notes">Special requests</label>
+                <textarea id="cust-notes" name="special_requests" placeholder="No sprinkles on one, box it separately, etc."></textarea>
+              </div>
+
+              <p style="font-size:0.76rem;color:var(--chocolate-soft);margin-bottom:14px;line-height:1.5;">
+                &#128274; Payment is collected at pickup. We&rsquo;ll confirm your order by phone or text.
+                Cancellations accepted up to 2 hours before your pickup time.
+              </p>
+
+              <button type="submit" class="btn btn-primary btn-block" style="font-size:1rem;padding:14px;">
+                Place My Order &#127849;
+              </button>
+
+            </form>
+          </div>
+        </div><!-- end checkout-section -->
+
+      </div>
+      <!-- END RIGHT / CART -->
+
+    </div><!-- end order-layout -->
+  </div>
+</section>
+</div><!-- end order-ui -->
+
+<!-- ============ ORDER CONFIRMATION (shown after submit) ============ -->
+<div id="order-confirmation">
+  <section class="bg-cream">
+    <div class="container">
+      <div class="confirm-box">
+        <span class="confirm-donut">&#127849;</span>
+        <h2>Order received!</h2>
+        <p>We&rsquo;ll confirm your order by phone or text shortly.</p>
+        <div class="confirm-order-num" id="conf-order-num">#DC-000000</div>
+
+        <div class="confirm-details">
+          <div class="confirm-row">
+            <span class="label">Name</span>
+            <span class="value" id="conf-name">&mdash;</span>
+          </div>
+          <div class="confirm-row">
+            <span class="label">Pickup</span>
+            <span class="value" id="conf-pickup">&mdash;</span>
+          </div>
+          <div class="confirm-row">
+            <span class="label">Location</span>
+            <span class="value">2509 MacCorkle Ave SE<br>Charleston, WV 25302</span>
+          </div>
+          <div class="confirm-row" id="conf-total-row">
+            <span class="label">Estimated total</span>
+            <span class="value" id="conf-total">Due at pickup</span>
+          </div>
+        </div>
+
+        <div class="btn-row" style="justify-content:center;margin-top:24px;">
+          <a href="index.html" class="btn btn-secondary">Back to Home</a>
+          <a href="order.html" class="btn btn-gold">Start a new order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ MOBILE CART BAR ============ -->
+<div class="mobile-cart-bar" id="mobile-cart-bar">
+  <div class="mobile-cart-row">
+    <span class="mobile-cart-info" id="mobile-cart-info">Your cart is empty</span>
+    <button class="btn btn-gold" id="mobile-checkout-btn"
+            style="display:none;padding:8px 18px;font-size:0.9rem;"
+            onclick="mobileCheckout()">
+      Checkout &darr;
+    </button>
+  </div>
+</div>
+
+<!-- ============ FOOTER (matches all other pages) ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Donut Connection Charleston</h4>
+        <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+        <p class="small">Phone: [PLACEHOLDER PHONE]<br>Email: [PLACEHOLDER EMAIL]</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google Reviews">G</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts</a></li>
+          <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee</a></li>
+          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+          <li style="border:none;padding:4px 0;"><a href="reviews.html">Wall of Smiles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order &amp; Tradition</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="order.html" style="color:var(--gold);">Order Ahead</a></li>
+          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering</a></li>
+          <li style="border:none;padding:4px 0;"><a href="rewards.html">Sweet Rewards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="small">[PLACEHOLDER STORE HOURS &mdash; add days/times]</p>
+        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data/menu-data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/order.js"></script>
+
+<script>
+/* Update pickup summary line in sidebar when day/time selected */
+(function () {
+  var origSelectDay  = window.selectDay;
+  var origSelectTime = window.selectTime;
+  function updatePickupSummary () {
+    var el = document.getElementById('pickup-summary');
+    if (!el) return;
+    if (selectedDay && selectedTime) {
+      el.textContent = formatDate(selectedDay) + ' at ' + selectedTime;
+      el.style.color = 'var(--teal-dark)';
+    } else if (selectedDay) {
+      el.textContent = formatDate(selectedDay) + ' — choose a time above';
+    }
+  }
+  window.selectDay = function (btn) {
+    origSelectDay(btn);
+    updatePickupSummary();
+  };
+  window.selectTime = function (btn) {
+    origSelectTime(btn);
+    updatePickupSummary();
+    /* On mobile, show the checkout row */
+    var mobileRow = document.getElementById('mobile-checkout-row');
+    if (mobileRow) mobileRow.style.display = 'block';
+  };
+})();
+</script>
+
+</body>
+</html>

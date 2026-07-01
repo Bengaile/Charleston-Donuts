@@ -3,280 +3,537 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Owner Business Portal | Donut Connection Charleston</title>
+<title>Owner Portal | Donut Connection Charleston</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<style>
+/* ---- Portal-specific styles (uses same CSS variables) ---- */
+.portal-stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-bottom:32px; }
+.portal-stat { background:var(--vanilla); border-radius:var(--radius-md); padding:18px 20px; border:1px solid rgba(75,53,42,0.08); box-shadow:var(--shadow-card); }
+.portal-stat .val { font-family:var(--font-display); font-size:2rem; font-weight:700; color:var(--chocolate); }
+.portal-stat .lbl { font-size:0.82rem; color:var(--chocolate-soft); margin-top:2px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; }
+.portal-stat .val.raspberry { color:var(--raspberry); }
+.portal-stat .val.teal { color:var(--teal-dark); }
+.portal-stat .val.gold { color:var(--gold-dark); }
+
+.order-queue { margin-bottom:40px; }
+.order-queue h2 { font-size:1.4rem; margin-bottom:16px; }
+
+.order-card {
+  background:var(--white);
+  border-radius:var(--radius-sm);
+  border:1px solid rgba(75,53,42,0.08);
+  box-shadow:var(--shadow-card);
+  margin-bottom:12px;
+  overflow:hidden;
+  border-left:5px solid var(--gold);
+}
+.order-card.status-new    { border-left-color:var(--raspberry); }
+.order-card.status-prep   { border-left-color:var(--gold); }
+.order-card.status-ready  { border-left-color:var(--teal); }
+.order-card.status-done   { border-left-color:rgba(75,53,42,0.2); opacity:0.6; }
+
+.order-card-head {
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  border-bottom:1px solid rgba(75,53,42,0.06);
+}
+.order-card-num  { font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--chocolate); }
+.order-card-time { font-size:0.82rem; color:var(--chocolate-soft); }
+.order-card-body { padding:10px 18px 14px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:end; }
+.order-items-list { font-size:0.88rem; color:var(--chocolate); line-height:1.7; }
+.order-items-list .note { font-style:italic; color:var(--chocolate-soft); font-size:0.82rem; }
+.order-actions { display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+.order-total-display { font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--gold-dark); margin-bottom:4px; text-align:right; }
+.order-pickup-display { font-size:0.78rem; color:var(--teal-dark); font-weight:700; text-align:right; margin-bottom:8px; }
+
+.status-pill {
+  font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;
+  padding:4px 12px; border-radius:999px; display:inline-block;
+}
+.pill-new   { background:var(--powder-pink); color:var(--raspberry-dark); }
+.pill-prep  { background:#f4e3c5; color:var(--gold-dark); }
+.pill-ready { background:#d7eef3; color:var(--teal-dark); }
+.pill-done  { background:rgba(75,53,42,0.08); color:var(--chocolate-soft); }
+
+.action-btn {
+  font-family:var(--font-display); font-weight:700; font-size:0.82rem;
+  padding:7px 14px; border-radius:999px; border:2px solid transparent;
+  cursor:pointer; white-space:nowrap; transition:transform 0.1s, background 0.12s;
+}
+.action-btn:hover { transform:translateY(-1px); }
+.action-btn-confirm { background:var(--raspberry); color:var(--white); border-color:var(--raspberry); }
+.action-btn-prep    { background:var(--gold); color:var(--deep-coffee); border-color:var(--gold); }
+.action-btn-ready   { background:var(--teal); color:var(--white); border-color:var(--teal); }
+.action-btn-done    { background:rgba(75,53,42,0.08); color:var(--chocolate-soft); border-color:rgba(75,53,42,0.15); }
+
+.empty-queue { text-align:center; padding:40px 20px; color:var(--chocolate-soft); }
+.empty-queue .script-accent { font-size:2.5rem; display:block; }
+
+.portal-section-title {
+  font-family:var(--font-display); font-size:1.2rem; font-weight:700;
+  color:var(--chocolate); margin:0 0 14px;
+  padding-bottom:8px; border-bottom:2px solid var(--gold);
+  display:flex; align-items:center; gap:10px;
+}
+
+.filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.filter-btn {
+  padding:6px 14px; border-radius:999px; border:2px solid var(--gold);
+  background:transparent; color:var(--chocolate); cursor:pointer;
+  font-size:0.82rem; font-weight:700; transition:background 0.12s;
+}
+.filter-btn:hover { background:var(--powder-pink); }
+.filter-btn.active { background:var(--raspberry); border-color:var(--raspberry); color:var(--white); }
+
+.setup-card { background:var(--vanilla); border-radius:var(--radius-md); padding:22px 24px; border:1px solid rgba(75,53,42,0.08); margin-bottom:18px; }
+.setup-card h3 { font-size:1rem; margin-bottom:8px; color:var(--teal-dark); }
+.setup-card p { font-size:0.88rem; color:var(--chocolate-soft); margin-bottom:8px; line-height:1.6; }
+.setup-card code { background:var(--powder-pink); color:var(--raspberry-dark); padding:2px 7px; border-radius:4px; font-size:0.85rem; }
+.setup-step { display:flex; gap:12px; margin-bottom:14px; }
+.setup-step-num {
+  width:26px; height:26px; border-radius:50%; background:var(--teal); color:var(--white);
+  font-size:0.78rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;
+}
+.setup-step-body { flex:1; font-size:0.88rem; color:var(--chocolate); line-height:1.6; }
+.setup-step-body strong { color:var(--teal-dark); }
+
+.refresh-bar {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:18px; font-size:0.84rem; color:var(--chocolate-soft);
+}
+.refresh-bar button {
+  font-size:0.82rem; padding:5px 14px; border-radius:999px;
+  border:2px solid var(--teal); background:transparent; color:var(--teal-dark);
+  cursor:pointer; font-weight:700;
+}
+.refresh-bar button:hover { background:var(--teal); color:var(--white); }
+
+/* ---- Tabs ---- */
+.portal-tabs { display:flex; gap:0; border-bottom:2px solid var(--gold); margin-bottom:28px; flex-wrap:wrap; }
+.portal-tab {
+  padding:10px 20px; font-family:var(--font-display); font-weight:700; font-size:0.9rem;
+  border:none; background:transparent; cursor:pointer; color:var(--chocolate-soft);
+  border-bottom:3px solid transparent; margin-bottom:-2px; transition:color 0.12s;
+}
+.portal-tab:hover { color:var(--chocolate); }
+.portal-tab.active { color:var(--raspberry); border-bottom-color:var(--raspberry); }
+.portal-pane { display:none; }
+.portal-pane.active { display:block; }
+
+#sound-toggle-label { cursor:pointer; font-size:0.82rem; color:var(--teal-dark); font-weight:700; }
+</style>
 </head>
 <body>
 
-<!--
-  NOTE TO DEVELOPER / OWNER:
-  This page is intentionally left out of the main public navigation and marked
-  "noindex" so search engines won't list it. The simple passcode gate below is
-  a basic front-end deterrent only — it is NOT secure authentication, since
-  anyone can view the page source. For real protection, host this page behind
-  proper server-side authentication (e.g., password-protect via your hosting
-  provider, a login-gated CMS, or a private subdomain) before publishing real
-  account links or sensitive data here.
--->
-
+<!-- ============ PORTAL HEADER ============ -->
 <header class="site-header portal-banner" style="border-bottom:4px solid var(--gold);">
   <div class="nav-wrap">
-    <a href="index.html" class="brand" style="color:var(--gold-light);">
+    <a href="index.html" class="brand" style="color:var(--gold);">
       <span class="ring"></span>
-      <span>Donut Connection<br><small style="color:var(--gold-light);">OWNER PORTAL</small></span>
+      <span>Donut Connection<br><small style="color:var(--gold);">OWNER PORTAL</small></span>
     </a>
-    <a href="index.html" class="btn btn-outline" style="border-color:var(--gold-light);color:var(--gold-light);">&larr; Back to Public Site</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <label id="sound-toggle-label">&#128276; Sound on</label>
+      <a href="order.html" class="btn btn-gold" style="font-size:0.85rem;padding:8px 18px;">View Order Page</a>
+      <a href="index.html" class="btn btn-outline-light" style="font-size:0.85rem;padding:8px 18px;">&larr; Public Site</a>
+    </div>
   </div>
 </header>
 
-<!-- ============ SIMPLE PASSCODE GATE (front-end placeholder only) ============ -->
-<section id="portal-gate" class="bg-chocolate" style="min-height:60vh;display:flex;align-items:center;">
+<!-- ============ PASSCODE GATE ============ -->
+<section id="portal-gate" style="background:var(--deep-coffee);min-height:60vh;display:flex;align-items:center;">
   <div class="container" style="max-width:480px;">
-    <div class="portal-lock">&#128274; Restricted Area &mdash; Owner &amp; Staff Only</div>
+    <div class="portal-lock">&#128274; Staff &amp; Owner Only</div>
     <h1 style="color:var(--white);">Owner Business Portal</h1>
-    <p class="muted" style="color:var(--gold-light);">Enter the staff passcode to continue. Replace this placeholder gate with real authentication before launch.</p>
+    <p style="color:var(--powder-pink);">Enter the staff passcode to access the order dashboard and business tools.</p>
     <div class="card" style="margin-top:18px;">
       <div class="field">
         <label for="portal-passcode">Passcode</label>
-        <input type="password" id="portal-passcode" placeholder="Enter passcode">
+        <input type="password" id="portal-passcode" placeholder="Enter passcode"
+               onkeydown="if(event.key==='Enter')checkPortalPasscode()">
       </div>
       <button type="button" class="btn btn-primary btn-block" onclick="checkPortalPasscode()">Enter Portal</button>
-      <p id="portal-error" class="small" style="color:var(--raspberry); display:none; margin-top:10px;">Incorrect passcode. Please try again.</p>
+      <p id="portal-error" class="small" style="color:var(--raspberry);display:none;margin-top:10px;">
+        Incorrect passcode. Please try again.
+      </p>
+      <p class="small muted" style="margin-top:14px;font-size:0.78rem;">
+        Default passcode is <strong>donuts</strong> — change it in portal.html before going live.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ============ PORTAL CONTENT (hidden until passcode entered) ============ -->
+<!-- ============ PORTAL CONTENT ============ -->
 <div id="portal-content" style="display:none;">
 
-<section class="page-banner" style="background:var(--chocolate);">
+<section class="bg-cream" style="padding:32px 0 60px;">
   <div class="container">
-    <div class="portal-lock">&#128274; Internal Use Only</div>
-    <h1>Owner Business Portal</h1>
-    <p style="color:var(--gold-light);">A private operations page for Theresa, vendors, merchant services, accounting, vendor invoices, customer inquiries, and business management links.</p>
-  </div>
-</section>
 
-<section class="bg-cream section-tight">
-  <div class="container">
-    <div class="notice-banner">
-      All links below are placeholders. Replace each with the real login URL for the corresponding account once available. None of these links store or contain actual credentials.
+    <!-- Tabs -->
+    <div class="portal-tabs">
+      <button class="portal-tab active" onclick="showTab('orders')">&#128222; Live Orders</button>
+      <button class="portal-tab" onclick="showTab('setup')">&#9881; Setup &amp; Integrations</button>
+      <button class="portal-tab" onclick="showTab('links')">&#128279; Business Links</button>
     </div>
-  </div>
-</section>
 
-<!-- Merchant Account & Payment Processing -->
-<section class="bg-white section-tight">
-  <div class="container">
-    <h2>Merchant Account &amp; Payment Processing</h2>
-    <div class="card portal-section">
-      <ul class="link-list">
-        <li><span>Merchant Account Login</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>POS Provider Login</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Daily Sales Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Batch Settlement Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Credit Card Processing Statements</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Chargeback Notices</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Deposit Reconciliation</span> <a href="#" class="tag">Placeholder Link</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- ====== TAB: LIVE ORDERS ====== -->
+    <div class="portal-pane active" id="tab-orders">
 
-<!-- Vendor Invoice Upload -->
-<section class="bg-cream section-tight">
-  <div class="container grid grid-2" style="align-items:start;">
-    <div>
-      <h2>Vendor Invoice Upload</h2>
-      <p class="muted">Use this form to submit a vendor invoice for processing.</p>
-      <!--
-        ROUTING NOTES (for automation setup):
-        Formspree submission should email Theresa and accounting, then
-        optionally route attachments to Google Drive and log invoice
-        details in Google Sheets through automation (e.g., Zapier/Make
-        connected to the Formspree webhook).
-      -->
-      <p class="small muted">Submissions route to Theresa and accounting by email. Attachments and details can optionally be sent to Google Drive and logged in Google Sheets via automation &mdash; see code comments.</p>
-    </div>
-    <div class="card">
-      <h3>Vendor Invoice Form</h3>
-      <p class="small muted">Formspree-ready. Replace <code>REPLACE_WITH_FORM_ID</code> with your Formspree form ID.</p>
-      <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="New Vendor Invoice Submission">
-
-        <div class="form-row">
-          <div class="field">
-            <label for="vi-vendor">Vendor Name</label>
-            <input type="text" id="vi-vendor" name="vendor_name" required>
-          </div>
-          <div class="field">
-            <label for="vi-contact">Vendor Contact</label>
-            <input type="text" id="vi-contact" name="vendor_contact">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="vi-email">Vendor Email</label>
-          <input type="email" id="vi-email" name="vendor_email" required>
-        </div>
-
-        <div class="form-row">
-          <div class="field">
-            <label for="vi-invnum">Invoice Number</label>
-            <input type="text" id="vi-invnum" name="invoice_number">
-          </div>
-          <div class="field">
-            <label for="vi-amount">Invoice Amount</label>
-            <input type="text" id="vi-amount" name="invoice_amount" placeholder="$0.00">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field">
-            <label for="vi-invdate">Invoice Date</label>
-            <input type="date" id="vi-invdate" name="invoice_date">
-          </div>
-          <div class="field">
-            <label for="vi-duedate">Due Date</label>
-            <input type="date" id="vi-duedate" name="due_date">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="vi-doctype">Document Type</label>
-          <select id="vi-doctype" name="document_type">
-            <option>Invoice</option>
-            <option>Statement</option>
-            <option>Credit Memo</option>
-            <option>Receipt</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="vi-upload">Upload Invoice</label>
-          <input type="file" id="vi-upload" name="invoice_file" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-
-        <div class="field">
-          <label for="vi-message">Message</label>
-          <textarea id="vi-message" name="message"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Submit Vendor Invoice</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Customer Requests Review -->
-<section class="bg-white section-tight">
-  <div class="container">
-    <h2>Customer Requests Review</h2>
-    <div class="card portal-section">
-      <ul class="link-list">
-        <li><span>Custom Cake Inquiries</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Catering Inquiries</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Customer Reviews</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Google Form Responses</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Google Sheets Tracker</span> <a href="#" class="tag">Placeholder Link</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Accounting / Admin Links -->
-<section class="bg-cream section-tight">
-  <div class="container">
-    <h2>Accounting / Admin Links</h2>
-    <div class="card portal-section">
-      <ul class="link-list">
-        <li><span>QuickBooks Online</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Bank Login</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Payroll Provider</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>POS System</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Google Drive Vendor Folders</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Monthly Financial Reports</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Inventory Spreadsheet</span> <a href="#" class="tag">Placeholder Link</a></li>
-        <li><span>Sales Dashboard</span> <a href="#" class="tag">Placeholder Link</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Internal Notes -->
-<section class="bg-white section-tight">
-  <div class="container">
-    <h2>Internal Notes</h2>
-    <div class="grid grid-2">
-      <div class="reminder-card">
-        <strong>Monthly Reminders</strong>
-        [PLACEHOLDER &mdash; e.g., review sales reports, reconcile deposits]
+      <!-- Stats -->
+      <div class="portal-stat-grid" id="stats-row">
+        <div class="portal-stat"><div class="val raspberry" id="stat-new">0</div><div class="lbl">Awaiting confirm</div></div>
+        <div class="portal-stat"><div class="val gold" id="stat-prep">0</div><div class="lbl">Being prepared</div></div>
+        <div class="portal-stat"><div class="val teal" id="stat-ready">0</div><div class="lbl">Ready for pickup</div></div>
+        <div class="portal-stat"><div class="val" id="stat-today">0</div><div class="lbl">Total today</div></div>
       </div>
-      <div class="reminder-card">
-        <strong>Vendor Payment Deadlines</strong>
-        [PLACEHOLDER &mdash; list recurring vendor due dates]
+
+      <!-- Refresh bar -->
+      <div class="refresh-bar">
+        <span id="last-refresh">Last refreshed: just now</span>
+        <button onclick="loadOrders()">&#8635; Refresh orders</button>
       </div>
-      <div class="reminder-card">
-        <strong>Tax Deadlines</strong>
-        [PLACEHOLDER &mdash; quarterly/annual filing dates]
+
+      <!-- Filter -->
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="setFilter('all',this)">All orders</button>
+        <button class="filter-btn" onclick="setFilter('new',this)">&#128222; New</button>
+        <button class="filter-btn" onclick="setFilter('prep',this)">&#9201; Preparing</button>
+        <button class="filter-btn" onclick="setFilter('ready',this)">&#10003; Ready</button>
+        <button class="filter-btn" onclick="setFilter('done',this)">&#128100; Picked up</button>
       </div>
-      <div class="reminder-card">
-        <strong>Insurance Renewals</strong>
-        [PLACEHOLDER &mdash; policy renewal dates]
-      </div>
-      <div class="reminder-card">
-        <strong>License Renewals</strong>
-        [PLACEHOLDER &mdash; business/health permit renewal dates]
-      </div>
-      <div class="reminder-card">
-        <strong>Lease / Mortgage Reminders</strong>
-        [PLACEHOLDER &mdash; payment due dates]
+
+      <!-- Order cards -->
+      <div class="order-queue" id="order-queue"></div>
+
+      <div class="notice-banner" style="margin-top:20px;">
+        <strong>&#128161; How orders appear here:</strong> Orders submitted on the <a href="order.html">order.html</a> page
+        on this same device/browser show up instantly. For orders from customers on their own phones,
+        check your <strong>Formspree inbox</strong> (link in the Setup tab).
+        The developer can connect a real database to show all orders here automatically.
       </div>
     </div>
+
+    <!-- ====== TAB: SETUP ====== -->
+    <div class="portal-pane" id="tab-setup">
+      <div class="portal-section-title">&#9881; Setup checklist</div>
+
+      <div class="setup-card">
+        <h3>&#10003; Step 1 — Add your Formspree form ID</h3>
+        <p>
+          Orders from customers submit to <a href="https://formspree.io" target="_blank">Formspree</a> (free for up to 50 submissions/month).
+          Sign up, create a form, and copy your Form ID (looks like <code>xyzabcde</code>).
+          Then replace <code>REPLACE_WITH_FORM_ID</code> in two places:
+        </p>
+        <div class="setup-step">
+          <div class="setup-step-num">A</div>
+          <div class="setup-step-body">In <strong>order.html</strong>, find the line:<br>
+          <code>action="https://formspree.io/f/REPLACE_WITH_FORM_ID"</code><br>
+          and replace <code>REPLACE_WITH_FORM_ID</code> with your actual ID.</div>
+        </div>
+        <div class="setup-step">
+          <div class="setup-step-num">B</div>
+          <div class="setup-step-body">In your <strong>Formspree dashboard</strong>, set the notification email to the shop's email address so you get an alert for every new order.</div>
+        </div>
+      </div>
+
+      <div class="setup-card">
+        <h3>&#10003; Step 2 — Add real store hours to order.js</h3>
+        <p>Open <strong>assets/js/order.js</strong> and update these two lines at the top to match your actual opening and closing times:</p>
+        <p>
+          <code>const STORE_OPEN_HOUR  = 6;  &nbsp;/* 6:00 AM */</code><br>
+          <code>const STORE_CLOSE_HOUR = 14; /* 2:00 PM */</code>
+        </p>
+        <p>Hours use 24-hour format. For example, 8:00 AM = 8, 5:00 PM = 17.</p>
+      </div>
+
+      <div class="setup-card">
+        <h3>&#10003; Step 3 — Add prices to menu-data.js</h3>
+        <p>
+          Open <strong>assets/data/menu-data.js</strong> and fill in the <code>price:</code> field for each item.
+          For example: <code>{ name: "Chocolate Iced Donut", price: "1.25" }</code>.
+          Prices will then show in the cart and on the order confirmation.
+        </p>
+      </div>
+
+      <div class="setup-card">
+        <h3>&#10003; Step 4 — Change the portal passcode</h3>
+        <p>
+          The default passcode is <code>donuts</code>. To change it, open <strong>portal.html</strong>,
+          find the line near the bottom that reads:<br>
+          <code>if (input === 'donuts')</code><br>
+          and replace <code>donuts</code> with your chosen passcode. Note: this is a front-end
+          deterrent only — for real security, ask your developer to add server-side authentication.
+        </p>
+      </div>
+
+      <div class="setup-card">
+        <h3>&#128279; Step 5 — Add "Order Ahead" to your nav (optional)</h3>
+        <p>
+          To add the Order Ahead page to the main navigation, open <strong>every .html file</strong>
+          in your site root and add this line inside the <code>&lt;nav class="main-nav"&gt;</code>:
+        </p>
+        <p><code>&lt;a href="order.html"&gt;Order Ahead&lt;/a&gt;</code></p>
+        <p>You can also replace the existing "Order Ahead" button on index.html to link directly to order.html instead of the #order-ahead anchor.</p>
+      </div>
+
+      <div class="setup-card">
+        <h3>&#128640; Future upgrade: Stripe payments</h3>
+        <p>
+          When you're ready to accept payment online (instead of at pickup), a developer can add
+          Stripe Checkout to the order page. This requires a small serverless backend function
+          (Netlify Functions work well with your current hosting approach — free tier available).
+          The order.js file is already structured to support this upgrade cleanly.
+        </p>
+      </div>
+    </div>
+
+    <!-- ====== TAB: BUSINESS LINKS ====== -->
+    <div class="portal-pane" id="tab-links">
+      <div class="portal-section-title">&#128279; Business &amp; operations links</div>
+      <p class="muted small" style="margin-bottom:24px;">Edit these links directly in portal.html to match your actual accounts.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="font-size:1rem;">&#128386; Formspree inbox</h3>
+          <p class="small">Review and manage submitted orders from customers.</p>
+          <a href="https://formspree.io/forms" target="_blank" class="btn btn-secondary" style="font-size:0.85rem;padding:8px 18px;">Open Formspree &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem;">&#11088; Google Business Profile</h3>
+          <p class="small">Update hours, photos, and respond to reviews.</p>
+          <a href="https://business.google.com" target="_blank" class="btn btn-secondary" style="font-size:0.85rem;padding:8px 18px;">Open Google Business &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem;">&#128196; GitHub repository</h3>
+          <p class="small">Edit and deploy website files via GitHub Desktop.</p>
+          <a href="https://github.com" target="_blank" class="btn btn-secondary" style="font-size:0.85rem;padding:8px 18px;">Open GitHub &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem;">&#128179; Stripe dashboard</h3>
+          <p class="small">Payment reports and customer transactions (when enabled).</p>
+          <a href="https://dashboard.stripe.com" target="_blank" class="btn btn-secondary" style="font-size:0.85rem;padding:8px 18px;">Open Stripe &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem;">&#128247; Facebook / Instagram</h3>
+          <p class="small">Manage social media posts and messages.</p>
+          <a href="https://business.facebook.com" target="_blank" class="btn btn-secondary" style="font-size:0.85rem;padding:8px 18px;">Open Meta Business &rarr;</a>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem;">&#9999; Edit website content</h3>
+          <p class="small">Make changes to the site and push live via GitHub Desktop.</p>
+          <a href="EDITING-CHEAT-SHEET.md" target="_blank" class="btn btn-gold" style="font-size:0.85rem;padding:8px 18px;">Editing cheat sheet &rarr;</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+</div><!-- end portal-content -->
 
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-bottom">
-      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
-      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot; Internal Use Only
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      Donut Connection Charleston &middot; Owner Portal &mdash; Internal Use Only<br>
+      <a href="index.html">&larr; Return to public website</a>
     </div>
   </div>
 </footer>
 
-</div><!-- /#portal-content -->
-
 <script src="assets/js/main.js"></script>
 <script>
-  // Placeholder front-end passcode gate.
-  // NOT secure — visible in page source. Replace with real server-side auth before launch.
-  var PORTAL_PASSCODE = "donutowner2026"; // <-- change this placeholder passcode
-
-  function checkPortalPasscode() {
-    var input = document.getElementById('portal-passcode').value;
-    var error = document.getElementById('portal-error');
-    if (input === PORTAL_PASSCODE) {
-      document.getElementById('portal-gate').style.display = 'none';
-      document.getElementById('portal-content').style.display = 'block';
-    } else {
-      error.style.display = 'block';
-    }
+/* ---- Passcode check ---- */
+/* CHANGE 'donuts' BELOW TO YOUR OWN PASSCODE */
+function checkPortalPasscode () {
+  var input = document.getElementById('portal-passcode').value;
+  if (input === 'donuts') {
+    document.getElementById('portal-gate').style.display    = 'none';
+    document.getElementById('portal-content').style.display = 'block';
+    loadOrders();
+    startAutoRefresh();
+  } else {
+    document.getElementById('portal-error').style.display = 'block';
+    document.getElementById('portal-passcode').value = '';
   }
+}
 
-  // Allow Enter key to submit passcode
-  document.addEventListener('DOMContentLoaded', function () {
-    var input = document.getElementById('portal-passcode');
-    if (input) {
-      input.addEventListener('keyup', function (e) {
-        if (e.key === 'Enter') checkPortalPasscode();
-      });
+/* ---- Tab switching ---- */
+function showTab (id) {
+  document.querySelectorAll('.portal-tab').forEach(function (t) { t.classList.remove('active'); });
+  document.querySelectorAll('.portal-pane').forEach(function (p) { p.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  /* activate matching tab button */
+  document.querySelectorAll('.portal-tab').forEach(function (t) {
+    if (t.getAttribute('onclick') && t.getAttribute('onclick').indexOf("'" + id + "'") > -1) {
+      t.classList.add('active');
     }
   });
+}
+
+/* ---- Order filter ---- */
+var activeFilter = 'all';
+function setFilter (filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  renderOrderQueue(window._orders || []);
+}
+
+/* ---- Load orders from localStorage ---- */
+function loadOrders () {
+  try {
+    var raw = localStorage.getItem('dc_orders');
+    var orders = raw ? JSON.parse(raw) : [];
+    window._orders = orders;
+    renderOrderQueue(orders);
+    updateStats(orders);
+    document.getElementById('last-refresh').textContent = 'Last refreshed: ' + new Date().toLocaleTimeString();
+  } catch (e) {
+    document.getElementById('order-queue').innerHTML = '<div class="empty-queue"><p>Could not load orders.</p></div>';
+  }
+}
+
+function updateStats (orders) {
+  var today = new Date().toISOString().split('T')[0];
+  var todayOrders = orders.filter(function (o) { return o.placed && o.placed.startsWith(today); });
+  document.getElementById('stat-new').textContent   = todayOrders.filter(function (o) { return o.status === 'new'; }).length;
+  document.getElementById('stat-prep').textContent  = todayOrders.filter(function (o) { return o.status === 'prep'; }).length;
+  document.getElementById('stat-ready').textContent = todayOrders.filter(function (o) { return o.status === 'ready'; }).length;
+  document.getElementById('stat-today').textContent = todayOrders.length;
+}
+
+function renderOrderQueue (orders) {
+  var container = document.getElementById('order-queue');
+  var filtered  = activeFilter === 'all' ? orders : orders.filter(function (o) { return o.status === activeFilter; });
+
+  if (filtered.length === 0) {
+    var msg = activeFilter === 'all'
+      ? '<span class="script-accent">&#127849;</span>No orders yet — they\'ll appear here when customers order on this device.<br><br>Orders from other devices arrive via Formspree email.'
+      : 'No ' + activeFilter + ' orders right now.';
+    container.innerHTML = '<div class="empty-queue">' + msg + '</div>';
+    return;
+  }
+
+  var html = '';
+  filtered.forEach(function (order, idx) {
+    var status    = order.status || 'new';
+    var pillClass = { new:'pill-new', prep:'pill-prep', ready:'pill-ready', done:'pill-done' }[status] || 'pill-new';
+    var pillLabel = { new:'New — confirm', prep:'Preparing', ready:'Ready!', done:'Picked up' }[status] || 'New';
+
+    var itemLines = '';
+    if (order.items && typeof order.items === 'object') {
+      Object.entries(order.items).forEach(function (e) {
+        itemLines += e[0] + ' &times;' + e[1].qty + '<br>';
+      });
+    }
+
+    var placedTime = order.placed ? new Date(order.placed).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : '';
+
+    html += '<div class="order-card status-' + status + '" id="ocard-' + idx + '">';
+    html += '<div class="order-card-head">';
+    html += '<div>';
+    html += '<span class="order-card-num">' + (order.orderNum || '#' + idx) + ' &mdash; ' + (order.name || 'Customer') + '</span>';
+    if (order.phone) html += ' <span class="order-card-time">&#128222; ' + order.phone + '</span>';
+    html += '</div>';
+    html += '<div style="display:flex;align-items:center;gap:8px;">';
+    html += '<span class="status-pill ' + pillClass + '">' + pillLabel + '</span>';
+    if (placedTime) html += '<span class="order-card-time">Placed ' + placedTime + '</span>';
+    html += '</div></div>';
+
+    html += '<div class="order-card-body">';
+    html += '<div class="order-items-list">' + itemLines;
+    if (order.notes) html += '<span class="note">Note: ' + order.notes + '</span>';
+    html += '</div>';
+    html += '<div class="order-actions">';
+    if (order.total && parseFloat(order.total) > 0) {
+      html += '<div class="order-total-display">$' + order.total + '</div>';
+    }
+    if (order.pickupTime) {
+      html += '<div class="order-pickup-display">&#128336; ' + order.pickupTime + '</div>';
+    }
+
+    /* Action buttons based on current status */
+    if (status === 'new') {
+      html += '<button class="action-btn action-btn-confirm" onclick="advanceOrder(' + idx + ',\'prep\')">&#10003; Confirm order</button>';
+    } else if (status === 'prep') {
+      html += '<button class="action-btn action-btn-ready" onclick="advanceOrder(' + idx + ',\'ready\')">&#127849; Mark ready</button>';
+    } else if (status === 'ready') {
+      html += '<button class="action-btn action-btn-done" onclick="advanceOrder(' + idx + ',\'done\')">&#128100; Mark picked up</button>';
+    }
+    html += '</div></div>';
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+function advanceOrder (idx, newStatus) {
+  try {
+    var orders = JSON.parse(localStorage.getItem('dc_orders') || '[]');
+    /* find by matching index in full unfiltered list */
+    var filtered = activeFilter === 'all' ? orders : orders.filter(function (o) { return o.status === activeFilter; });
+    var target   = filtered[idx];
+    if (!target) return;
+    /* find and update in master list */
+    var masterIdx = orders.findIndex(function (o) { return o.orderNum === target.orderNum && o.placed === target.placed; });
+    if (masterIdx > -1) orders[masterIdx].status = newStatus;
+    localStorage.setItem('dc_orders', JSON.stringify(orders));
+    loadOrders();
+    /* Play chime on "mark ready" */
+    if (newStatus === 'ready') playChime();
+  } catch (e) {}
+}
+
+/* ---- Auto refresh every 30 seconds ---- */
+function startAutoRefresh () {
+  setInterval(function () {
+    loadOrders();
+  }, 30000);
+}
+
+/* ---- Sound chime (simple beep) ---- */
+var soundEnabled = true;
+document.getElementById('sound-toggle-label').onclick = function () {
+  soundEnabled = !soundEnabled;
+  this.textContent = soundEnabled ? '&#128276; Sound on' : '&#128277; Sound off';
+};
+
+function playChime () {
+  if (!soundEnabled) return;
+  try {
+    var ctx = new (window.AudioContext || window.webkitAudioContext)();
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.setValueAtTime(880, ctx.currentTime);
+    osc.frequency.setValueAtTime(660, ctx.currentTime + 0.15);
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.5);
+  } catch(e) {}
+}
+
+/* Play chime on new orders arriving */
+function checkForNewOrders () {
+  try {
+    var orders = JSON.parse(localStorage.getItem('dc_orders') || '[]');
+    var newCount = orders.filter(function (o) { return o.status === 'new'; }).length;
+    if (newCount > (window._lastNewCount || 0)) {
+      playChime();
+    }
+    window._lastNewCount = newCount;
+  } catch(e) {}
+}
+setInterval(checkForNewOrders, 15000);
 </script>
+
 </body>
 </html>
