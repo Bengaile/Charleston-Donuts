@@ -41,21 +41,21 @@ const MENU_DATA = {
       photo: "assets/images/gallery-donuts-03.jpg",
       photoPosition: "tr",
       items: [
-        { name: "Chocolate Iced Donut", price: "" },
-        { name: "Blueberry Cake Donut", price: "" },
-        { name: "French Donut", price: "" },
-        { name: "Homecut Donut", price: "" },
+        { name: "Chocolate Iced Donut", price: "2.19" },
+        { name: "Blueberry Cake Donut", price: "2.19" },
+        { name: "French Donut", price: "2.39" },
+        { name: "Homecut Donut", price: "2.59" },
         { name: "Honey Dip Donut", price: "" },
         { name: "Boston Creme Donut", price: "" },
         { name: "Charleston Delight Donut", price: "" },
         { name: "Maple Iced Ring Donut", price: "" },
-        { name: "Jelly Donut", price: "" },
-        { name: "Bavarian Donut", price: "" },
-        { name: "Sour Creme Donut", price: "" },
-        { name: "Powdered Donut", price: "" },
-        { name: "Donut Holes", price: "" },
-        { name: "Half Dozen Donuts", price: "" },
-        { name: "Dozen Donuts", price: "" }
+        { name: "Jelly Donut", price: "2.79" },
+        { name: "Bavarian Donut", price: "2.79" },
+        { name: "Sour Creme Donut", price: "2.39" },
+        { name: "Powdered Donut", price: "2.39" },
+        { name: "Donut Holes", price: "1.00" },
+        { name: "Half Dozen Donuts", price: "11.99" },
+        { name: "Dozen Donuts", price: "23.99" }
       ]
     },
     {
