@@ -12,7 +12,7 @@
    ========================================================= */
 
 const STORE_OPEN_HOUR  = 6;   /* 6:00 AM */
-const STORE_CLOSE_HOUR = 14;  /* 2:00 PM — change to your close time */
+const STORE_CLOSE_HOUR = 21;  /* 9:00 PM — change to your close time */
 const SLOT_MINUTES     = 15;  /* pickup slots every 15 min */
 const MIN_LEAD_MINUTES = 30;  /* earliest pickup = now + 30 min */
 const LARGE_ORDER_QTY  = 12;  /* lead-time warning threshold */
