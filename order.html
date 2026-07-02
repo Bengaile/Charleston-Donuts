@@ -233,7 +233,7 @@
 
 
 <!-- ============ MOBILE CHECKOUT MODAL ============ -->
-<div id="mobile-checkout-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:600;background:var(--cream);overflow-y:auto;-webkit-overflow-scrolling:touch;">
+<div id="mobile-checkout-modal" style="display:none!important;" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:600;background:var(--cream);overflow-y:auto;-webkit-overflow-scrolling:touch;">
   
   <!-- Modal header -->
   <div style="background:var(--deep-coffee);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
@@ -288,6 +288,76 @@
 
   </div>
 </div>
+
+
+<!-- ============ MOBILE CHECKOUT SECTION (always visible on mobile) ============ -->
+<section id="mobile-form-section" style="display:none;padding:24px 0 40px;" style="padding:24px 0 40px;">
+  <div class="container">
+
+    <div style="background:var(--white);border-radius:var(--radius-md);border:2px solid var(--gold);overflow:hidden;box-shadow:var(--shadow-soft);">
+      
+      <!-- Header -->
+      <div style="background:var(--deep-coffee);padding:14px 20px;">
+        <div style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.1rem;">🍩 Step 3 — Your Info & Checkout</div>
+        <div style="color:var(--gold);font-size:0.82rem;margin-top:3px;">Fill in your details and place your order</div>
+      </div>
+
+      <!-- Cart summary (updates dynamically) -->
+      <div style="padding:16px 20px;border-bottom:1px solid rgba(75,53,42,0.08);">
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal-dark);margin-bottom:8px;">Your order summary</div>
+        <div id="mobile-cart-summary">
+          <p style="font-size:0.88rem;color:var(--chocolate-soft);font-style:italic;">Add items from the menu above to see them here.</p>
+        </div>
+      </div>
+
+      <!-- Pickup summary -->
+      <div style="padding:12px 20px;border-bottom:1px solid rgba(75,53,42,0.08);background:var(--powder-pink);">
+        <div style="font-size:0.88rem;color:var(--chocolate);">
+          <strong style="color:var(--raspberry);">📅 Pickup:</strong>
+          <span id="mobile-pickup-display" style="color:var(--teal-dark);"> — Choose a date &amp; time above ↑</span>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div style="padding:20px;">
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal-dark);margin-bottom:14px;">Your contact info</div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:5px;color:var(--chocolate);">Name <span style="color:var(--raspberry);">*</span></label>
+          <input type="text" id="m-name" placeholder="First and last name"
+                 style="width:100%;padding:13px;font-size:1rem;border:2px solid #e6d6bf;border-radius:var(--radius-sm);font-family:var(--font-body);-webkit-appearance:none;">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:5px;color:var(--chocolate);">Phone number <span style="color:var(--raspberry);">*</span></label>
+          <input type="tel" id="m-phone" placeholder="(304) 555-0100"
+                 style="width:100%;padding:13px;font-size:1rem;border:2px solid #e6d6bf;border-radius:var(--radius-sm);font-family:var(--font-body);-webkit-appearance:none;">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:5px;color:var(--chocolate);">Email <span style="font-weight:400;color:var(--chocolate-soft);">(optional)</span></label>
+          <input type="email" id="m-email" placeholder="your@email.com"
+                 style="width:100%;padding:13px;font-size:1rem;border:2px solid #e6d6bf;border-radius:var(--radius-sm);font-family:var(--font-body);-webkit-appearance:none;">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:5px;color:var(--chocolate);">Special requests</label>
+          <textarea id="m-notes" placeholder="No sprinkles on one, box separately, etc."
+                    style="width:100%;padding:13px;font-size:1rem;border:2px solid #e6d6bf;border-radius:var(--radius-sm);font-family:var(--font-body);min-height:80px;-webkit-appearance:none;"></textarea>
+        </div>
+
+        <p style="font-size:0.78rem;color:var(--chocolate-soft);margin-bottom:16px;line-height:1.5;">
+          🔒 Payment collected at pickup. We'll confirm by phone or text shortly after you order.
+        </p>
+
+        <button type="button" id="mobile-place-order-btn"
+                style="width:100%;padding:16px;font-size:1.05rem;font-family:var(--font-display);font-weight:700;background:var(--raspberry);color:var(--white);border:none;border-radius:999px;cursor:pointer;box-shadow:0 3px 0 var(--raspberry-dark);">
+          Place My Order 🍩
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ MOBILE CART BAR ============ -->
 <div class="mobile-cart-bar" id="mobile-cart-bar">

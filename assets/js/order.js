@@ -507,3 +507,136 @@ function mobileCheckout () {
     checkout.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+
+
+/* =========================================================
+   MOBILE FORM — permanent section below menu on mobile
+   Shows/hides on mobile, updates cart summary and pickup
+   ========================================================= */
+
+function initMobileForm () {
+  var section = document.getElementById('mobile-form-section');
+  if (!section) return;
+
+  /* Show on mobile only */
+  if (window.innerWidth <= 900) {
+    section.style.display = 'block';
+  }
+
+  /* Place order button */
+  var btn = document.getElementById('mobile-place-order-btn');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      /* Validate cart */
+      if (Object.keys(cart).length === 0) {
+        alert('Please add at least one item from the menu above.');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      /* Validate pickup */
+      if (!selectedDay || !selectedTime) {
+        alert('Please choose a pickup date and time above before placing your order.');
+        document.getElementById('day-picker').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      /* Validate name and phone */
+      var name  = document.getElementById('m-name');
+      var phone = document.getElementById('m-phone');
+      if (!name || !name.value.trim())  { alert('Please enter your name.');         return; }
+      if (!phone || !phone.value.trim()) { alert('Please enter your phone number.'); return; }
+
+      /* Copy to desktop form fields */
+      var dName  = document.getElementById('cust-name');
+      var dPhone = document.getElementById('cust-phone');
+      var dEmail = document.getElementById('cust-email');
+      var dNotes = document.getElementById('cust-notes');
+      if (dName)  dName.value  = name.value;
+      if (dPhone) dPhone.value = phone.value;
+      if (dEmail) dEmail.value = (document.getElementById('m-email') || {value:''}).value;
+      if (dNotes) dNotes.value = (document.getElementById('m-notes') || {value:''}).value;
+
+      /* Submit the order */
+      submitOrder(null);
+    });
+  }
+}
+
+/* Update mobile cart summary whenever cart changes */
+function updateMobileCartSummary () {
+  var el = document.getElementById('mobile-cart-summary');
+  if (!el) return;
+
+  var items = Object.entries(cart);
+  if (items.length === 0) {
+    el.innerHTML = '<p style="font-size:0.88rem;color:var(--chocolate-soft);font-style:italic;">Add items from the menu above to see them here.</p>';
+    return;
+  }
+
+  var html = '';
+  var total = 0;
+  items.forEach(function (e) {
+    var lineTotal = e[1].qty * e[1].price;
+    total += lineTotal;
+    html += '<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed rgba(75,53,42,0.1);font-size:0.88rem;">';
+    html += '<span style="color:var(--chocolate);">' + e[0] + ' &times;' + e[1].qty + '</span>';
+    html += '<span style="font-weight:700;color:var(--gold-dark);">' + (e[1].price > 0 ? '$' + lineTotal.toFixed(2) : '') + '</span>';
+    html += '</div>';
+  });
+
+  if (total > 0) {
+    var tax   = total * TAX_RATE;
+    var grand = total + tax;
+    html += '<div style="display:flex;justify-content:space-between;padding:5px 0;font-size:0.82rem;color:var(--chocolate-soft);"><span>WV tax (6%)</span><span>$' + tax.toFixed(2) + '</span></div>';
+    html += '<div style="display:flex;justify-content:space-between;padding:8px 0;font-weight:700;font-size:1rem;color:var(--chocolate);border-top:2px solid var(--gold);margin-top:4px;"><span>Total</span><span>$' + grand.toFixed(2) + '</span></div>';
+  }
+
+  el.innerHTML = html;
+}
+
+/* Update mobile pickup display */
+function updateMobilePickup () {
+  var el = document.getElementById('mobile-pickup-display');
+  if (!el) return;
+  if (selectedDay && selectedTime) {
+    el.textContent = ' ' + formatDate(selectedDay) + ' at ' + selectedTime;
+    el.style.color = 'var(--teal-dark)';
+  }
+}
+
+/* Hook into existing functions */
+var _origChangeQty = changeQty;
+changeQty = function (name, price, delta) {
+  _origChangeQty(name, price, delta);
+  updateMobileCartSummary();
+};
+
+var _origRemoveItem = removeItem;
+removeItem = function (name) {
+  _origRemoveItem(name);
+  updateMobileCartSummary();
+};
+
+var _origSelectDay = selectDay;
+selectDay = function (btn) {
+  _origSelectDay(btn);
+  updateMobilePickup();
+};
+
+var _origSelectTime = selectTime;
+selectTime = function (btn) {
+  _origSelectTime(btn);
+  updateMobilePickup();
+};
+
+/* Init on load */
+document.addEventListener('DOMContentLoaded', function () {
+  initMobileForm();
+  updateMobileCartSummary();
+});
+
+/* Handle resize */
+window.addEventListener('resize', function () {
+  var section = document.getElementById('mobile-form-section');
+  if (!section) return;
+  section.style.display = window.innerWidth <= 900 ? 'block' : 'none';
+});
