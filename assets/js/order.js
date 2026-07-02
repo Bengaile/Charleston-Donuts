@@ -153,7 +153,10 @@ function renderCart () {
       mobileEl.innerHTML = itemCount + ' item' + (itemCount !== 1 ? 's' : '') + ' &mdash; <strong>$' + grand.toFixed(2) + '</strong>';
     }
   }
-  if (mobileBtn) mobileBtn.style.display = itemCount > 0 ? 'block' : 'none';
+  if (mobileBtn) mobileBtn.style.display = itemCount > 0 ? 'inline-block' : 'none';
+  /* also show the inline mobile checkout row */
+  var mobileRow = document.getElementById('mobile-checkout-row');
+  if (mobileRow) mobileRow.style.display = itemCount > 0 ? 'block' : 'none';
 
   if (!body) return;
 

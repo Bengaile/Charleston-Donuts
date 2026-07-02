@@ -349,3 +349,39 @@
 .time-grid::-webkit-scrollbar { width: 4px; }
 .time-grid::-webkit-scrollbar-track { background: var(--vanilla); border-radius: 2px; }
 .time-grid::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ---- Mobile checkout overlay fix ---- */
+@media (max-width: 900px) {
+  .cart-sidebar.mobile-open {
+    display: block !important;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 500;
+    overflow-y: auto;
+    border-radius: 0;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--deep-coffee);
+    color: var(--white);
+    padding: 14px 20px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  .mobile-close-x {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+}
+@media (min-width: 901px) {
+  .mobile-close-btn { display: none; }
+}
