@@ -3,178 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Coffee, cappuccinos, hot chocolate, cold brew, and breakfast at Donut Connection Charleston WV. Full menu with prices.">
 <title>Coffee &amp; Breakfast | Donut Connection Charleston, WV</title>
-<meta name="description" content="Coffee and donuts Charleston WV style. Hot coffee, specialty drinks, and breakfast favorites at Donut Connection Charleston.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+:root {
+  --dc-brown: #4a2c2a; --dc-cream: #fdf6ec; --dc-pink: #e8927c;
+  --dc-warm: #c0835a; --dc-gold: #d4a853; --dc-dark: #2c1810;
+  --dc-text: #3d2b1f; --dc-muted: #7a6b5d; --dc-light: #f9f3eb;
+  --dc-border: #e8ddd0; --dc-white: #ffffff; --dc-seasonal: #c06040;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--dc-text); background: var(--dc-cream); line-height: 1.6; }
+a { color: var(--dc-brown); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.nav { background: var(--dc-white); border-bottom: 1px solid var(--dc-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.nav-brand { font-family: var(--font-display); font-size: 16px; color: var(--dc-brown); text-decoration: none; font-weight: 700; }
+.nav-brand small { font-size: 10px; color: var(--dc-muted); display: block; font-family: var(--font-body); font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.nav-links a { font-size: 14px; color: var(--dc-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--dc-brown); }
+.nav-links .btn-nav { background: var(--dc-pink); color: var(--dc-white); padding: 8px 16px; border-radius: 24px; font-weight: 600; }
+.nav-toggle { display: none; background: none; border: none; font-size: 22px; color: var(--dc-brown); cursor: pointer; }
+
+.page-header { padding: 120px 24px 48px; text-align: center; background: linear-gradient(180deg, var(--dc-white) 0%, var(--dc-cream) 100%); }
+.page-header-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dc-muted); margin-bottom: 12px; }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); color: var(--dc-brown); font-weight: 700; margin-bottom: 12px; }
+.page-header p { font-size: 16px; color: var(--dc-muted); max-width: 560px; margin: 0 auto; }
+.page-note { font-size: 13px; color: var(--dc-muted); text-align: center; margin-top: 16px; font-style: italic; }
+
+.menu-category { padding: 48px 0; }
+.menu-category + .menu-category { border-top: 1px solid var(--dc-border); }
+.cat-header { text-align: center; margin-bottom: 32px; }
+.cat-header h2 { font-family: var(--font-display); font-size: 28px; color: var(--dc-brown); margin-bottom: 8px; }
+.cat-header p { font-size: 15px; color: var(--dc-muted); max-width: 500px; margin: 0 auto; }
+
+.size-table { max-width: 420px; margin: 16px auto; background: var(--dc-white); border-radius: 12px; border: 1px solid var(--dc-border); overflow: hidden; }
+.size-row { display: flex; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--dc-border); }
+.size-row:last-child { border-bottom: none; }
+.size-row:nth-child(even) { background: var(--dc-light); }
+.size-label { font-size: 14px; color: var(--dc-text); }
+.size-price { font-size: 14px; font-weight: 700; color: var(--dc-brown); }
+
+.flavor-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px 0; max-width: 500px; margin-left: auto; margin-right: auto; }
+.flavor-tag { background: var(--dc-white); border: 1px solid var(--dc-border); border-radius: 16px; padding: 5px 14px; font-size: 13px; color: var(--dc-muted); }
+.flavor-tag.seasonal { border-color: var(--dc-seasonal); color: var(--dc-seasonal); font-weight: 600; }
+
+.item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.item-card { background: var(--dc-white); border: 1px solid var(--dc-border); border-radius: 12px; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; transition: box-shadow 0.2s; }
+.item-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.item-name { font-size: 15px; font-weight: 600; color: var(--dc-text); }
+.item-desc { font-size: 12px; color: var(--dc-muted); margin-top: 2px; }
+.item-price { font-size: 16px; font-weight: 700; color: var(--dc-brown); white-space: nowrap; margin-left: 16px; }
+
+.price-sizes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 20px 0 24px; }
+.price-pill { background: var(--dc-white); border: 1px solid var(--dc-border); border-radius: 24px; padding: 8px 20px; font-size: 14px; color: var(--dc-text); text-align: center; }
+.price-pill strong { display: block; font-size: 16px; color: var(--dc-brown); }
+
+.menu-cta { background: var(--dc-brown); padding: 56px 24px; text-align: center; color: var(--dc-white); }
+.menu-cta h2 { font-family: var(--font-display); font-size: 26px; margin-bottom: 12px; }
+.menu-cta p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+.btn-cta { display: inline-block; padding: 12px 28px; border-radius: 28px; font-size: 14px; font-weight: 600; text-decoration: none; margin: 0 6px; transition: all 0.2s; }
+.btn-warm { background: var(--dc-pink); color: var(--dc-white); }
+.btn-outline-w { border: 1.5px solid rgba(255,255,255,0.4); color: var(--dc-white); }
+
+.footer { background: var(--dc-dark); color: rgba(255,255,255,0.6); padding: 48px 24px 24px; font-size: 13px; }
+.footer-inner { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 32px; max-width: 1100px; margin: 0 auto; }
+.footer h5 { color: var(--dc-white); font-size: 14px; margin-bottom: 12px; }
+.footer a { color: rgba(255,255,255,0.5); text-decoration: none; display: block; padding: 3px 0; font-size: 13px; }
+.footer a:hover { color: var(--dc-white); }
+.footer-bottom { max-width: 1100px; margin: 32px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .item-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site-header">
-  <div class="nav-wrap">
-    <a href="index.html" class="brand">
-      <span class="ring"></span>
-      <span>Donut Connection<br><small>CHARLESTON, WV &middot; EST. LOCAL TRADITION</small></span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-    <nav class="main-nav">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Donut Connection<small>Charleston, WV · Est. Local Tradition</small></a>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="menu.html">Donuts</a>
-      <a href="coffee.html">Coffee</a>
+      <a href="coffee.html" style="color: var(--dc-brown); font-weight: 700;">Coffee</a>
       <a href="cakes-events.html">Custom Cakes</a>
       <a href="catering.html">Catering</a>
-      <a href="order.html">Order Ahead</a>
-      <a href="rewards.html">Sweet Rewards</a>
-      <a href="about.html">Our Story</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html" class="btn btn-outline" style="padding:9px 18px;font-size:0.88rem;">Visit Us</a>
-      <a href="index.html#order-ahead" class="btn btn-primary" style="padding:9px 18px;font-size:0.88rem;">Order Ahead</a>
-    </nav>
+      <a href="order.html" class="btn-nav">Order Ahead</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
   </div>
-</header>
-<section class="page-banner">
-  <div class="container">
-    <p class="eyebrow" style="color:var(--gold);">Charleston, WV</p>
-    <h1>Coffee &amp; Breakfast</h1>
-    <p>Hot coffee and breakfast favorites &mdash; the perfect pairing for fresh donuts in Charleston, WV.</p>
-  </div>
-</section>
+</nav>
 
-<section class="bg-white section-tight">
-  <div class="container">
-    <div class="notice-banner text-center">
-      Menu offerings may vary by day and season. For current availability, please visit the shop or contact us directly.
-    </div>
-  </div>
-</section>
+<div class="page-header">
+  <div class="page-header-label">Charleston, WV</div>
+  <h1>Coffee &amp; Breakfast</h1>
+  <p>Hot coffee, cappuccinos, cold brew, and breakfast favorites — the perfect pairing for fresh donuts.</p>
+  <p class="page-note">Menu offerings may vary by day and season. For current availability, please visit the shop or contact us directly.</p>
+</div>
 
-<section class="bg-white">
-  <div class="container grid grid-2" style="align-items:center;">
-    <div>
-      <img src="assets/images/feature-coffee-placeholder.jpg" alt="Hot coffee and a glazed donut with caramel drizzle from Donut Connection Charleston WV">
-    </div>
-    <div>
-      <h2 class="mt-0">Your New Morning Ritual</h2>
-      <p>Hot coffee and a fresh donut, made the way Charleston, WV likes it &mdash; simple, warm, and always ready.</p>
-    </div>
-  </div>
-</section>
+<div class="container">
 
-<section class="bg-white section-tight">
-  <div class="container">
-    <h2>Hot &amp; Iced Coffee</h2>
-    <div class="grid grid-3">
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>brewed-coffee.jpg</div>
-        <div class="body"><h4>Brewed Coffee</h4><p>Regular and decaf, brewed fresh throughout the day.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>cappuccino.jpg</div>
-        <div class="body"><h4>Cappuccino</h4><p>Espresso with steamed, frothed milk.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>iced-latte.jpg</div>
-        <div class="body"><h4>Iced Latte</h4><p>Smooth and refreshing, hot or iced.</p></div>
-      </div>
+  <!-- ═══ COFFEE ═══ -->
+  <div class="menu-category" id="coffee">
+    <div class="cat-header">
+      <h2>Coffee</h2>
+      <p>Freshly brewed throughout the day — regular and decaf.</p>
+    </div>
+    <div class="size-table">
+      <div class="size-row"><span class="size-label">Small</span><span class="size-price">$1.99</span></div>
+      <div class="size-row"><span class="size-label">Medium</span><span class="size-price">$1.69</span></div>
+      <div class="size-row"><span class="size-label">Large</span><span class="size-price">$1.99</span></div>
+      <div class="size-row"><span class="size-label">Extra Large</span><span class="size-price">$2.29</span></div>
+      <div class="size-row"><span class="size-label">Carafe</span><span class="size-price">$16.99</span></div>
+      <div class="size-row"><span class="size-label">Travel Mug Refill</span><span class="size-price">$0.62</span></div>
+      <div class="size-row"><span class="size-label">One Pound Coffee Beans</span><span class="size-price">$7.99</span></div>
     </div>
   </div>
-</section>
 
-<section class="bg-cream section-tight">
-  <div class="container">
-    <h2>Specialty Drinks</h2>
-    <div class="grid grid-3">
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>seasonal-latte.jpg</div>
-        <div class="body"><h4>Seasonal Latte</h4><p>Rotating seasonal flavors &mdash; ask what&rsquo;s available.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>hot-chocolate.jpg</div>
-        <div class="body"><h4>Hot Chocolate</h4><p>Rich and warm, topped with whipped cream.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>frozen-coffee.jpg</div>
-        <div class="body"><h4>Frozen Coffee Drink</h4><p>Blended and chilled for a sweet treat.</p></div>
-      </div>
+  <!-- ═══ CAPPUCCINOS ═══ -->
+  <div class="menu-category" id="cappuccinos">
+    <div class="cat-header">
+      <h2>Cappuccinos</h2>
+    </div>
+    <div class="size-table">
+      <div class="size-row"><span class="size-label">Small</span><span class="size-price">$1.99</span></div>
+      <div class="size-row"><span class="size-label">Medium</span><span class="size-price">$2.29</span></div>
+      <div class="size-row"><span class="size-label">Large</span><span class="size-price">$2.59</span></div>
+      <div class="size-row"><span class="size-label">Extra Large</span><span class="size-price">$2.89</span></div>
+    </div>
+    <div class="flavor-list">
+      <span class="flavor-tag">French Vanilla</span>
+      <span class="flavor-tag">Salted Caramel</span>
+      <span class="flavor-tag seasonal">Pumpkin (Seasonal)</span>
     </div>
   </div>
-</section>
 
-<section class="bg-white section-tight">
-  <div class="container">
-    <h2>Breakfast Favorites</h2>
-    <div class="grid grid-3">
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>breakfast-sandwich.jpg</div>
-        <div class="body"><h4>Breakfast Sandwich</h4><p>Egg, cheese, and your choice of meat on a fresh roll.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>bagel.jpg</div>
-        <div class="body"><h4>Bagels</h4><p>Toasted with butter or cream cheese.</p></div>
-      </div>
-      <div class="menu-card">
-        <div class="photo">Photo placeholder:<br>kolache.jpg</div>
-        <div class="body"><h4>Breakfast Pastry</h4><p>A savory or sweet morning option.</p></div>
-      </div>
+  <!-- ═══ HOT CHOCOLATE ═══ -->
+  <div class="menu-category" id="hot-chocolate">
+    <div class="cat-header">
+      <h2>Hot Chocolate</h2>
+    </div>
+    <div class="size-table">
+      <div class="size-row"><span class="size-label">Small</span><span class="size-price">$1.99</span></div>
+      <div class="size-row"><span class="size-label">Medium</span><span class="size-price">$2.29</span></div>
+      <div class="size-row"><span class="size-label">Large</span><span class="size-price">$2.59</span></div>
+      <div class="size-row"><span class="size-label">Extra Large</span><span class="size-price">$2.89</span></div>
+      <div class="size-row"><span class="size-label">Carafe</span><span class="size-price">$18.99</span></div>
     </div>
   </div>
-</section>
 
-<section class="bg-teal">
-  <div class="container cta-band" style="background:var(--white);">
-    <h2>Start Your Morning Right</h2>
-    <p class="muted">Coffee, donuts, and a warm welcome &mdash; every morning in Charleston, WV.</p>
-    <div class="btn-row" style="justify-content:center;">
-      <a href="menu.html" class="btn btn-primary">View Full Menu</a>
-      <a href="contact.html" class="btn btn-secondary">Get Directions</a>
+  <!-- ═══ COLD BREW ═══ -->
+  <div class="menu-category" id="cold-brew">
+    <div class="cat-header">
+      <h2>Cold Brew</h2>
+    </div>
+    <div class="price-sizes">
+      <div class="price-pill"><strong>$2.19</strong>16 oz.</div>
+      <div class="price-pill"><strong>$2.39</strong>20 oz.</div>
+    </div>
+    <div class="flavor-list">
+      <span class="flavor-tag">French Vanilla</span>
+      <span class="flavor-tag">Salted Caramel</span>
+      <span class="flavor-tag">Mocha</span>
     </div>
   </div>
-</section><footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>Donut Connection Charleston</h4>
-        <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
-        <p class="small">Phone: 304-925-4261<br>Email: boobootheresa@gmail.com</p>
-        <div class="social-row">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Google Reviews">G</a>
-        </div>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul class="link-list" style="border:none;">
-          <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts</a></li>
-          <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee</a></li>
-          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
-          <li style="border:none;padding:4px 0;"><a href="reviews.html">Wall of Smiles</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Order &amp; Tradition</h4>
-        <ul class="link-list" style="border:none;">
-          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
-          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering</a></li>
-          <li style="border:none;padding:4px 0;"><a href="order.html">Order Ahead</a>
-      <a href="rewards.html">Sweet Rewards</a></li>
-          <li style="border:none;padding:4px 0;"><a href="about.html">Our Story</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Hours</h4>
-        <p class="small">Daily: 6:00 AM &ndash; 9:00 PM</p>
-        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
-      </div>
+
+  <!-- ═══ MILKSHAKES ═══ -->
+  <div class="menu-category" id="milkshakes">
+    <div class="cat-header">
+      <h2>Milkshakes</h2>
     </div>
-    <div class="footer-bottom">
-      Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
-      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
-      <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+    <div class="price-sizes">
+      <div class="price-pill"><strong>$2.79</strong>16 oz.</div>
+      <div class="price-pill"><strong>$3.39</strong>20 oz.</div>
     </div>
   </div>
+
+  <!-- ═══ SMOOTHIES ═══ -->
+  <div class="menu-category" id="smoothies">
+    <div class="cat-header">
+      <h2>Smoothies</h2>
+    </div>
+    <div class="price-sizes">
+      <div class="price-pill"><strong>$3.49</strong>Small</div>
+      <div class="price-pill"><strong>$4.49</strong>Large</div>
+    </div>
+  </div>
+
+  <!-- ═══ BOTTLED & COLD DRINKS ═══ -->
+  <div class="menu-category" id="drinks">
+    <div class="cat-header">
+      <h2>Bottled &amp; Cold Drinks</h2>
+    </div>
+    <div class="item-grid">
+      <div class="item-card"><div><div class="item-name">Juice</div></div><div class="item-price">$1.79</div></div>
+      <div class="item-card"><div><div class="item-name">Bug Juice</div></div><div class="item-price">$1.05</div></div>
+      <div class="item-card"><div><div class="item-name">Chocolate Milk</div></div><div class="item-price">$1.75</div></div>
+      <div class="item-card"><div><div class="item-name">Milk</div></div><div class="item-price">$1.70</div></div>
+      <div class="item-card"><div><div class="item-name">Soda</div></div><div class="item-price">$1.70</div></div>
+      <div class="item-card"><div><div class="item-name">Water</div></div><div class="item-price">$1.79</div></div>
+      <div class="item-card"><div><div class="item-name">Energy Drink</div></div><div class="item-price">$2.69</div></div>
+      <div class="item-card"><div><div class="item-name">Gatorade</div></div><div class="item-price">$1.69</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ BREAKFAST ═══ -->
+  <div class="menu-category" id="breakfast">
+    <div class="cat-header">
+      <h2>Breakfast</h2>
+      <p>Start your morning right with bagels and Grandwiches.</p>
+    </div>
+    <div class="item-grid">
+      <div class="item-card"><div><div class="item-name">Bagels</div><div class="item-desc">Everything, Blueberry, Plain, Cinnamon Raisin</div></div><div class="item-price">$1.29</div></div>
+      <div class="item-card"><div><div class="item-name">Pepperoni Grandwich</div></div><div class="item-price">$3.99</div></div>
+      <div class="item-card"><div><div class="item-name">Ham and Cheese Grandwich</div></div><div class="item-price">$3.99</div></div>
+      <div class="item-card"><div><div class="item-name">Bacon and Cheese Grandwich</div></div><div class="item-price">$3.99</div></div>
+      <div class="item-card"><div><div class="item-name">Sausage and Cheese Grandwich</div></div><div class="item-price">$3.99</div></div>
+      <div class="item-card"><div><div class="item-name">Bacon, Egg and Cheese Grandwich</div></div><div class="item-price">$4.59</div></div>
+      <div class="item-card"><div><div class="item-name">Sausage, Egg and Cheese Grandwich</div></div><div class="item-price">$4.59</div></div>
+      <div class="item-card"><div><div class="item-name">Ham, Egg and Cheese Grandwich</div></div><div class="item-price">$4.59</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="menu-cta">
+  <h2>Start Your Morning Right</h2>
+  <p>Coffee, donuts, and a warm welcome — every morning in Charleston, WV.</p>
+  <a href="menu.html" class="btn-cta btn-warm">View Full Menu</a>
+  <a href="contact.html" class="btn-cta btn-outline-w">Get Directions</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><h5>Donut Connection Charleston</h5><p>2509 MacCorkle Ave SE<br>Charleston, WV 25302</p><p style="margin-top: 8px;">Phone: 304-925-4261<br>Email: boobootheresa@gmail.com</p></div>
+    <div><h5>Explore</h5><a href="menu.html">Donuts</a><a href="coffee.html">Coffee</a><a href="gallery.html">Gallery</a><a href="reviews.html">Wall of Smiles</a></div>
+    <div><h5>Order &amp; Tradition</h5><a href="cakes-events.html">Custom Cakes</a><a href="catering.html">Catering</a><a href="order.html">Order Ahead</a><a href="rewards.html">Sweet Rewards</a><a href="about.html">Our Story</a></div>
+    <div><h5>Hours</h5><p>Daily: 6:00 AM – 9:00 PM</p><a href="contact.html" style="margin-top: 8px;">Get directions →</a></div>
+  </div>
+  <div class="footer-bottom">Donut Connection Charleston · 2509 MacCorkle Ave SE, Charleston, WV 25302<br>© 2026 Donut Connection Charleston. All rights reserved.</div>
 </footer>
 
-<script src="assets/js/main.js"></script>
 </body>
 </html>
