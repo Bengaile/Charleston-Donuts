@@ -1,0 +1,17 @@
+/* Photo-driven menu and gallery additions */
+.photo-menu-intro{padding-top:46px;padding-bottom:46px}
+.photo-menu-group{margin-top:34px}
+.photo-menu-group:first-child{margin-top:0}
+.photo-menu-group>h3{font-family:"Playfair Display",serif;font-size:1.55rem;color:var(--chocolate,#4B352A);margin:0 0 16px}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.photo-menu-card{margin:0;background:var(--white,#fff);border:1px solid var(--vanilla,#F7F1E6);border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(75,53,42,.08);transition:transform .2s ease,box-shadow .2s ease}
+.photo-menu-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(75,53,42,.13)}
+.photo-menu-card img{display:block;width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;background:#fff}
+.photo-menu-card-body{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:14px 16px 16px}
+.photo-menu-card h4{font-family:"Playfair Display",serif;font-size:1.05rem;line-height:1.25;margin:0;color:var(--chocolate,#4B352A)}
+.photo-menu-id{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--chocolate-soft,#6B5A4E);margin:0 0 4px}
+.photo-menu-price{font-weight:900;color:var(--raspberry,#C2185B);margin:0;white-space:nowrap}
+.gallery-photo-grid{margin-bottom:44px}
+.gallery-photo-caption{padding:13px 16px 15px;font-family:"Playfair Display",serif;font-weight:700;color:var(--chocolate,#4B352A);text-align:center}
+@media(max-width:600px){.photo-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo-menu-card-body{padding:10px 11px 12px}.photo-menu-card h4{font-size:.92rem}.photo-menu-id{display:none}}
+@media(max-width:390px){.photo-card-grid{grid-template-columns:1fr}}

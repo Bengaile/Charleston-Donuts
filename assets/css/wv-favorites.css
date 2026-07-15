@@ -1,0 +1,513 @@
+/* =========================================================
+   wv-favorites.css
+   GBI Creative Brief No. 001 — WV Favorites Concept Page
+   ---------------------------------------------------------
+   LAYERED on top of assets/css/styles.css.
+   All design tokens (colors, fonts, radii, shadows) come
+   from the main stylesheet's :root block. This file adds
+   only what is unique to wv-favorites.html — no overrides
+   to shared components.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   CONCEPT BADGE
+   Small internal label visible at the top of the hero so
+   Theresa and Ivan know this is a preview, not live.
+   --------------------------------------------------------- */
+.wvf-concept-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196, 138, 58, 0.22);
+  border: 1px solid rgba(196, 138, 58, 0.55);
+  color: #f4d488;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   1. HERO
+   Full-height mountain panoramic with a deep forest-green
+   overlay. Background image sourced from Unsplash (free,
+   license-clear). Swap to a real WV photo when available.
+   --------------------------------------------------------- */
+.wvf-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+
+  /* Layered gradient over a deep green that evokes WV mountains.
+     Replace the gradient with a real panoramic photo:
+     background-image: linear-gradient(...), url('assets/images/wv-panoramic.jpg');
+     The gradient alone gives a polished dark-green mountain feel
+     with no external image dependency. */
+  background:
+    linear-gradient(
+      160deg,
+      rgba(22, 44, 28, 0.96) 0%,
+      rgba(35, 62, 38, 0.92) 40%,
+      rgba(47, 30, 25, 0.85) 100%
+    ),
+    /* Subtle texture using CSS — replace with photo when ready */
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  background-color: #1c3520;
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* Inner content area — left-aligned, generous top padding */
+.wvf-hero__inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px;
+  padding-bottom: 120px;
+  max-width: 820px;
+}
+
+/* Flag emoji — large decorative, not announced to screen readers */
+.wvf-hero__flag {
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0 0 18px;
+}
+
+/* Main headline */
+.wvf-hero__headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  color: var(--white);
+  line-height: 1.05;
+  margin: 0 0 20px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+}
+
+/* Subtitle line */
+.wvf-hero__subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+  margin: 0 0 22px;
+  font-weight: 400;
+}
+
+/* Script tagline ("Every donut tells a story.") */
+.wvf-hero__tagline {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #f4d488; /* warm gold, readable on dark green */
+  margin: 0 0 36px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+
+/* CTA button */
+.wvf-hero__cta {
+  font-size: 1.05rem;
+  padding: 15px 36px;
+}
+
+/* Decorative mountain silhouette SVG at the bottom of the hero —
+   creates a smooth transition into the cream section below */
+.wvf-hero__mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+}
+.wvf-hero__mountains svg {
+  width: 100%;
+  height: 80px;
+  display: block;
+  border-radius: 0;
+}
+
+/* Subtle entrance animation for hero content */
+.wvf-hero__inner {
+  animation: wvf-fade-up 0.9s ease both;
+}
+@keyframes wvf-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 680px) {
+  .wvf-hero { min-height: 80vh; }
+  .wvf-hero__inner { padding-top: 60px; padding-bottom: 80px; }
+  .wvf-hero__mountains svg { height: 52px; }
+}
+
+
+/* ---------------------------------------------------------
+   2. CHARLESTON FAVORITES — Product concept cards
+   --------------------------------------------------------- */
+
+/* Card grid: auto-fill, minimum 280px per card */
+.wvf-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+
+/* Individual card */
+.wvf-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(75, 53, 42, 0.07);
+  padding: 30px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  /* Entrance animation triggered by JS (wv-favorites.js) */
+  opacity: 0;
+  transform: translateY(20px);
+}
+.wvf-card.wvf-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.22s ease;
+}
+.wvf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(75, 53, 42, 0.16);
+}
+
+/* Featured card: slightly larger, gold left accent */
+.wvf-card--feature {
+  border-left: 5px solid var(--gold);
+  grid-column: span 1;
+}
+@media (min-width: 900px) {
+  .wvf-card--feature {
+    grid-column: span 2;
+  }
+}
+
+/* Humor card: subtle raspberry left accent */
+.wvf-card--humor {
+  border-left: 5px solid var(--raspberry);
+}
+
+/* Icon (emoji) at top of card */
+.wvf-card__icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+/* Card body */
+.wvf-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Product name */
+.wvf-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--chocolate);
+  margin: 4px 0 0;
+}
+
+/* Description */
+.wvf-card__desc {
+  color: var(--chocolate-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Script tagline inside card */
+.wvf-card__tagline {
+  font-size: 1.1rem;
+  color: var(--raspberry);
+  margin: 4px 0 0;
+}
+
+
+/* ---------------------------------------------------------
+   3. COMMUNITY — Full-bleed photography section
+   Uses a deep coffee overlay over a warm texture.
+   Replace background-color with an actual photo for
+   production: background-image: url(...), linear-gradient(...)
+   --------------------------------------------------------- */
+.wvf-community {
+  position: relative;
+  background-color: var(--deep-coffee);
+  /* Production: swap in a real community photo here */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(47, 30, 25, 0.93) 0%,
+      rgba(75, 53, 42, 0.88) 100%
+    );
+  color: var(--white);
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+/* Subtle radial warm glow in center */
+.wvf-community::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(196, 138, 58, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.wvf-community__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.wvf-community__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  color: var(--white);
+  margin: 10px 0 36px;
+}
+
+/* Community roles pill list */
+.wvf-community__roles {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.wvf-community__roles li {
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.88);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease;
+}
+.wvf-community__roles li:hover {
+  background: rgba(196, 138, 58, 0.22);
+  border-color: var(--gold);
+  color: #f4d488;
+}
+
+/* Community quote block */
+.wvf-community__quote {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  border-left: 4px solid var(--gold);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: left;
+}
+.wvf-community__quote p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.82);
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+.wvf-community__quote footer {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #f4d488;
+}
+
+@media (max-width: 640px) {
+  .wvf-community__quote {
+    padding: 22px 20px;
+    border-left: 3px solid var(--gold);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   4. DID YOU KNOW? — Fact cards
+   --------------------------------------------------------- */
+.wvf-facts-grid {
+  margin-top: 8px;
+}
+
+.wvf-fact-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(75, 53, 42, 0.06);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(16px);
+}
+.wvf-fact-card.wvf-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease;
+}
+.wvf-fact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(75, 53, 42, 0.14);
+}
+
+.wvf-fact-card__icon {
+  display: block;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.wvf-fact-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--teal-dark);
+  margin: 0 0 10px;
+}
+
+.wvf-fact-card p {
+  font-size: 0.92rem;
+  color: var(--chocolate-soft);
+  line-height: 1.65;
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   5. COMMUNITY FAVORITES — Voting concept cards
+   --------------------------------------------------------- */
+.wvf-vote-grid {
+  margin-top: 8px;
+  gap: 28px;
+}
+
+.wvf-vote-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(16px);
+}
+.wvf-vote-card.wvf-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.wvf-vote-card:hover {
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-3px);
+}
+
+/* Winner card: gold left accent */
+.wvf-vote-card--winner {
+  border-color: rgba(196, 138, 58, 0.45);
+  background: rgba(196, 138, 58, 0.08);
+}
+
+.wvf-vote-card__gavel {
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.wvf-vote-card__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--white);
+  margin: 0 0 14px;
+}
+
+.wvf-vote-card__body {
+  color: rgba(255,255,255,0.76);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 22px;
+}
+
+.wvf-vote-card__cta {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .wvf-vote-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   6. FOOTER CTA — Warm closing section
+   --------------------------------------------------------- */
+.wvf-footer-cta {
+  text-align: center;
+  padding: 80px 0 72px;
+}
+
+.wvf-footer-cta__inner {
+  max-width: 640px;
+}
+
+.wvf-footer-cta__donut {
+  display: block;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  /* Gentle spin animation */
+  animation: wvf-donut-spin 8s linear infinite;
+}
+@keyframes wvf-donut-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wvf-footer-cta__donut { animation: none; }
+}
+
+.wvf-footer-cta__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: var(--chocolate);
+  margin: 0 0 16px;
+}
+
+.wvf-footer-cta__body {
+  font-size: 1.1rem;
+  color: var(--chocolate-soft);
+  line-height: 1.8;
+  margin: 0;
+}

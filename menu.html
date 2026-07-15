@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/menu-gallery.css">
 <style>
 /* ── Menu pricing components (scoped additions for menu.html) ── */
 .price-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 22px}
@@ -59,6 +60,19 @@
 </section>
 
 <p class="text-center small muted" style="margin-top:18px;font-style:italic;padding:0 20px;">Menu offerings may vary by day and season. For current availability, please visit the shop or contact us directly.</p>
+
+<!-- ═══ PHOTO MENU HIGHLIGHTS ═══ -->
+<section class="bg-cream photo-menu-intro">
+  <div class="container">
+    <div class="sign-heading">
+      <p class="eyebrow">A Look at What We Make</p>
+      <h2 class="mt-0">Menu Photo Highlights</h2>
+      <p class="muted">Browse a growing collection of customer favorites. Availability may vary by day and season.</p>
+      <div class="sign-divider"></div>
+    </div>
+    <div id="menu-photo-grid" aria-live="polite"></div>
+  </div>
+</section>
 
 <!-- ═══ DONUTS ═══ -->
 <section class="bg-white">
@@ -374,6 +388,8 @@
   </div>
 </footer>
 
+<script src="assets/data/menu-photo-data.js"></script>
+<script src="assets/js/menu-gallery.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

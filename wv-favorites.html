@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       GBI Creative Brief No. 001 — Charleston Donut Connection
+       Phase II Vision Concept: West Virginia Favorites
+       INTERNAL CONCEPT PAGE — NOT LINKED FROM PUBLIC NAVIGATION
+       Do not add this URL to sitemap.xml or any public link list.
+       ============================================================ -->
+
+  <title>WV Favorites | Donut Connection Charleston</title>
+  <meta name="description" content="Celebrating the people, places and traditions of Charleston, West Virginia — Donut Connection.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Reuse exact same fonts as the main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Caveat:wght@600;700&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Main site stylesheet (design tokens, layout, components) -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Concept-page-only additions (layered on top, no overrides) -->
+  <link rel="stylesheet" href="assets/css/wv-favorites.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SITE HEADER — identical to all other pages
+       ============================================================ -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="ring"></span>
+        <span>Donut Connection<br><small>CHARLESTON, WV &middot; EST. LOCAL TRADITION</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Donuts</a>
+        <a href="coffee.html">Coffee</a>
+        <a href="cakes-events.html">Custom Cakes</a>
+        <a href="catering.html">Catering</a>
+        <a href="rewards.html">Sweet Rewards</a>
+        <a href="about.html">Our Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="btn btn-outline" style="padding:9px 18px;font-size:0.88rem;">Visit Us</a>
+        <a href="index.html#order-ahead" class="btn btn-primary" style="padding:9px 18px;font-size:0.88rem;">Order Ahead</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       1. HERO
+       Full-height WV mountain panoramic with green overlay.
+       ============================================================ -->
+  <section class="wvf-hero" aria-label="West Virginia Favorites hero">
+    <!-- Overlay lives in CSS; background image swapped via class -->
+    <div class="wvf-hero__inner container">
+      <p class="wvf-concept-badge">&#128196; Phase II Concept Preview</p>
+      <p class="wvf-hero__flag" aria-hidden="true">🇺🇸</p>
+      <h1 class="wvf-hero__headline">West Virginia<br>Favorites</h1>
+      <p class="wvf-hero__subtitle">
+        Celebrating the People, Places &amp; Traditions<br>of the Mountain State
+      </p>
+      <p class="wvf-hero__tagline script-accent">Every donut tells a story.</p>
+      <a href="#wvf-items" class="btn btn-outline-light wvf-hero__cta">
+        Coming in a Future Phase
+      </a>
+    </div>
+    <!-- Decorative mountain silhouette at the bottom of the hero -->
+    <div class="wvf-hero__mountains" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,120 L0,60 L120,20 L240,70 L360,10 L520,80 L660,25 L800,75 L960,15 L1100,65 L1260,30 L1440,70 L1440,120 Z" fill="#FFF8F0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. CHARLESTON FAVORITES — Premium product concept cards
+       ============================================================ -->
+  <section class="bg-cream section-tight" id="wvf-items">
+    <div class="container">
+      <div class="sign-heading">
+        <p class="eyebrow">Future Menu Concepts</p>
+        <h2 class="mt-0">Charleston Favorites</h2>
+        <p class="muted">Named for the people and places that make this city home.</p>
+        <div class="sign-divider"></div>
+      </div>
+
+      <div class="wvf-cards">
+
+        <!-- Card 1: Capitol Cookie -->
+        <article class="wvf-card wvf-card--feature" aria-label="Capitol Cookie concept">
+          <div class="wvf-card__icon" aria-hidden="true">🏛️</div>
+          <div class="wvf-card__body">
+            <span class="badge badge-gold">Concept</span>
+            <h3 class="wvf-card__name">Capitol Cookie™</h3>
+            <p class="wvf-card__desc">A giant chocolate chip cookie made for sharing — inspired by the golden dome just down the road.</p>
+            <p class="wvf-card__tagline script-accent">"Big enough for the whole committee."</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Miner's Dozen -->
+        <article class="wvf-card" aria-label="Miner's Dozen concept">
+          <div class="wvf-card__icon" aria-hidden="true">⛏️</div>
+          <div class="wvf-card__body">
+            <span class="badge badge-gold">Concept</span>
+            <h3 class="wvf-card__name">Miner's Dozen™</h3>
+            <p class="wvf-card__desc">One extra cookie because neighbors look after neighbors. Thirteen, not twelve.</p>
+            <p class="wvf-card__tagline script-accent">"A little extra, just like West Virginia."</p>
+          </div>
+        </article>
+
+        <!-- Card 3: Kanawha Caramel -->
+        <article class="wvf-card" aria-label="Kanawha Caramel concept">
+          <div class="wvf-card__icon" aria-hidden="true">🌊</div>
+          <div class="wvf-card__body">
+            <span class="badge badge-gold">Concept</span>
+            <h3 class="wvf-card__name">Kanawha Caramel</h3>
+            <p class="wvf-card__desc">Warm caramel glaze swirled over a fresh-baked ring — inspired by the slow, golden curve of Charleston's river.</p>
+            <p class="wvf-card__tagline script-accent">"The river runs sweet."</p>
+          </div>
+        </article>
+
+        <!-- Card 4: Mountain Morning Blend -->
+        <article class="wvf-card" aria-label="Mountain Morning Blend concept">
+          <div class="wvf-card__icon" aria-hidden="true">☕</div>
+          <div class="wvf-card__body">
+            <span class="badge badge-teal">Coffee Concept</span>
+            <h3 class="wvf-card__name">Mountain Morning Blend</h3>
+            <p class="wvf-card__desc">Fresh coffee. Fresh start. A medium roast as honest and unhurried as a West Virginia morning.</p>
+            <p class="wvf-card__tagline script-accent">"Fresh coffee. Fresh start."</p>
+          </div>
+        </article>
+
+        <!-- Card 5: Honorable Mention (subtle humor) -->
+        <article class="wvf-card wvf-card--humor" aria-label="Honorable Mention concept">
+          <div class="wvf-card__icon" aria-hidden="true">⭐</div>
+          <div class="wvf-card__body">
+            <span class="badge">Fan Favorite</span>
+            <h3 class="wvf-card__name">Honorable Mention™</h3>
+            <p class="wvf-card__desc">Fresh Donut Holes. They didn't quite make the full donut — but they showed up, and around here, that counts.</p>
+            <p class="wvf-card__tagline script-accent">"Still worth celebrating."</p>
+          </div>
+        </article>
+
+      </div><!-- /.wvf-cards -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. COMMUNITY — Photography-forward full-bleed section
+       ============================================================ -->
+  <section class="wvf-community" id="wvf-community" aria-label="Community section">
+    <div class="wvf-community__overlay"></div>
+    <div class="container wvf-community__inner">
+      <p class="eyebrow" style="color:var(--gold);">The People We Serve</p>
+      <h2 class="wvf-community__headline">Every Day Starts Somewhere</h2>
+
+      <!-- Community roles displayed as a warm, readable grid -->
+      <ul class="wvf-community__roles" aria-label="Community members we serve">
+        <li>👨‍👩‍👧 Families</li>
+        <li>🎓 Teachers</li>
+        <li>🏥 Healthcare Workers</li>
+        <li>👮 Police</li>
+        <li>🚒 Firefighters</li>
+        <li>🏗️ Construction Workers</li>
+        <li>⛏️ Coal Miners</li>
+        <li>📚 Students</li>
+      </ul>
+
+      <blockquote class="wvf-community__quote">
+        <p>
+          Whether you're beginning your shift,
+          meeting friends, coming off work,
+          or simply spending time together —
+        </p>
+        <footer>thank you for making us part of your day.</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. DID YOU KNOW? — West Virginia facts & community pride
+       ============================================================ -->
+  <section class="bg-vanilla" id="wvf-facts" aria-label="West Virginia facts">
+    <div class="container">
+      <div class="sign-heading">
+        <p class="eyebrow">Mountain State Pride</p>
+        <h2 class="mt-0">Did You Know?</h2>
+        <div class="sign-divider"></div>
+      </div>
+
+      <div class="grid grid-3 wvf-facts-grid">
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">🏛️</span>
+          <h3 class="wvf-fact-card__title">Capital Since 1885</h3>
+          <p>Charleston became the permanent capital of West Virginia in 1885, cementing its role as the heart of Mountain State life.</p>
+        </div>
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">🌊</span>
+          <h3 class="wvf-fact-card__title">The Kanawha River</h3>
+          <p>The Kanawha River helped shape Charleston as a trade and cultural hub — its banks have witnessed generations of community history.</p>
+        </div>
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">⛰️</span>
+          <h3 class="wvf-fact-card__title">Always Wild, Always Wonderful</h3>
+          <p>West Virginia's motto — <em>Montani Semper Liberi</em> — means "Mountaineers Are Always Free." A quiet pride runs through everything here.</p>
+        </div>
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">🎉</span>
+          <h3 class="wvf-fact-card__title">A Festival City</h3>
+          <p>Charleston hosts some of the state's most beloved annual festivals — from Vandalia Gathering to FestivALL — celebrating local arts, music, and heritage.</p>
+        </div>
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">🤝</span>
+          <h3 class="wvf-fact-card__title">Community First</h3>
+          <p>Neighbors helping neighbors isn't a slogan here — it's how Charleston operates, generation after generation, morning after morning.</p>
+        </div>
+
+        <div class="wvf-fact-card" role="article">
+          <span class="wvf-fact-card__icon" aria-hidden="true">🍩</span>
+          <h3 class="wvf-fact-card__title">Part of the Story</h3>
+          <p>For decades, Donut Connection has been one of Charleston's quiet morning rituals — a place where the same families return year after year.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. COMMUNITY FAVORITES — Future voting concept
+       ============================================================ -->
+  <section class="bg-coffee" id="wvf-vote" aria-label="Community favorites voting concept">
+    <div class="container">
+      <div class="sign-heading" style="max-width:780px;">
+        <p class="eyebrow" style="color:var(--gold);">Future Feature Concept</p>
+        <h2 class="mt-0" style="color:var(--white);">Community Favorites</h2>
+        <p style="color:var(--powder-pink);">Coming in a future phase — Charleston gets to decide what's next.</p>
+        <div class="sign-divider"></div>
+      </div>
+
+      <div class="grid grid-2 wvf-vote-grid">
+
+        <!-- Voting card -->
+        <div class="wvf-vote-card" role="article">
+          <div class="wvf-vote-card__gavel" aria-hidden="true">⚖️</div>
+          <h3 class="wvf-vote-card__headline">The Jury Is Out&hellip;</h3>
+          <p class="wvf-vote-card__body">
+            Each month, customers vote for the next featured donut. The neighborhood speaks — and we bake accordingly.
+          </p>
+          <div class="wvf-vote-card__cta">
+            <span class="badge badge-gold">Concept: Voting Opens Monthly</span>
+          </div>
+        </div>
+
+        <!-- Verdict card -->
+        <div class="wvf-vote-card wvf-vote-card--winner" role="article">
+          <div class="wvf-vote-card__gavel" aria-hidden="true">🏆</div>
+          <h3 class="wvf-vote-card__headline">The Verdict Is In&hellip;</h3>
+          <p class="wvf-vote-card__body">
+            Every Friday, we announce the winning donut. Stop in and celebrate — the Mountain State has spoken.
+          </p>
+          <div class="wvf-vote-card__cta">
+            <span class="badge badge-gold">Concept: Announced Every Friday</span>
+          </div>
+        </div>
+
+      </div><!-- /.grid -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. FOOTER CTA — Warm closing statement
+       ============================================================ -->
+  <section class="wvf-footer-cta bg-cream" aria-label="Closing statement">
+    <div class="container wvf-footer-cta__inner">
+      <span class="wvf-footer-cta__donut" aria-hidden="true">🍩</span>
+      <h2 class="wvf-footer-cta__headline">Made with West Virginia Pride.</h2>
+      <p class="wvf-footer-cta__body">
+        Every town has a story.<br>
+        We're honored to be a small part of Charleston's.
+      </p>
+      <div class="btn-row" style="justify-content:center;margin-top:28px;">
+        <a href="about.html" class="btn btn-primary">Our Story</a>
+        <a href="contact.html" class="btn btn-secondary">Visit the Shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STANDARD SITE FOOTER — identical to all other pages
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Donut Connection Charleston</h4>
+          <p class="small">2509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+          <p class="small">Phone: [PLACEHOLDER PHONE]<br>Email: [PLACEHOLDER EMAIL]</p>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Google Reviews">G</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="link-list" style="border:none;">
+            <li style="border:none;padding:4px 0;"><a href="menu.html">Donuts</a></li>
+            <li style="border:none;padding:4px 0;"><a href="coffee.html">Coffee</a></li>
+            <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+            <li style="border:none;padding:4px 0;"><a href="reviews.html">Wall of Smiles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Order &amp; Tradition</h4>
+          <ul class="link-list" style="border:none;">
+            <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+            <li style="border:none;padding:4px 0;"><a href="catering.html">Catering</a></li>
+            <li style="border:none;padding:4px 0;"><a href="rewards.html">Sweet Rewards</a></li>
+            <li style="border:none;padding:4px 0;"><a href="about.html">Our Story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p class="small">[PLACEHOLDER STORE HOURS &mdash; add days/times]</p>
+          <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Donut Connection Charleston &middot; 2509 MacCorkle Ave SE, Charleston, WV 25302<br>
+        &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+        <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- main.js handles nav toggle (shared with all pages) -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Minimal page-specific JS: entrance animations only -->
+  <script src="assets/js/wv-favorites.js"></script>
+
+</body>
+</html>
