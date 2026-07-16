@@ -8,8 +8,23 @@
 <script src="menu-data.js"></script><script>
 const menu=document.querySelector('#menu'),chips=document.querySelector('#chips'),search=document.querySelector('#search'),none=document.querySelector('#none');
 let selected='All'; const icons={'Donuts':'🍩','Fancy Donuts & Pastries':'✨','Donut Holes':'●','Cookies':'🍪','Ice Cream':'🍨','Coffee':'☕','Cappuccinos':'☕','Hot Chocolate':'♨','Cold Brew':'❄','Bagels':'🥯','Grandwiches':'🥪','Milkshakes':'🥤','Seasonal & Special Events':'🎉'};
+const categoryDisplay={
+  'Donuts':{name:'Classic Favorites',tagline:'The donuts that made us famous.'},
+  'Fancy Donuts & Pastries':{name:'Signature Donuts & Fresh Pastries',tagline:'Decorated, filled and customer favorites.'},
+  'Donut Holes':{name:'Donut Holes',tagline:'Perfect for sharing...or not!'},
+  'Cookies':{name:'Sweet Treats',tagline:'A little something extra for every sweet tooth.'},
+  'Ice Cream':{name:'Ice Cream Favorites',tagline:'Cool, creamy treats served your way.'},
+  'Coffee':{name:'Fresh-Brewed Coffee',tagline:'Freshly brewed throughout the day.'},
+  'Cappuccinos':{name:'Cappuccinos & Specialty Drinks',tagline:'Warm, comforting flavors in every cup.'},
+  'Hot Chocolate':{name:'Hot Chocolate',tagline:'Rich, warm and made for sipping.'},
+  'Cold Brew':{name:'Cold Brew Favorites',tagline:'Smooth, chilled and ready to refresh.'},
+  'Bagels':{name:'Fresh Bagels',tagline:'A simple and satisfying start to the day.'},
+  'Grandwiches':{name:'Breakfast Favorites',tagline:'Hot breakfast sandwiches made to satisfy.'},
+  'Milkshakes':{name:'Hand-Spun Milkshakes',tagline:'Cool off with a sweet treat.'},
+  'Seasonal & Special Events':{name:'Seasonal & Celebration Favorites',tagline:'Made for holidays, milestones and memorable moments.'}
+};
 function money(v){return typeof v==='number'?'$'+v.toFixed(2):''}
-function renderChips(){['All',...DC_MENU.map(x=>x.category)].forEach(c=>{const b=document.createElement('button');b.className='chip'+(c===selected?' active':'');b.textContent=c;b.onclick=()=>{selected=c;renderChips();render()};chips.appendChild(b)})}
-function render(){menu.innerHTML='';const q=search.value.trim().toLowerCase();let shown=0;DC_MENU.forEach(group=>{if(selected!=='All'&&group.category!==selected)return;const items=group.items.filter(i=>i[0].toLowerCase().includes(q));if(!items.length)return;shown+=items.length;const s=document.createElement('section');s.className='section';s.innerHTML=`<div class="section-head"><h2 class="section-title">${group.category}</h2><span class="section-line"></span><span class="count">${items.length} items</span></div><div class="grid">${items.map(i=>`<article class="card"><div class="category-icon">${icons[group.category]||'•'}</div><div class="item-name">${i[0]}</div>${i[1]!==undefined?`<div class="price">${money(i[1])}</div>`:`<div class="availability">Price available in store</div>`}</article>`).join('')}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
+function renderChips(){chips.innerHTML='';['All',...DC_MENU.map(x=>x.category)].forEach(c=>{const b=document.createElement('button');b.className='chip'+(c===selected?' active':'');b.textContent=c==='All'?'All':(categoryDisplay[c]?.name||c);b.onclick=()=>{selected=c;renderChips();render()};chips.appendChild(b)})}
+function render(){menu.innerHTML='';const q=search.value.trim().toLowerCase();let shown=0;DC_MENU.forEach(group=>{if(selected!=='All'&&group.category!==selected)return;const items=group.items.filter(i=>i[0].toLowerCase().includes(q));if(!items.length)return;shown+=items.length;const s=document.createElement('section');s.className='section';const display=categoryDisplay[group.category]||{name:group.category,tagline:''};s.innerHTML=`<div class="section-banner"><div class="section-banner-icon">${icons[group.category]||'•'}</div><div class="section-banner-copy"><h2 class="section-title">${display.name}</h2><p class="section-tagline">${display.tagline}</p></div><span class="section-line"></span><span class="count">${items.length} items</span></div><div class="grid">${items.map(i=>`<article class="card"><div class="category-icon">${icons[group.category]||'•'}</div><div class="item-name">${i[0]}</div>${i[1]!==undefined?`<div class="price">${money(i[1])}</div>`:`<div class="availability">Price available in store</div>`}</article>`).join('')}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
 search.addEventListener('input',render);renderChips();render();
 </script></body></html>
