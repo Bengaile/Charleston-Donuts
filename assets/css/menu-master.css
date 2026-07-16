@@ -1,0 +1,27 @@
+/* Menu Master display */
+.menu-master-section{padding:48px 0 68px;background:var(--cream,#fbf4ea)}
+.master-menu-group{margin-top:46px}
+.master-menu-group:first-child{margin-top:0}
+.master-menu-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--gold,#c98b2b)}
+.master-menu-heading h2{margin:0;color:var(--chocolate,#4b352a)}
+.master-menu-heading p{margin:0;color:var(--chocolate-soft,#6b5a4e);font-weight:700}
+.master-menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.master-menu-card{background:var(--white,#fff);border:1px solid #eadfce;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(75,53,42,.08);display:flex;flex-direction:column}
+.master-menu-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff}
+.menu-image-placeholder{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(145deg,#f9f0e2,#efe1cc);color:var(--chocolate-soft,#6b5a4e);font-family:"Playfair Display",serif;font-weight:700;text-align:center}
+.master-menu-card-body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
+.master-menu-card-topline{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.master-menu-id{margin:0;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--chocolate-soft,#6b5a4e)}
+.master-menu-price{margin:0;color:var(--raspberry,#c2185b);font-weight:900;white-space:nowrap}
+.master-menu-card h3{margin:8px 0 7px;font-family:"Playfair Display",serif;font-size:1.15rem;color:var(--chocolate,#4b352a);line-height:1.2}
+.master-menu-description{margin:0;color:var(--chocolate-soft,#6b5a4e);line-height:1.45}
+.master-menu-price-note{margin:auto 0 0;padding-top:12px;font-size:.78rem;font-style:italic;color:var(--chocolate-soft,#6b5a4e)}
+@media(max-width:640px){
+  .menu-master-section{padding-top:36px}
+  .master-menu-heading{align-items:flex-start;flex-direction:column;gap:3px}
+  .master-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .master-menu-card-body{padding:11px 12px 14px}
+  .master-menu-card h3{font-size:1rem}
+  .master-menu-description{font-size:.9rem}
+}
+@media(max-width:420px){.master-menu-grid{grid-template-columns:1fr}}
