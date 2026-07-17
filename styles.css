@@ -445,16 +445,11 @@ textarea { min-height: 120px; resize: vertical; }
 
 
 
-/* WV Favorites Footer Override */
-
-.wvf-footer-cta__headline {
-    font-size: 1.6rem !important;
-    line-height: 1.15 !important;
-    margin-bottom: .3rem !important;
-}
-
-.wvf-footer-cta h4.wvf-footer-cta__headline {
-    font-size: 1rem !important;
+/* WV Favorites hero heading — keep on one line */
+.wvf-hero__headline {
     white-space: nowrap !important;
-    line-height: 1.1 !important;
+    max-width: none !important;
+    width: 100% !important;
+    font-size: clamp(2.4rem, 5vw, 5rem) !important;
+    line-height: 1 !important;
 }
