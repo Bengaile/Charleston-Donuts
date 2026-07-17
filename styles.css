@@ -443,13 +443,11 @@ textarea { min-height: 120px; resize: vertical; }
 .muted { color: var(--chocolate-soft); }
 .small { font-size: 0.85rem; }
 
-
-
-/* WV Favorites hero heading — keep on one line */
+/* WV Favorites Hero Title */
 .wvf-hero__headline {
+    font-size: clamp(1.8rem, 4vw, 3.8rem) !important;
+    line-height: 1.05 !important;
     white-space: nowrap !important;
     max-width: none !important;
-    width: 100% !important;
-    font-size: clamp(2.4rem, 5vw, 5rem) !important;
-    line-height: 1 !important;
+    width: auto !important;
 }
