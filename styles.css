@@ -442,3 +442,19 @@ textarea { min-height: 120px; resize: vertical; }
 .mt-0 { margin-top: 0; }
 .muted { color: var(--chocolate-soft); }
 .small { font-size: 0.85rem; }
+
+
+
+/* WV Favorites Footer Override */
+
+.wvf-footer-cta__headline {
+    font-size: 1.6rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: .3rem !important;
+}
+
+.wvf-footer-cta h4.wvf-footer-cta__headline {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    line-height: 1.1 !important;
+}
