@@ -1,0 +1,17 @@
+/* =========================================================
+   WV FAVORITES FOOTER TYPOGRAPHY UPDATE v2
+   Paste at the END of styles.css
+   ========================================================= */
+
+.wvf-footer-cta__headline:first-of-type{
+    font-size:2.2rem !important;
+    line-height:1.05 !important;
+    margin-bottom:.25rem !important;
+}
+
+.wvf-footer-cta__headline + .wvf-footer-cta__headline{
+    font-size:1.2rem !important;
+    line-height:1.15 !important;
+    font-weight:600 !important;
+    margin-bottom:.9rem !important;
+}
