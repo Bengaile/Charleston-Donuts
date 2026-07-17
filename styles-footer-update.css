@@ -1,0 +1,14 @@
+/* WV Favorites Footer Typography Update */
+
+.wvf-footer-cta__headline:first-of-type{
+    font-size:clamp(2.1rem,4vw,3.2rem) !important;
+    line-height:1.1;
+    margin-bottom:.35rem;
+}
+
+.wvf-footer-cta__headline + .wvf-footer-cta__headline{
+    font-size:clamp(1.35rem,2.2vw,2rem) !important;
+    line-height:1.2;
+    font-weight:600;
+    margin-bottom:1rem;
+}
