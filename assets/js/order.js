@@ -382,8 +382,10 @@ function submitOrder (e) {
   /* Validate contact */
   const name  = document.getElementById('cust-name');
   const phone = document.getElementById('cust-phone');
+  const email = document.getElementById('cust-email');
   if (!name || !name.value.trim()) { alert('Please enter your name.'); return false; }
   if (!phone || !phone.value.trim()) { alert('Please enter your phone number.'); return false; }
+  if (!email || !email.value.trim() || !email.checkValidity()) { alert('Please enter a valid email address for your order confirmation.'); return false; }
 
   /* Build order summary string for Formspree */
   const items  = Object.entries(cart);
@@ -439,11 +441,10 @@ function submitOrder (e) {
     if (r.ok) {
       showConfirmation(orderNum, grand);
     } else {
-      alert('There was a problem submitting your order. Please call us directly: [STORE PHONE].');
+      alert('There was a problem submitting your order. Please call us directly at (304) 925-4261.');
     }
   }).catch(function () {
-    /* Fallback: show confirmation anyway and note the issue */
-    showConfirmation(orderNum, grand);
+    alert('There was a problem submitting your order. Please call us directly at (304) 925-4261.');
   });
 
   return false;
@@ -542,8 +543,10 @@ function initMobileForm () {
       /* Validate name and phone */
       var name  = document.getElementById('m-name');
       var phone = document.getElementById('m-phone');
+      var email = document.getElementById('m-email');
       if (!name || !name.value.trim())  { alert('Please enter your name.');         return; }
       if (!phone || !phone.value.trim()) { alert('Please enter your phone number.'); return; }
+      if (!email || !email.value.trim() || !email.checkValidity()) { alert('Please enter a valid email address for your order confirmation.'); return; }
 
       /* Copy to desktop form fields */
       var dName  = document.getElementById('cust-name');
