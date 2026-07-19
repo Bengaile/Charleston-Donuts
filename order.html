@@ -109,7 +109,10 @@
         </button>
         <div class="cart-header">
           <h3>&#127873; Your Order</h3>
-          <span class="cart-count-badge" id="cart-count">0</span>
+          <div class="cart-header-actions">
+            <button type="button" class="clear-order-btn" onclick="clearOrderAndStartOver()">Start Over</button>
+            <span class="cart-count-badge" id="cart-count">0</span>
+          </div>
         </div>
 
         <!-- Cart items -->
@@ -350,10 +353,13 @@
           🔒 Payment collected at pickup. We'll confirm by phone or text shortly after you order.
         </p>
 
-        <button type="button" id="mobile-place-order-btn"
-                style="width:100%;padding:16px;font-size:1.05rem;font-family:var(--font-display);font-weight:700;background:var(--raspberry);color:var(--white);border:none;border-radius:999px;cursor:pointer;box-shadow:0 3px 0 var(--raspberry-dark);">
-          Place My Order 🍩
-        </button>
+        <div class="mobile-order-actions">
+          <button type="button" class="clear-order-btn clear-order-btn-mobile" onclick="clearOrderAndStartOver()">Clear Order / Start Over</button>
+          <button type="button" id="mobile-place-order-btn"
+                  style="width:100%;padding:16px;font-size:1.05rem;font-family:var(--font-display);font-weight:700;background:var(--raspberry);color:var(--white);border:none;border-radius:999px;cursor:pointer;box-shadow:0 3px 0 var(--raspberry-dark);">
+            Place My Order 🍩
+          </button>
+        </div>
       </div>
     </div>
   </div>

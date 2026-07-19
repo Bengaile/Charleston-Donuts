@@ -423,6 +423,60 @@ function checkLeadTime () {
 var LARGE_ORDER_TY = LARGE_ORDER_QTY;
 
 /* =========================================================
+   CLEAR ORDER / START OVER
+   Clears cart, selected options, pickup choices and customer fields.
+   ========================================================= */
+function clearOrderAndStartOver () {
+  var hasProgress = Object.keys(cart).length > 0 || selectedDay || selectedTime ||
+    ['cust-name','cust-phone','cust-email','cust-notes','m-name','m-phone','m-email','m-notes']
+      .some(function (id) { var el = document.getElementById(id); return el && el.value.trim(); });
+
+  if (hasProgress && !window.confirm('Clear this order and start over?')) return;
+
+  cart = {};
+  selectedDay = null;
+  selectedTime = null;
+  clearCartStorage();
+
+  document.querySelectorAll('.configured-item select').forEach(function (select) { select.selectedIndex = 0; });
+  document.querySelectorAll('.qty-display').forEach(function (qty) { qty.textContent = '0'; });
+  document.querySelectorAll('.configured-item').forEach(function (row) {
+    var id = row.id.replace(/^row-/, '');
+    var parts = id.replace(/^configured-/, '').split('-');
+    var sectionId = parts.slice(0, -1).join('-');
+    var itemIndex = parseInt(parts[parts.length - 1], 10);
+    var sectionIndex = MENU_DATA.sections.findIndex(function (section) { return section.id === sectionId; });
+    if (sectionIndex >= 0 && !Number.isNaN(itemIndex)) refreshConfiguredQty(id, sectionIndex, itemIndex);
+  });
+
+  document.querySelectorAll('.day-btn,.time-btn').forEach(function (btn) { btn.classList.remove('selected'); });
+  var timeGrid = document.getElementById('time-grid');
+  if (timeGrid) timeGrid.innerHTML = '';
+  var timeWrap = document.getElementById('time-grid-wrap');
+  if (timeWrap) timeWrap.style.display = 'none';
+
+  ['pickup-date','pickup-time','order-number','order-summary'].forEach(function (id) {
+    var el = document.getElementById(id); if (el) el.value = '';
+  });
+  ['cust-name','cust-phone','cust-email','cust-notes','m-name','m-phone','m-email','m-notes'].forEach(function (id) {
+    var el = document.getElementById(id); if (el) el.value = '';
+  });
+
+  var form = document.getElementById('order-form');
+  if (form) form.reset();
+  var pickupSummary = document.getElementById('pickup-summary');
+  if (pickupSummary) pickupSummary.innerHTML = '&nbsp;Choose a date &amp; time above';
+  var mobilePickup = document.getElementById('mobile-pickup-display');
+  if (mobilePickup) mobilePickup.textContent = ' Choose a date & time above';
+
+  renderCart();
+  updateMobileCartSummary();
+  checkLeadTime();
+  closeMobileCheckout();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* =========================================================
    ORDER SUBMISSION
    ========================================================= */
 function submitOrder (e) {
