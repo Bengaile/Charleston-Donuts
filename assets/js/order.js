@@ -43,31 +43,40 @@ function buildMenuFromData () {
   const container = document.getElementById('menu-sections');
   if (!container) return;
 
-  MENU_DATA.sections.forEach(function (section, idx) {
+  MENU_DATA.sections.forEach(function (section, sectionIndex) {
     const div = document.createElement('div');
-    div.className = 'menu-section' + (idx === 0 ? ' active' : '');
+    div.className = 'menu-section' + (sectionIndex === 0 ? ' active' : '');
     div.id = 'sec-' + section.id;
 
-    let html = '<div class="menu-section-header">';
-    html += '<h2>' + section.label + '</h2>';
+    let html = '<div class="menu-section-header"><h2>' + section.label + '</h2>';
     if (section.subtitle) html += '<p>' + section.subtitle + '</p>';
     html += '</div>';
 
-    section.items.forEach(function (item) {
-      const priceDisplay = item.price ? '$' + parseFloat(item.price).toFixed(2) : '$__.__';
-      const priceVal     = item.price ? parseFloat(item.price) : 0;
-      const safeId       = 'item-' + item.name.replace(/[^a-z0-9]/gi, '-').toLowerCase();
-      html += '<div class="menu-item-row" id="row-' + safeId + '">';
-      html += '<div class="menu-item-info">';
-      html += '<h4>' + item.name + '</h4>';
+    section.items.forEach(function (item, itemIndex) {
+      const rowId = 'configured-' + section.id + '-' + itemIndex;
+      const basePrice = getStartingPrice(item);
+      const priceDisplay = basePrice > 0 ? (item.options ? 'From $' : '$') + basePrice.toFixed(2) : '$__.__';
+      html += '<div class="menu-item-row configured-item" id="row-' + rowId + '">';
+      html += '<div class="menu-item-info"><h4>' + item.name + '</h4>';
+      if (item.options) {
+        html += '<div class="order-item-options">';
+        item.options.forEach(function (option, optionIndex) {
+          html += '<label><span>' + option.label + '</span><select id="option-' + rowId + '-' + optionIndex + '" onchange="refreshConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ')">';
+          html += '<option value="">Select ' + option.label.toLowerCase() + '</option>';
+          option.choices.forEach(function (choice, choiceIndex) {
+            html += '<option value="' + choiceIndex + '">' + choice.label + (choice.price ? ' — $' + parseFloat(choice.price).toFixed(2) : '') + '</option>';
+          });
+          html += '</select></label>';
+        });
+        html += '</div>';
+      }
       html += '</div>';
-      html += '<span class="menu-item-price">' + priceDisplay + '</span>';
+      html += '<span class="menu-item-price" id="price-' + rowId + '">' + priceDisplay + '</span>';
       html += '<div class="item-qty-controls">';
-      html += '<button class="qty-btn" aria-label="Remove one ' + item.name + '" onclick="changeQty(\'' + escQ(item.name) + '\',' + priceVal + ',-1)">&#8722;</button>';
-      html += '<span class="qty-display" id="qty-' + safeId + '">0</span>';
-      html += '<button class="qty-btn" aria-label="Add one ' + item.name + '" onclick="changeQty(\'' + escQ(item.name) + '\',' + priceVal + ',1)">&#43;</button>';
-      html += '</div>';
-      html += '</div>';
+      html += '<button class="qty-btn" aria-label="Remove one ' + item.name + '" onclick="changeConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ',-1)">&#8722;</button>';
+      html += '<span class="qty-display" id="qty-' + rowId + '">0</span>';
+      html += '<button class="qty-btn" aria-label="Add one ' + item.name + '" onclick="changeConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ',1)">&#43;</button>';
+      html += '</div></div>';
     });
 
     div.innerHTML = html;
@@ -77,6 +86,58 @@ function buildMenuFromData () {
 
 function escQ (str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+function getStartingPrice (item) {
+  if (item.price) return parseFloat(item.price);
+  var prices = [];
+  (item.options || []).forEach(function (option) {
+    option.choices.forEach(function (choice) { if (choice.price) prices.push(parseFloat(choice.price)); });
+  });
+  return prices.length ? Math.min.apply(null, prices) : 0;
+}
+
+function getConfiguredItem (rowId, sectionIndex, itemIndex, showAlert) {
+  var item = MENU_DATA.sections[sectionIndex].items[itemIndex];
+  var selectedLabels = [];
+  var price = item.price ? parseFloat(item.price) : 0;
+  var complete = true;
+  (item.options || []).forEach(function (option, optionIndex) {
+    var select = document.getElementById('option-' + rowId + '-' + optionIndex);
+    var choiceIndex = select ? select.value : '';
+    if (choiceIndex === '') { complete = false; return; }
+    var choice = option.choices[parseInt(choiceIndex, 10)];
+    selectedLabels.push(option.label + ': ' + choice.label);
+    if (choice.price) price = parseFloat(choice.price);
+  });
+  if (!complete) {
+    if (showAlert) alert('Please select each option for ' + item.name + ' first.');
+    return null;
+  }
+  var name = item.name + (selectedLabels.length ? ' — ' + selectedLabels.join(', ') : '');
+  return { key: name, name: name, price: price };
+}
+
+function changeConfiguredQty (rowId, sectionIndex, itemIndex, delta) {
+  var configured = getConfiguredItem(rowId, sectionIndex, itemIndex, delta > 0);
+  if (!configured) return;
+  changeQty(configured.key, configured.price, delta);
+  refreshConfiguredQty(rowId, sectionIndex, itemIndex);
+}
+
+function refreshConfiguredQty (rowId, sectionIndex, itemIndex) {
+  var configured = getConfiguredItem(rowId, sectionIndex, itemIndex, false);
+  var qty = document.getElementById('qty-' + rowId);
+  var price = document.getElementById('price-' + rowId);
+  var item = MENU_DATA.sections[sectionIndex].items[itemIndex];
+  if (configured) {
+    if (qty) qty.textContent = cart[configured.key] ? cart[configured.key].qty : 0;
+    if (price) price.textContent = configured.price > 0 ? '$' + configured.price.toFixed(2) : '$__.__';
+  } else {
+    if (qty) qty.textContent = '0';
+    var starting = getStartingPrice(item);
+    if (price) price.textContent = starting > 0 ? (item.options ? 'From $' : '$') + starting.toFixed(2) : '$__.__';
+  }
 }
 
 /* =========================================================

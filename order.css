@@ -385,3 +385,6 @@
 @media (min-width: 901px) {
   .mobile-close-btn { display: none; }
 }
+
+/* Parent-item dropdowns: structural addition only; existing order-page styling remains intact. */
+.configured-item{align-items:flex-start}.order-item-options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.order-item-options label{display:grid;gap:3px;min-width:145px}.order-item-options label span{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--chocolate-soft)}.order-item-options select{max-width:210px;border:1px solid rgba(70,39,28,.20);border-radius:9px;background:#fff;color:var(--deep-coffee);font:700 .76rem Lato,sans-serif;padding:7px 26px 7px 8px}.order-item-options select:focus{outline:none;border-color:var(--raspberry);box-shadow:0 0 0 3px rgba(216,21,104,.10)}@media(max-width:620px){.configured-item{flex-wrap:wrap}.order-item-options{width:100%}.order-item-options label{min-width:100%}.order-item-options select{max-width:none;width:100%}}
