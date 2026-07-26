@@ -62,7 +62,7 @@ function buildMenuFromData () {
         html += '<div class="order-item-options">';
         item.options.forEach(function (option, optionIndex) {
           html += '<label><span>' + option.label + '</span><select id="option-' + rowId + '-' + optionIndex + '" onchange="refreshConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ')">';
-          html += '<option value="">Select ' + option.label.toLowerCase() + '</option>';
+          html += '<option value="">' + optionPrompt(option.label) + '</option>';
           option.choices.forEach(function (choice, choiceIndex) {
             html += '<option value="' + choiceIndex + '">' + choice.label + (choice.price ? ' — $' + parseFloat(choice.price).toFixed(2) : '') + '</option>';
           });
@@ -82,6 +82,12 @@ function buildMenuFromData () {
     div.innerHTML = html;
     container.appendChild(div);
   });
+}
+
+
+function optionPrompt (label) {
+  var clean = String(label || '').replace(/^Choose\s+(?:a|an)\s+/i, '').replace(/^Choose\s+/i, '');
+  return 'Select ' + clean.toLowerCase();
 }
 
 function escQ (str) {

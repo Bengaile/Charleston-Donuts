@@ -6,31 +6,2951 @@ const MENU_DATA = {
       "subtitle": "Fried fresh, glazed, filled, and frosted — every single day.",
       "items": [
         {
-          "name": "Single Donut",
-          "price": "1.50"
+          "name": "Dozen Donuts",
+          "price": "16.20",
+          "options": [
+            {
+              "label": "Choose a first flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a second flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a third flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a fourth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a fifth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a sixth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a seventh flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose an eighth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a ninth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a tenth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose an eleventh flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a twelfth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Half Dozen Donuts",
-          "price": "7.99"
+          "price": "9.60",
+          "options": [
+            {
+              "label": "Choose a first flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a second flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a third flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a fourth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a fifth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose a sixth flavor",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Eight Pack Donuts",
-          "price": "9.50"
+          "price": "9.50",
+          "options": [
+            {
+              "label": "Choose donut 1",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 2",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 3",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 4",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 5",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 6",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 7",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            },
+            {
+              "label": "Choose donut 8",
+              "choices": [
+                {
+                  "label": "Angel Donut"
+                },
+                {
+                  "label": "Bavarian Donut"
+                },
+                {
+                  "label": "Blueberry Cake Donut"
+                },
+                {
+                  "label": "Boston Creme Donut"
+                },
+                {
+                  "label": "Charleston Delight Donut"
+                },
+                {
+                  "label": "Cherry Cake Donut"
+                },
+                {
+                  "label": "Chocolate Chip Donut"
+                },
+                {
+                  "label": "Chocolate Donut"
+                },
+                {
+                  "label": "Chocolate Iced Cake Donut"
+                },
+                {
+                  "label": "Chocolate Iced Ring Donut"
+                },
+                {
+                  "label": "Cinnamon Donut"
+                },
+                {
+                  "label": "Double Chocolate Angel Donut"
+                },
+                {
+                  "label": "Double Chocolate Donut"
+                },
+                {
+                  "label": "Dutch Apple Donut"
+                },
+                {
+                  "label": "Dutch Crumb Donut"
+                },
+                {
+                  "label": "French Donut"
+                },
+                {
+                  "label": "German Chocolate Donut"
+                },
+                {
+                  "label": "Graham Cracker Donut"
+                },
+                {
+                  "label": "Homecut Donut"
+                },
+                {
+                  "label": "Honey Dip Donut"
+                },
+                {
+                  "label": "Honeydew Donut"
+                },
+                {
+                  "label": "Jelly Donut"
+                },
+                {
+                  "label": "Lemon Donut"
+                },
+                {
+                  "label": "Maple Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Butter Cup Donut"
+                },
+                {
+                  "label": "Peanut Butter Iced Ring Donut"
+                },
+                {
+                  "label": "Peanut Donut"
+                },
+                {
+                  "label": "Powdered Donut"
+                },
+                {
+                  "label": "Sour Creme Donut"
+                },
+                {
+                  "label": "Strawberry Shortcake Donut"
+                },
+                {
+                  "label": "Swiss Chocolate Donut"
+                },
+                {
+                  "label": "Toasted Coconut Donut"
+                },
+                {
+                  "label": "Vanilla Iced Chocolate Donut"
+                },
+                {
+                  "label": "Vanilla Iced Ring Donut"
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Dozen Donuts",
-          "price": "13.49"
+          "name": "Angel Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Bavarian Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Blueberry Cake Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Boston Creme Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Charleston Delight Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Cherry Cake Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Chocolate Chip Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Chocolate Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Chocolate Iced Cake Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Chocolate Iced Ring Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Cinnamon Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Double Chocolate Angel Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Double Chocolate Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Dutch Apple Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Dutch Crumb Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "French Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "German Chocolate Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Graham Cracker Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Homecut Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Honey Dip Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Honeydew Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Jelly Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Lemon Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Maple Iced Ring Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Peanut Butter Cup Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Peanut Butter Iced Ring Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Peanut Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Powdered Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Sour Creme Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Strawberry Shortcake Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Swiss Chocolate Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Toasted Coconut Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Vanilla Iced Chocolate Donut",
+          "price": "1.80"
+        },
+        {
+          "name": "Vanilla Iced Ring Donut",
+          "price": "1.80"
         },
         {
           "name": "Donut Holes",
           "price": "",
           "options": [
             {
-              "label": "Package",
+              "label": "Choose quantity",
               "choices": [
                 {
                   "label": "Single",
-                  "price": "0.39"
+                  "price": "0.47"
                 },
                 {
                   "label": "Half Dozen",
@@ -38,15 +2958,15 @@ const MENU_DATA = {
                 },
                 {
                   "label": "Dozen",
-                  "price": "3.99"
+                  "price": "4.80"
                 },
                 {
                   "label": "Box of 30",
-                  "price": "9.99"
+                  "price": "11.99"
                 },
                 {
                   "label": "Box of 45",
-                  "price": "12.99"
+                  "price": "15.60"
                 }
               ]
             }
@@ -60,27 +2980,23 @@ const MENU_DATA = {
       "subtitle": "Hot, iced, and always ready to go.",
       "items": [
         {
-          "name": "Coffee",
-          "price": "",
+          "name": "Hot Coffee",
+          "price": "2.00",
           "options": [
             {
-              "label": "Size",
+              "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": "1.69"
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": "1.99"
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": "2.30"
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": "2.50"
+                  "label": "Extra Large"
                 }
               ]
             }
@@ -88,7 +3004,7 @@ const MENU_DATA = {
         },
         {
           "name": "Coffee Carafe",
-          "price": "16.99"
+          "price": "20.00"
         },
         {
           "name": "Travel Mug Refill",
@@ -100,32 +3016,31 @@ const MENU_DATA = {
         },
         {
           "name": "Cappuccino",
-          "price": "",
+          "price": "2.65",
           "options": [
             {
-              "label": "Size",
+              "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": "2.19"
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": "2.69"
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": "3.19"
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": "3.69"
+                  "label": "Extra Large"
                 }
               ]
             },
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "French Vanilla"
                 },
@@ -141,26 +3056,22 @@ const MENU_DATA = {
         },
         {
           "name": "Hot Chocolate",
-          "price": "",
+          "price": "2.19",
           "options": [
             {
-              "label": "Size",
+              "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": "2.19"
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": "2.69"
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": "3.19"
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": "3.69"
+                  "label": "Extra Large"
                 }
               ]
             }
@@ -172,24 +3083,25 @@ const MENU_DATA = {
         },
         {
           "name": "Iced Coffee",
-          "price": "",
+          "price": "3.25",
           "options": [
             {
-              "label": "Size",
+              "label": "Choose a size",
               "choices": [
                 {
-                  "label": "16 oz.",
-                  "price": "2.19"
+                  "label": "16 oz."
                 },
                 {
-                  "label": "20 oz.",
-                  "price": "2.39"
+                  "label": "20 oz."
                 }
               ]
             },
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "French Vanilla"
                 },
@@ -211,11 +3123,11 @@ const MENU_DATA = {
       "subtitle": "Hearty bites to start the morning right.",
       "items": [
         {
-          "name": "Bagel",
-          "price": "2.25",
+          "name": "Bagel with Cream Cheese",
+          "price": "2.70",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a bagel",
               "choices": [
                 {
                   "label": "Everything"
@@ -234,32 +3146,32 @@ const MENU_DATA = {
           ]
         },
         {
-          "name": "Pepperoni Grandwich",
-          "price": "3.25"
+          "name": "Pepperoni Sandwich with Cheese",
+          "price": "4.80"
         },
         {
-          "name": "Ham and Cheese Grandwich",
-          "price": "3.99"
+          "name": "Ham Sandwich with Cheese",
+          "price": "4.80"
         },
         {
-          "name": "Bacon and Cheese Grandwich",
-          "price": "3.99"
+          "name": "Bacon Sandwich with Cheese",
+          "price": "4.80"
         },
         {
-          "name": "Sausage and Cheese Grandwich",
-          "price": "3.99"
+          "name": "Sausage Sandwich with Cheese",
+          "price": "4.80"
         },
         {
-          "name": "Bacon, Egg and Cheese Grandwich",
-          "price": "4.59"
+          "name": "Bacon Sandwich with Egg and Cheese",
+          "price": "5.50"
         },
         {
-          "name": "Sausage, Egg and Cheese Grandwich",
-          "price": "4.59"
+          "name": "Sausage Sandwich with Egg and Cheese",
+          "price": "5.50"
         },
         {
-          "name": "Ham, Egg and Cheese Grandwich",
-          "price": "4.59"
+          "name": "Ham Sandwich with Egg and Cheese",
+          "price": "5.50"
         }
       ]
     },
@@ -270,11 +3182,14 @@ const MENU_DATA = {
       "items": [
         {
           "name": "Eclair",
-          "price": "2.50",
+          "price": "2.79",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Vanilla"
                 },
@@ -289,12 +3204,15 @@ const MENU_DATA = {
           ]
         },
         {
-          "name": "Lady Finger",
-          "price": "2.50",
+          "name": "Lady Fingers",
+          "price": "2.79",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Vanilla"
                 },
@@ -309,28 +3227,39 @@ const MENU_DATA = {
           ]
         },
         {
-          "name": "Hot Dogs",
-          "price": "2.50"
-        },
-        {
-          "name": "Maple Bacon Long Johns",
-          "price": "2.50"
-        },
-        {
-          "name": "Fritters",
-          "price": "2.70"
+          "name": "Apple Fritters",
+          "price": "3.24"
         },
         {
           "name": "Cinnamon Rolls",
-          "price": "2.70"
+          "price": "3.24"
         },
         {
-          "name": "Cream-Filled Cookie",
-          "price": "2.59",
+          "name": "Cream Horns",
+          "price": "1.79"
+        },
+        {
+          "name": "Brownie",
+          "price": "2.50"
+        },
+        {
+          "name": "Brownie Cream Finger",
+          "price": "2.09"
+        },
+        {
+          "name": "Apple Sticks",
+          "price": "1.79"
+        },
+        {
+          "name": "Cream Filled Cookie",
+          "price": "3.49",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Chocolate Chip"
                 },
@@ -348,12 +3277,52 @@ const MENU_DATA = {
           ]
         },
         {
+          "name": "Cookie",
+          "price": "0.95",
+          "options": [
+            {
+              "label": "Choose a flavor",
+              "choices": [
+                {
+                  "label": "None"
+                },
+                {
+                  "label": "Chocolate Chip"
+                },
+                {
+                  "label": "Sugar"
+                },
+                {
+                  "label": "Double Chocolate"
+                },
+                {
+                  "label": "Oatmeal Raisin"
+                },
+                {
+                  "label": "Peanut Butter"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hot Dogs",
+          "price": "2.50"
+        },
+        {
+          "name": "Maple Bacon Long Johns",
+          "price": "2.50"
+        },
+        {
           "name": "Muffin",
           "price": "1.99",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Banana Nut"
                 },
@@ -371,28 +3340,19 @@ const MENU_DATA = {
           ]
         },
         {
-          "name": "Brownie Cream Fingers",
-          "price": "1.69"
-        },
-        {
-          "name": "Brownies",
-          "price": "1.59"
-        },
-        {
           "name": "Cinnamon Twists",
           "price": "1.59"
-        },
-        {
-          "name": "Cream Horns",
-          "price": "1.49"
         },
         {
           "name": "Turnover",
           "price": "1.49",
           "options": [
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Cherry"
                 },
@@ -414,51 +3374,8 @@ const MENU_DATA = {
     {
       "id": "fancies",
       "label": "Fancies & Sweets",
-      "subtitle": "Cookies, ice cream, shakes, and cold drinks.",
+      "subtitle": "Ice cream, shakes, and cold drinks.",
       "items": [
-        {
-          "name": "Cookies",
-          "price": "",
-          "options": [
-            {
-              "label": "Quantity",
-              "choices": [
-                {
-                  "label": "Single",
-                  "price": "0.75"
-                },
-                {
-                  "label": "Half Dozen",
-                  "price": "4.19"
-                },
-                {
-                  "label": "Dozen",
-                  "price": "7.29"
-                }
-              ]
-            },
-            {
-              "label": "Flavor",
-              "choices": [
-                {
-                  "label": "Chocolate Chip"
-                },
-                {
-                  "label": "Sugar"
-                },
-                {
-                  "label": "Double Chocolate"
-                },
-                {
-                  "label": "Oatmeal Raisin"
-                },
-                {
-                  "label": "Peanut Butter"
-                }
-              ]
-            }
-          ]
-        },
         {
           "name": "Ice Cream",
           "price": "",
@@ -497,8 +3414,11 @@ const MENU_DATA = {
               ]
             },
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Vanilla"
                 },
@@ -526,24 +3446,25 @@ const MENU_DATA = {
         },
         {
           "name": "Milkshake",
-          "price": "",
+          "price": "4.10",
           "options": [
             {
-              "label": "Size",
+              "label": "Choose a size",
               "choices": [
                 {
-                  "label": "16 oz.",
-                  "price": "2.79"
+                  "label": "16 oz."
                 },
                 {
-                  "label": "20 oz.",
-                  "price": "3.39"
+                  "label": "20 oz."
                 }
               ]
             },
             {
-              "label": "Flavor",
+              "label": "Choose a flavor",
               "choices": [
+                {
+                  "label": "None"
+                },
                 {
                   "label": "Vanilla"
                 },
