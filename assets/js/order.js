@@ -23,8 +23,6 @@ const TAX_RATE         = 0.06;/* WV 6% prepared food tax */
 let cart = {}; /* { itemName: { qty, price } } */
 let selectedDay   = null;
 let selectedTime  = null;
-let flavorBuilderState = {}; /* rowId -> array of quantities by flavor */
-let individualDonutState = {}; /* rowId -> quantities for individual donut varieties */
 
 /* =========================================================
    INIT
@@ -35,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
   buildCategoryTabs();
   renderCart();
   loadCartFromStorage();
-  importMenuPageDonutSelection();
 });
 
 /* =========================================================
@@ -56,53 +53,22 @@ function buildMenuFromData () {
     html += '</div>';
 
     section.items.forEach(function (item, itemIndex) {
-      /* Group the separately priced donut varieties into one quantity builder. */
-      if (section.id === 'donuts' && isIndividualDonutItem(item)) {
-        var individualItems = section.items.filter(isIndividualDonutItem);
-        if (item !== individualItems[0]) return;
-        html += renderIndividualDonutBuilder(sectionIndex, individualItems);
-        return;
-      }
       const rowId = 'configured-' + section.id + '-' + itemIndex;
       const basePrice = getStartingPrice(item);
       const priceDisplay = basePrice > 0 ? (item.options ? 'From $' : '$') + basePrice.toFixed(2) : '$__.__';
       html += '<div class="menu-item-row configured-item" id="row-' + rowId + '">';
       html += '<div class="menu-item-info"><h4>' + item.name + '</h4>';
       if (item.options) {
-        if (isFlavorQuantityBuilder(item)) {
-          var requiredTotal = item.options.length;
-          var choices = item.options[0].choices;
-          flavorBuilderState[rowId] = flavorBuilderState[rowId] || choices.map(function () { return 0; });
-          html += '<div class="flavor-builder" id="builder-' + rowId + '">';
-          html += '<button type="button" class="flavor-builder-toggle" onclick="toggleFlavorBuilder(\'' + rowId + '\')" aria-expanded="false">';
-          html += '<span>Choose your flavors</span><strong id="builder-tally-' + rowId + '">0 of ' + requiredTotal + ' selected</strong><span class="builder-chevron">&#9662;</span></button>';
-          html += '<div class="flavor-builder-panel" id="builder-panel-' + rowId + '" hidden>';
-          html += '<div class="flavor-builder-sticky"><span>Build your box</span><strong id="builder-tally-panel-' + rowId + '">0 of ' + requiredTotal + ' selected</strong></div>';
-          choices.forEach(function (choice, choiceIndex) {
-            html += '<div class="flavor-builder-row"><span class="flavor-name">' + choice.label + '</span>';
-            html += '<div class="flavor-qty-controls">';
-            html += '<button type="button" class="flavor-qty-btn" onclick="changeFlavorQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ',' + choiceIndex + ',-1)" aria-label="Remove one ' + choice.label + '">&#8722;</button>';
-            html += '<span class="flavor-qty-value" id="flavor-qty-' + rowId + '-' + choiceIndex + '">0</span>';
-            html += '<button type="button" class="flavor-qty-btn" onclick="changeFlavorQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ',' + choiceIndex + ',1)" aria-label="Add one ' + choice.label + '">&#43;</button>';
-            html += '</div></div>';
+        html += '<div class="order-item-options">';
+        item.options.forEach(function (option, optionIndex) {
+          html += '<label><span>' + option.label + '</span><select id="option-' + rowId + '-' + optionIndex + '" onchange="refreshConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ')">';
+          html += '<option value="">' + optionPrompt(option.label) + '</option>';
+          option.choices.forEach(function (choice, choiceIndex) {
+            html += '<option value="' + choiceIndex + '">' + choice.label + (choice.price ? ' — $' + parseFloat(choice.price).toFixed(2) : '') + '</option>';
           });
-          html += '<div class="flavor-builder-action">';
-          html += '<button type="button" class="flavor-add-order-btn" id="builder-add-' + rowId + '" onclick="addFlavorBuilderToOrder(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ')" disabled>Add to Order</button>';
-          html += '<span class="flavor-add-help" id="builder-help-' + rowId + '">Select exactly ' + requiredTotal + ' donuts to continue.</span>';
-          html += '</div>';
-          html += '</div></div>';
-        } else {
-          html += '<div class="order-item-options">';
-          item.options.forEach(function (option, optionIndex) {
-            html += '<label><span>' + option.label + '</span><select id="option-' + rowId + '-' + optionIndex + '" onchange="refreshConfiguredQty(\'' + rowId + '\',' + sectionIndex + ',' + itemIndex + ')">';
-            html += '<option value="">' + optionPrompt(option.label) + '</option>';
-            option.choices.forEach(function (choice, choiceIndex) {
-              html += '<option value="' + choiceIndex + '">' + choice.label + (choice.price ? ' — $' + parseFloat(choice.price).toFixed(2) : '') + '</option>';
-            });
-            html += '</select></label>';
-          });
-          html += '</div>';
-        }
+          html += '</select></label>';
+        });
+        html += '</div>';
       }
       html += '</div>';
       html += '<span class="menu-item-price" id="price-' + rowId + '">' + priceDisplay + '</span>';
@@ -118,194 +84,6 @@ function buildMenuFromData () {
   });
 }
 
-
-
-function isIndividualDonutItem (item) {
-  return !!item && !item.options && /Donut$/i.test(item.name || '') && parseFloat(item.price || 0) === 1.80;
-}
-
-function renderIndividualDonutBuilder (sectionIndex, items) {
-  var rowId = 'individual-donuts';
-  individualDonutState[rowId] = individualDonutState[rowId] || items.map(function () { return 0; });
-  var html = '<div class="menu-item-row configured-item individual-donut-group" id="row-' + rowId + '">';
-  html += '<div class="menu-item-info"><h4>Individual Donuts</h4>';
-  html += '<p class="individual-builder-intro">Mix and match any quantity. Your donut count and running total update as you choose.</p>';
-  html += '<div class="flavor-builder individual-builder" id="builder-' + rowId + '">';
-  html += '<button type="button" class="flavor-builder-toggle" onclick="toggleFlavorBuilder(\'' + rowId + '\')" aria-expanded="false">';
-  html += '<span>Choose donut varieties</span><strong id="individual-tally-' + rowId + '">0 donuts · $0.00</strong><span class="builder-chevron">&#9662;</span></button>';
-  html += '<div class="flavor-builder-panel" id="builder-panel-' + rowId + '" hidden>';
-  html += '<div class="flavor-builder-sticky"><span>Build your selection</span><strong id="individual-tally-panel-' + rowId + '">0 donuts · $0.00</strong></div>';
-  items.forEach(function (donut, donutIndex) {
-    html += '<div class="flavor-builder-row"><span class="flavor-name">' + donut.name + '<small>$' + parseFloat(donut.price).toFixed(2) + ' each</small></span>';
-    html += '<div class="flavor-qty-controls">';
-    html += '<button type="button" class="flavor-qty-btn" onclick="changeIndividualDonutQty(\'' + rowId + '\',' + sectionIndex + ',' + donutIndex + ',-1)" aria-label="Remove one ' + donut.name + '">&#8722;</button>';
-    html += '<span class="flavor-qty-value" id="individual-qty-' + rowId + '-' + donutIndex + '">0</span>';
-    html += '<button type="button" class="flavor-qty-btn" onclick="changeIndividualDonutQty(\'' + rowId + '\',' + sectionIndex + ',' + donutIndex + ',1)" aria-label="Add one ' + donut.name + '">&#43;</button>';
-    html += '</div></div>';
-  });
-  html += '<div class="flavor-builder-action">';
-  html += '<button type="button" class="flavor-add-order-btn" id="individual-add-' + rowId + '" onclick="addIndividualDonutsToOrder(\'' + rowId + '\',' + sectionIndex + ')" disabled>Add to Order</button>';
-  html += '<span class="flavor-add-help" id="individual-help-' + rowId + '">Choose at least one donut to continue.</span>';
-  html += '</div></div></div></div>';
-  html += '<span class="menu-item-price individual-running-price" id="individual-price-' + rowId + '">$0.00</span>';
-  html += '</div>';
-  return html;
-}
-
-function getIndividualDonutItems (sectionIndex) {
-  return MENU_DATA.sections[sectionIndex].items.filter(isIndividualDonutItem);
-}
-
-function changeIndividualDonutQty (rowId, sectionIndex, donutIndex, delta) {
-  var items = getIndividualDonutItems(sectionIndex);
-  var state = individualDonutState[rowId] || items.map(function () { return 0; });
-  state[donutIndex] = Math.max(0, state[donutIndex] + delta);
-  individualDonutState[rowId] = state;
-  var qtyEl = document.getElementById('individual-qty-' + rowId + '-' + donutIndex);
-  if (qtyEl) qtyEl.textContent = state[donutIndex];
-  updateIndividualDonutTally(rowId, sectionIndex);
-}
-
-function updateIndividualDonutTally (rowId, sectionIndex) {
-  var items = getIndividualDonutItems(sectionIndex);
-  var state = individualDonutState[rowId] || items.map(function () { return 0; });
-  var count = state.reduce(function (sum, qty) { return sum + qty; }, 0);
-  var total = state.reduce(function (sum, qty, index) { return sum + qty * parseFloat(items[index].price || 0); }, 0);
-  var text = count + ' donut' + (count === 1 ? '' : 's') + ' · $' + total.toFixed(2);
-  ['individual-tally-' + rowId, 'individual-tally-panel-' + rowId].forEach(function (id) {
-    var el = document.getElementById(id); if (el) el.textContent = text;
-  });
-  var price = document.getElementById('individual-price-' + rowId);
-  if (price) price.textContent = '$' + total.toFixed(2);
-  var add = document.getElementById('individual-add-' + rowId);
-  if (add) add.disabled = count === 0;
-  var help = document.getElementById('individual-help-' + rowId);
-  if (help) help.textContent = count ? 'Ready to add ' + count + ' selected donut' + (count === 1 ? '' : 's') + '.' : 'Choose at least one donut to continue.';
-  var builder = document.getElementById('builder-' + rowId);
-  if (builder) builder.classList.toggle('complete', count > 0);
-}
-
-function addIndividualDonutsToOrder (rowId, sectionIndex) {
-  var items = getIndividualDonutItems(sectionIndex);
-  var state = individualDonutState[rowId] || items.map(function () { return 0; });
-  var count = state.reduce(function (sum, qty) { return sum + qty; }, 0);
-  if (!count) return;
-  state.forEach(function (qty, index) {
-    if (qty > 0) changeQty(items[index].name, parseFloat(items[index].price), qty);
-  });
-  individualDonutState[rowId] = items.map(function () { return 0; });
-  items.forEach(function (_, index) {
-    var qtyEl = document.getElementById('individual-qty-' + rowId + '-' + index);
-    if (qtyEl) qtyEl.textContent = '0';
-  });
-  updateIndividualDonutTally(rowId, sectionIndex);
-  var panel = document.getElementById('builder-panel-' + rowId);
-  var toggle = document.querySelector('#builder-' + rowId + ' .flavor-builder-toggle');
-  if (panel) panel.setAttribute('hidden', '');
-  if (toggle) toggle.setAttribute('aria-expanded', 'false');
-}
-
-function importMenuPageDonutSelection () {
-  try {
-    var raw = localStorage.getItem('dc_pending_individual_donuts');
-    if (!raw) return;
-    var pending = JSON.parse(raw);
-    Object.keys(pending).forEach(function (name) {
-      var entry = pending[name];
-      if (entry && entry.qty > 0) changeQty(name, parseFloat(entry.price), parseInt(entry.qty, 10));
-    });
-    localStorage.removeItem('dc_pending_individual_donuts');
-  } catch (e) {}
-}
-
-function isFlavorQuantityBuilder (item) {
-  if (!item || !item.options || item.options.length < 2) return false;
-  var first = item.options[0].choices || [];
-  if (!first.length) return false;
-  return item.options.every(function (option) {
-    var choices = option.choices || [];
-    if (choices.length !== first.length) return false;
-    return choices.every(function (choice, index) {
-      return choice.label === first[index].label && String(choice.price || '') === String(first[index].price || '');
-    });
-  });
-}
-
-function toggleFlavorBuilder (rowId) {
-  var panel = document.getElementById('builder-panel-' + rowId);
-  var button = document.querySelector('#builder-' + rowId + ' .flavor-builder-toggle');
-  if (!panel || !button) return;
-  var willOpen = panel.hasAttribute('hidden');
-  if (willOpen) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
-  button.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-}
-
-function getFlavorBuilderTotal (rowId) {
-  return (flavorBuilderState[rowId] || []).reduce(function (sum, qty) { return sum + qty; }, 0);
-}
-
-function changeFlavorQty (rowId, sectionIndex, itemIndex, choiceIndex, delta) {
-  var item = MENU_DATA.sections[sectionIndex].items[itemIndex];
-  var requiredTotal = item.options.length;
-  var state = flavorBuilderState[rowId] || item.options[0].choices.map(function () { return 0; });
-  var currentTotal = state.reduce(function (sum, qty) { return sum + qty; }, 0);
-  if (delta > 0 && currentTotal >= requiredTotal) return;
-  state[choiceIndex] = Math.max(0, state[choiceIndex] + delta);
-  flavorBuilderState[rowId] = state;
-  var qtyEl = document.getElementById('flavor-qty-' + rowId + '-' + choiceIndex);
-  if (qtyEl) qtyEl.textContent = state[choiceIndex];
-  updateFlavorBuilderTally(rowId, requiredTotal);
-  refreshConfiguredQty(rowId, sectionIndex, itemIndex);
-}
-
-function updateFlavorBuilderTally (rowId, requiredTotal) {
-  var total = getFlavorBuilderTotal(rowId);
-  var text = total + ' of ' + requiredTotal + ' selected';
-  var top = document.getElementById('builder-tally-' + rowId);
-  var panel = document.getElementById('builder-tally-panel-' + rowId);
-  if (top) top.textContent = text;
-  if (panel) panel.textContent = text;
-  var builder = document.getElementById('builder-' + rowId);
-  if (builder) {
-    builder.classList.toggle('complete', total === requiredTotal);
-    builder.classList.toggle('over-limit', total > requiredTotal);
-  }
-  var addButton = document.getElementById('builder-add-' + rowId);
-  var help = document.getElementById('builder-help-' + rowId);
-  if (addButton) addButton.disabled = total !== requiredTotal;
-  if (help) {
-    var remaining = requiredTotal - total;
-    help.textContent = total === requiredTotal
-      ? 'Your box is complete and ready to add.'
-      : 'Select ' + remaining + ' more ' + (remaining === 1 ? 'donut' : 'donuts') + ' to continue.';
-  }
-}
-
-function addFlavorBuilderToOrder (rowId, sectionIndex, itemIndex) {
-  var configured = getConfiguredItem(rowId, sectionIndex, itemIndex, true);
-  if (!configured) return;
-  changeQty(configured.key, configured.price, 1);
-
-  /* Reset the builder so the customer can create another, different box. */
-  var item = MENU_DATA.sections[sectionIndex].items[itemIndex];
-  flavorBuilderState[rowId] = item.options[0].choices.map(function () { return 0; });
-  flavorBuilderState[rowId].forEach(function (_, choiceIndex) {
-    var qtyEl = document.getElementById('flavor-qty-' + rowId + '-' + choiceIndex);
-    if (qtyEl) qtyEl.textContent = '0';
-  });
-  updateFlavorBuilderTally(rowId, item.options.length);
-  refreshConfiguredQty(rowId, sectionIndex, itemIndex);
-
-  var panel = document.getElementById('builder-panel-' + rowId);
-  var toggle = document.querySelector('#builder-' + rowId + ' .flavor-builder-toggle');
-  if (panel) panel.setAttribute('hidden', '');
-  if (toggle) toggle.setAttribute('aria-expanded', 'false');
-
-  var cartSidebar = document.getElementById('cart-sidebar');
-  if (window.innerWidth <= 900 && cartSidebar) {
-    cartSidebar.classList.add('mobile-open');
-  }
-}
 
 function optionPrompt (label) {
   var clean = String(label || '').replace(/^Choose\s+(?:a|an)\s+/i, '').replace(/^Choose\s+/i, '');
@@ -330,26 +108,16 @@ function getConfiguredItem (rowId, sectionIndex, itemIndex, showAlert) {
   var selectedLabels = [];
   var price = item.price ? parseFloat(item.price) : 0;
   var complete = true;
-  if (isFlavorQuantityBuilder(item)) {
-    var state = flavorBuilderState[rowId] || item.options[0].choices.map(function () { return 0; });
-    var requiredTotal = item.options.length;
-    var selectedTotal = state.reduce(function (sum, qty) { return sum + qty; }, 0);
-    complete = selectedTotal === requiredTotal;
-    state.forEach(function (qty, choiceIndex) {
-      if (qty > 0) selectedLabels.push(qty + ' ' + item.options[0].choices[choiceIndex].label);
-    });
-  } else {
-    (item.options || []).forEach(function (option, optionIndex) {
-      var select = document.getElementById('option-' + rowId + '-' + optionIndex);
-      var choiceIndex = select ? select.value : '';
-      if (choiceIndex === '') { complete = false; return; }
-      var choice = option.choices[parseInt(choiceIndex, 10)];
-      selectedLabels.push(option.label + ': ' + choice.label);
-      if (choice.price) price = parseFloat(choice.price);
-    });
-  }
+  (item.options || []).forEach(function (option, optionIndex) {
+    var select = document.getElementById('option-' + rowId + '-' + optionIndex);
+    var choiceIndex = select ? select.value : '';
+    if (choiceIndex === '') { complete = false; return; }
+    var choice = option.choices[parseInt(choiceIndex, 10)];
+    selectedLabels.push(option.label + ': ' + choice.label);
+    if (choice.price) price = parseFloat(choice.price);
+  });
   if (!complete) {
-    if (showAlert) alert(isFlavorQuantityBuilder(item) ? 'Please choose exactly ' + item.options.length + ' donuts for ' + item.name + '.' : 'Please select each option for ' + item.name + ' first.');
+    if (showAlert) alert('Please select each option for ' + item.name + ' first.');
     return null;
   }
   var name = item.name + (selectedLabels.length ? ' — ' + selectedLabels.join(', ') : '');
@@ -677,11 +445,6 @@ function clearOrderAndStartOver () {
   clearCartStorage();
 
   document.querySelectorAll('.configured-item select').forEach(function (select) { select.selectedIndex = 0; });
-  flavorBuilderState = {};
-  individualDonutState = {};
-  document.querySelectorAll('.flavor-qty-value').forEach(function (el) { el.textContent = '0'; });
-  document.querySelectorAll('.flavor-builder').forEach(function (builder) { builder.classList.remove('complete','over-limit'); });
-  document.querySelectorAll('[id^="builder-tally-"]').forEach(function (el) { var m = el.textContent.match(/of\s+(\d+)/); if (m) el.textContent = '0 of ' + m[1] + ' selected'; });
   document.querySelectorAll('.qty-display').forEach(function (qty) { qty.textContent = '0'; });
   document.querySelectorAll('.configured-item').forEach(function (row) {
     var id = row.id.replace(/^row-/, '');

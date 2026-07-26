@@ -2950,43 +2950,23 @@ const MENU_DATA = {
               "choices": [
                 {
                   "label": "Single",
-                  "price": 0.47
+                  "price": "0.47"
                 },
                 {
                   "label": "Half Dozen",
-                  "price": 2.15
+                  "price": "2.15"
                 },
                 {
                   "label": "Dozen",
-                  "price": 4.8
+                  "price": "4.80"
                 },
                 {
                   "label": "Box of 30",
-                  "price": 11.99
+                  "price": "11.99"
                 },
                 {
                   "label": "Box of 45",
-                  "price": 15.6
-                }
-              ]
-            },
-            {
-              "label": "Choose a flavor",
-              "choices": [
-                {
-                  "label": "Assorted"
-                },
-                {
-                  "label": "Glazed"
-                },
-                {
-                  "label": "Chocolate"
-                },
-                {
-                  "label": "Powdered Sugar"
-                },
-                {
-                  "label": "Cinnamon Sugar"
+                  "price": "15.60"
                 }
               ]
             }
@@ -3001,26 +2981,22 @@ const MENU_DATA = {
       "items": [
         {
           "name": "Hot Coffee",
-          "price": "",
+          "price": "2.00",
           "options": [
             {
               "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": 1.99
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": 1.69
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": 1.99
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": 2.29
+                  "label": "Extra Large"
                 }
               ]
             }
@@ -3040,26 +3016,22 @@ const MENU_DATA = {
         },
         {
           "name": "Cappuccino",
-          "price": "",
+          "price": "2.65",
           "options": [
             {
               "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": 1.99
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": 2.29
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": 2.59
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": 2.89
+                  "label": "Extra Large"
                 }
               ]
             },
@@ -3084,26 +3056,22 @@ const MENU_DATA = {
         },
         {
           "name": "Hot Chocolate",
-          "price": "",
+          "price": "2.19",
           "options": [
             {
               "label": "Choose a size",
               "choices": [
                 {
-                  "label": "Small",
-                  "price": 1.99
+                  "label": "Small"
                 },
                 {
-                  "label": "Medium",
-                  "price": 2.29
+                  "label": "Medium"
                 },
                 {
-                  "label": "Large",
-                  "price": 2.59
+                  "label": "Large"
                 },
                 {
-                  "label": "Extra Large",
-                  "price": 2.89
+                  "label": "Extra Large"
                 }
               ]
             }
@@ -3115,18 +3083,16 @@ const MENU_DATA = {
         },
         {
           "name": "Iced Coffee",
-          "price": "",
+          "price": "3.25",
           "options": [
             {
               "label": "Choose a size",
               "choices": [
                 {
-                  "label": "16 oz.",
-                  "price": 2.19
+                  "label": "16 oz."
                 },
                 {
-                  "label": "20 oz.",
-                  "price": 2.39
+                  "label": "20 oz."
                 }
               ]
             },
@@ -3480,18 +3446,16 @@ const MENU_DATA = {
         },
         {
           "name": "Milkshake",
-          "price": "",
+          "price": "4.10",
           "options": [
             {
               "label": "Choose a size",
               "choices": [
                 {
-                  "label": "16 oz.",
-                  "price": 2.79
+                  "label": "16 oz."
                 },
                 {
-                  "label": "20 oz.",
-                  "price": 3.39
+                  "label": "20 oz."
                 }
               ]
             },

@@ -2966,26 +2966,6 @@ window.DC_MENU = [
                 "price": 15.6
               }
             ]
-          },
-          {
-            "label": "Choose a flavor",
-            "choices": [
-              {
-                "label": "Assorted"
-              },
-              {
-                "label": "Glazed"
-              },
-              {
-                "label": "Chocolate"
-              },
-              {
-                "label": "Powdered Sugar"
-              },
-              {
-                "label": "Cinnamon Sugar"
-              }
-            ]
           }
         ]
       }
@@ -2996,26 +2976,22 @@ window.DC_MENU = [
     "items": [
       {
         "name": "Hot Coffee",
-        "price": "",
+        "price": 2.0,
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small",
-                "price": 1.99
+                "label": "Small"
               },
               {
-                "label": "Medium",
-                "price": 1.69
+                "label": "Medium"
               },
               {
-                "label": "Large",
-                "price": 1.99
+                "label": "Large"
               },
               {
-                "label": "Extra Large",
-                "price": 2.29
+                "label": "Extra Large"
               }
             ]
           }
@@ -3035,26 +3011,22 @@ window.DC_MENU = [
       },
       {
         "name": "Cappuccino",
-        "price": "",
+        "price": 2.65,
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small",
-                "price": 1.99
+                "label": "Small"
               },
               {
-                "label": "Medium",
-                "price": 2.29
+                "label": "Medium"
               },
               {
-                "label": "Large",
-                "price": 2.59
+                "label": "Large"
               },
               {
-                "label": "Extra Large",
-                "price": 2.89
+                "label": "Extra Large"
               }
             ]
           },
@@ -3079,26 +3051,22 @@ window.DC_MENU = [
       },
       {
         "name": "Hot Chocolate",
-        "price": "",
+        "price": 2.19,
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small",
-                "price": 1.99
+                "label": "Small"
               },
               {
-                "label": "Medium",
-                "price": 2.29
+                "label": "Medium"
               },
               {
-                "label": "Large",
-                "price": 2.59
+                "label": "Large"
               },
               {
-                "label": "Extra Large",
-                "price": 2.89
+                "label": "Extra Large"
               }
             ]
           }
@@ -3110,18 +3078,16 @@ window.DC_MENU = [
       },
       {
         "name": "Iced Coffee",
-        "price": "",
+        "price": 3.25,
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "16 oz.",
-                "price": 2.19
+                "label": "16 oz."
               },
               {
-                "label": "20 oz.",
-                "price": 2.39
+                "label": "20 oz."
               }
             ]
           },
@@ -3469,18 +3435,16 @@ window.DC_MENU = [
       },
       {
         "name": "Milkshake",
-        "price": "",
+        "price": 4.1,
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "16 oz.",
-                "price": 2.79
+                "label": "16 oz."
               },
               {
-                "label": "20 oz.",
-                "price": 3.39
+                "label": "20 oz."
               }
             ]
           },
