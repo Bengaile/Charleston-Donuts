@@ -2966,6 +2966,26 @@ window.DC_MENU = [
                 "price": 15.6
               }
             ]
+          },
+          {
+            "label": "Choose a flavor",
+            "choices": [
+              {
+                "label": "Assorted"
+              },
+              {
+                "label": "Glazed"
+              },
+              {
+                "label": "Chocolate"
+              },
+              {
+                "label": "Powdered Sugar"
+              },
+              {
+                "label": "Cinnamon Sugar"
+              }
+            ]
           }
         ]
       }
@@ -2976,22 +2996,26 @@ window.DC_MENU = [
     "items": [
       {
         "name": "Hot Coffee",
-        "price": 2.0,
+        "price": "",
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small"
+                "label": "Small",
+                "price": 1.99
               },
               {
-                "label": "Medium"
+                "label": "Medium",
+                "price": 1.69
               },
               {
-                "label": "Large"
+                "label": "Large",
+                "price": 1.99
               },
               {
-                "label": "Extra Large"
+                "label": "Extra Large",
+                "price": 2.29
               }
             ]
           }
@@ -3011,22 +3035,26 @@ window.DC_MENU = [
       },
       {
         "name": "Cappuccino",
-        "price": 2.65,
+        "price": "",
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small"
+                "label": "Small",
+                "price": 1.99
               },
               {
-                "label": "Medium"
+                "label": "Medium",
+                "price": 2.29
               },
               {
-                "label": "Large"
+                "label": "Large",
+                "price": 2.59
               },
               {
-                "label": "Extra Large"
+                "label": "Extra Large",
+                "price": 2.89
               }
             ]
           },
@@ -3051,22 +3079,26 @@ window.DC_MENU = [
       },
       {
         "name": "Hot Chocolate",
-        "price": 2.19,
+        "price": "",
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "Small"
+                "label": "Small",
+                "price": 1.99
               },
               {
-                "label": "Medium"
+                "label": "Medium",
+                "price": 2.29
               },
               {
-                "label": "Large"
+                "label": "Large",
+                "price": 2.59
               },
               {
-                "label": "Extra Large"
+                "label": "Extra Large",
+                "price": 2.89
               }
             ]
           }
@@ -3078,16 +3110,18 @@ window.DC_MENU = [
       },
       {
         "name": "Iced Coffee",
-        "price": 3.25,
+        "price": "",
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "16 oz."
+                "label": "16 oz.",
+                "price": 2.19
               },
               {
-                "label": "20 oz."
+                "label": "20 oz.",
+                "price": 2.39
               }
             ]
           },
@@ -3435,16 +3469,18 @@ window.DC_MENU = [
       },
       {
         "name": "Milkshake",
-        "price": 4.1,
+        "price": "",
         "options": [
           {
             "label": "Choose a size",
             "choices": [
               {
-                "label": "16 oz."
+                "label": "16 oz.",
+                "price": 2.79
               },
               {
-                "label": "20 oz."
+                "label": "20 oz.",
+                "price": 3.39
               }
             ]
           },
