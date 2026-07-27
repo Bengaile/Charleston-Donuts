@@ -59,3 +59,129 @@
 .hero-brand-link .dc-brand-phone {
   font-size:.72rem;
 }
+
+
+/* =========================================================
+   Unified desktop header
+   Logo/address stays left; all navigation remains on one row.
+   Mobile/tablet behavior is left to the site's existing menus.
+   ========================================================= */
+@media (min-width: 1100px) {
+  .site-header .nav-wrap,
+  .dc-header .dc-nav {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: clamp(22px, 3vw, 62px);
+    padding-right: 78px; /* preserves space for persistent cart */
+    display: grid;
+    grid-template-columns: minmax(370px, 455px) minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(24px, 3vw, 58px);
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+
+  .site-header .brand,
+  .dc-header .brand {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: none;
+  }
+
+  .site-header .main-nav,
+  .dc-header .nav-links {
+    grid-column: 2;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: clamp(16px, 1.45vw, 32px);
+    white-space: nowrap;
+  }
+
+  .site-header .main-nav > a,
+  .dc-header .nav-links > a {
+    flex: 0 0 auto;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: clamp(.93rem, 1.05vw, 1.16rem);
+  }
+
+  .site-header .main-nav .btn,
+  .dc-header .nav-links .order-btn {
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+  }
+
+  /* Keep the complete store identity compact and readable. */
+  .site-header .brand .dc-brand-copy,
+  .dc-header .brand .dc-brand-copy {
+    max-width: 365px;
+  }
+
+  .site-header .brand .dc-brand-location,
+  .site-header .brand .dc-brand-phone,
+  .dc-header .brand .dc-brand-location,
+  .dc-header .brand .dc-brand-phone {
+    font-size: .68rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Prevent old header rules from pushing navigation to a second line. */
+  .site-header .nav-wrap,
+  .site-header .main-nav,
+  .dc-header .dc-nav,
+  .dc-header .nav-links {
+    row-gap: 0 !important;
+  }
+
+  .site-header .nav-toggle,
+  .dc-header .nav-toggle {
+    display: none;
+  }
+}
+
+/* Slightly tighter desktop layout where screen width is limited. */
+@media (min-width: 1100px) and (max-width: 1450px) {
+  .site-header .nav-wrap,
+  .dc-header .dc-nav {
+    grid-template-columns: minmax(315px, 365px) minmax(0, 1fr);
+    column-gap: 20px;
+    padding-left: 24px;
+    padding-right: 68px;
+  }
+
+  .site-header .main-nav,
+  .dc-header .nav-links {
+    gap: 15px;
+  }
+
+  .site-header .main-nav > a,
+  .dc-header .nav-links > a {
+    font-size: .91rem;
+  }
+
+  .site-header .main-nav .btn,
+  .dc-header .nav-links .order-btn {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .site-header .brand .dc-brand-location,
+  .site-header .brand .dc-brand-phone,
+  .dc-header .brand .dc-brand-location,
+  .dc-header .brand .dc-brand-phone {
+    font-size: .61rem;
+  }
+}
