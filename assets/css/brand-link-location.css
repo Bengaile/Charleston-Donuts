@@ -1,0 +1,45 @@
+/* Address and phone integrated into the existing Donut Connection navigation brand link */
+.brand .dc-brand-copy,
+.hero-brand-link .dc-brand-copy {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1.16;
+  min-width:0;
+}
+.brand .dc-brand-title,
+.hero-brand-link .dc-brand-title { display:block; }
+.brand .dc-brand-location,
+.brand .dc-brand-phone,
+.hero-brand-link .dc-brand-location,
+.hero-brand-link .dc-brand-phone {
+  display:block;
+  margin-top:2px;
+  color:#3a2219;
+  font-family:Arial,sans-serif;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:nowrap;
+}
+.brand:hover .dc-brand-location,
+.brand:hover .dc-brand-phone,
+.brand:focus .dc-brand-location,
+.brand:focus .dc-brand-phone,
+.hero-brand-link:hover .dc-brand-location,
+.hero-brand-link:hover .dc-brand-phone,
+.hero-brand-link:focus .dc-brand-location,
+.hero-brand-link:focus .dc-brand-phone {
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+@media(max-width:700px){
+  .brand .dc-brand-location,
+  .brand .dc-brand-phone,
+  .hero-brand-link .dc-brand-location,
+  .hero-brand-link .dc-brand-phone {
+    font-size:.58rem;
+    white-space:normal;
+  }
+}
