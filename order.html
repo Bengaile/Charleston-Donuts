@@ -10,8 +10,17 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="stylesheet" href="assets/css/order.css">
 <link rel="stylesheet" href="assets/css/header-cart.css">
+<link rel="stylesheet" href="assets/css/location-identity.css">
 </head>
 <body>
+<div class="dc-location-bar" role="region" aria-label="Donut Connection store location">
+  <span class="dc-location-name">Donut Connection — MacCorkle Avenue</span>
+  <a class="dc-location-address" href="https://www.google.com/maps/search/?api=1&query=3509+MacCorkle+Ave+SE+Charleston+WV+25302">
+    3509 MacCorkle Ave SE, Charleston, WV 25302
+  </a>
+  <span class="dc-location-separator" aria-hidden="true">•</span>
+  <a class="dc-location-phone" href="tel:3049254261">(304) 925-4261</a>
+</div>
 <button class="dc-global-cart-launcher is-empty" id="dc-global-cart-launcher" type="button" aria-label="Open cart with 0 items">
   <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
   <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
@@ -148,7 +157,13 @@
               Your contact info
             </div>
 
-            <form id="order-form"
+            
+      <div class="dc-order-location-summary">
+        <strong>Pickup location</strong>
+        3509 MacCorkle Ave SE, Charleston, WV 25302<br>
+        <a href="tel:3049254261">(304) 925-4261</a>
+      </div>
+              <form id="order-form"
                   action="https://formspree.io/f/mlgyplav"
                   method="POST"
                   onsubmit="return submitOrder(event)">
@@ -222,7 +237,7 @@
           </div>
           <div class="confirm-row">
             <span class="label">Location</span>
-            <span class="value">3509 MacCorkle Ave SE<br>Charleston, WV 25302</span>
+            <span class="value">3509 MacCorkle Ave SE<br>Charleston, WV 25302<br><a href="tel:3049254261">(304) 925-4261</a></span>
           </div>
           <div class="confirm-row" id="conf-total-row">
             <span class="label">Estimated total</span>

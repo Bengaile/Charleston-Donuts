@@ -1,0 +1,64 @@
+/* Store identity strip — distinguishes the MacCorkle Avenue location */
+.dc-location-bar {
+  position: relative;
+  z-index: 10020;
+  min-height: 38px;
+  padding: 7px 78px 7px 18px;
+  background: #f7c34a;
+  color: #351f18;
+  border-bottom: 2px solid #b56816;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+  font: 800 0.88rem/1.25 Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+.dc-location-bar a {
+  color: #351f18;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.dc-location-name {
+  font-weight: 900;
+}
+.dc-location-separator {
+  font-weight: 900;
+}
+.dc-order-location-summary {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #e2bd72;
+  border-radius: 10px;
+  background: #fff8e8;
+  color: #45291d;
+  line-height: 1.45;
+}
+.dc-order-location-summary strong {
+  display: block;
+  margin-bottom: 2px;
+}
+.dc-order-location-summary a {
+  color: inherit;
+  font-weight: 800;
+}
+@media (max-width: 700px) {
+  .dc-location-bar {
+    min-height: 44px;
+    padding: 7px 66px 7px 8px;
+    gap: 3px 7px;
+    font-size: 0.75rem;
+  }
+  .dc-location-name {
+    width: 100%;
+  }
+  .dc-location-separator {
+    display: none;
+  }
+  .dc-location-address,
+  .dc-location-phone {
+    white-space: normal;
+  }
+}

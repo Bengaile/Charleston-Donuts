@@ -763,7 +763,9 @@ function submitOrder (e) {
   const grand  = total + tax;
   const orderNum = 'DC-' + Date.now().toString().slice(-6);
 
-  let summary = '';
+  let summary = 'DONUT CONNECTION — MACCORKLE AVENUE\n';
+  summary += '3509 MacCorkle Ave SE, Charleston, WV 25302\n';
+  summary += 'Phone: (304) 925-4261\n\n';
   items.forEach(function (e) { summary += e[0] + ' x' + e[1].qty + '\n'; });
   if (total > 0) {
     summary += '\nSubtotal: $' + total.toFixed(2);
