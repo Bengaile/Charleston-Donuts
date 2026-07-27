@@ -1,0 +1,59 @@
+/* Persistent customer cart launcher — shared across customer-facing pages only */
+.dc-global-cart-launcher {
+  position: fixed;
+  top: max(10px, env(safe-area-inset-top));
+  right: max(10px, env(safe-area-inset-right));
+  z-index: 10050;
+  width: 52px;
+  height: 52px;
+  border: 2px solid #5a321d;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #5a321d;
+  box-shadow: 0 4px 14px rgba(52, 28, 15, 0.24);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.dc-global-cart-launcher:focus-visible {
+  outline: 3px solid #f3c547;
+  outline-offset: 3px;
+}
+.dc-global-cart-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.dc-global-cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #c92968;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: 800 0.72rem/1 Arial, sans-serif;
+}
+.dc-global-cart-launcher.is-empty .dc-global-cart-count {
+  background: #76513d;
+}
+@media (max-width: 900px) {
+  .dc-global-cart-launcher {
+    width: 50px;
+    height: 50px;
+    top: max(8px, env(safe-area-inset-top));
+    right: max(8px, env(safe-area-inset-right));
+  }
+}
+/* The persistent icon replaces the older Menu-only desktop Cart text button. */
+#menu-cart-desktop-trigger {
+  display: none !important;
+}

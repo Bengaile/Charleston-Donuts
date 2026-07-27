@@ -254,8 +254,13 @@
   }
   .tfp-page-footer a { color: var(--tfp-red); font-weight: 700; text-decoration: none; }
 </style>
+<link rel="stylesheet" href="assets/css/header-cart.css">
 </head>
 <body class="tfp-body">
+<button class="dc-global-cart-launcher is-empty" id="dc-global-cart-launcher" type="button" aria-label="Open cart with 0 items">
+  <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
+  <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
+</button>
 
 <header class="tfp-topbar">
   <div class="tfp-wrap">
@@ -383,5 +388,6 @@
   });
 })();
 </script>
+<script src="assets/js/header-cart.js"></script>
 </body>
 </html>

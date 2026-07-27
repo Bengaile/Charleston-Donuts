@@ -24,8 +24,13 @@
 
   <!-- Concept-page-only additions (layered on top, no overrides) -->
   <link rel="stylesheet" href="assets/css/wv-favorites.css">
+<link rel="stylesheet" href="assets/css/header-cart.css">
 </head>
 <body>
+<button class="dc-global-cart-launcher is-empty" id="dc-global-cart-launcher" type="button" aria-label="Open cart with 0 items">
+  <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
+  <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
+</button>
 
   <!-- ============================================================
        SITE HEADER — identical to all other pages
@@ -353,5 +358,6 @@
   <!-- Minimal page-specific JS: entrance animations only -->
   <script src="assets/js/wv-favorites.js"></script>
 
+<script src="assets/js/header-cart.js"></script>
 </body>
 </html>

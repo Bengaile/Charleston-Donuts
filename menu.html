@@ -1,4 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Browse the Donut Connection Charleston menu: donuts, pastries, coffee, breakfast sandwiches and more."><title>Menu | Donut Connection Charleston</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="menu.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Browse the Donut Connection Charleston menu: donuts, pastries, coffee, breakfast sandwiches and more."><title>Menu | Donut Connection Charleston</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="menu.css"><link rel="stylesheet" href="assets/css/header-cart.css">
+</head><body>
+<button class="dc-global-cart-launcher is-empty" id="dc-global-cart-launcher" type="button" aria-label="Open cart with 0 items">
+  <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
+  <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
+</button>
 <header class="dc-header"><nav class="dc-nav"><a class="brand" href="index.html"><span class="brand-mark"></span><span><b>Donut Connection</b><small>CHARLESTON, WV · EST. LOCAL TRADITION</small></span></a><div class="nav-links"><a href="index.html">Home</a><a class="active" href="menu.html">Menu</a><a href="cakes-events.html">Custom Cakes</a><a href="catering.html">Catering</a><a href="sweet-rewards.html">Sweet Rewards</a><a href="our-story.html">Our Story</a><a href="gallery.html">Gallery</a><a class="order-btn" href="order.html">Order Ahead</a><button class="menu-cart-button" id="menu-cart-desktop-trigger" type="button" aria-label="Open cart">Cart <span id="menu-cart-count">0</span></button></div></nav></header>
 <main><section class="hero"><div class="eyebrow">Fresh favorites, made daily</div><h1>Our Menu</h1><p>From classic donuts and Charleston favorites to coffee, Grandwiches and celebration treats, there is something here for every kind of craving.</p><div class="hero-ornament"><span class="mini-donut"></span></div></section>
 <section class="controls"><label class="search"><input id="search" type="search" placeholder="Search the menu…" aria-label="Search menu"></label><div class="chips" id="chips"></div></section>
@@ -65,4 +70,6 @@ bindCartTrigger(document.getElementById('menu-cart-desktop-trigger'));
 bindCartTrigger(document.getElementById('menu-cart-mobile'));
 
 search.addEventListener('input',render);renderChips();render();renderMenuCart();
-</script></body></html>
+if(new URLSearchParams(location.search).get('openCart')==='1'){setTimeout(openMenuCart,80);}
+</script><script src="assets/js/header-cart.js"></script>
+</body></html>
