@@ -1,0 +1,46 @@
+/* Store address repeated directly beneath the Donut Connection logo */
+.dc-logo-location {
+  margin-top: 7px;
+  color: #3a2219;
+  font: 700 0.78rem/1.35 Arial, sans-serif;
+  letter-spacing: 0;
+  text-align: left;
+}
+.dc-logo-location strong,
+.dc-logo-location a {
+  display: block;
+}
+.dc-logo-location a {
+  color: #3a2219;
+  text-decoration: none;
+}
+.dc-logo-location a:hover,
+.dc-logo-location a:focus {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 700px) {
+  .dc-logo-location {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+}
+
+/* Order Ahead pickup location: compact enough to keep address and ZIP on one line */
+.dc-order-location-summary {
+  font-size: 0.78rem;
+}
+.dc-order-location-summary strong {
+  font-size: 0.82rem;
+}
+@media (max-width: 700px) {
+  .dc-order-location-summary {
+    font-size: clamp(0.65rem, 2.8vw, 0.76rem);
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .dc-order-location-summary strong {
+    font-size: 0.78rem;
+  }
+}
