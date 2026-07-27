@@ -15,13 +15,24 @@
 .hero-brand-link .dc-brand-phone {
   display:block;
   margin-top:2px;
-  color:#3a2219;
   font-family:Arial,sans-serif;
   font-size:.68rem;
   font-weight:800;
   letter-spacing:0;
   text-transform:none;
   white-space:nowrap;
+}
+
+/* Home-page hero brand: match the original blue tagline treatment. */
+.hero-brand-link .dc-brand-location,
+.hero-brand-link .dc-brand-phone {
+  color:#006f86;
+}
+
+/* Interior-page dark headers: use a high-contrast warm cream/gold. */
+.brand .dc-brand-location,
+.brand .dc-brand-phone {
+  color:#f4c35a;
 }
 .brand:hover .dc-brand-location,
 .brand:hover .dc-brand-phone,
@@ -42,4 +53,9 @@
     font-size:.58rem;
     white-space:normal;
   }
+}
+
+.hero-brand-link .dc-brand-location,
+.hero-brand-link .dc-brand-phone {
+  font-size:.72rem;
 }
