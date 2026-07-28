@@ -21,14 +21,6 @@
 </style>
 
 </head><body>
-<div class="dc-location-bar" role="region" aria-label="Donut Connection store location">
-  <span class="dc-location-name">Donut Connection — MacCorkle Avenue</span>
-  <a class="dc-location-address" href="https://www.google.com/maps/search/?api=1&query=3509+MacCorkle+Ave+SE+Charleston+WV+25302">
-    3509 MacCorkle Ave SE, Charleston, WV 25302
-  </a>
-  <span class="dc-location-separator" aria-hidden="true">•</span>
-  <a class="dc-location-phone" href="tel:3049254261">(304) 925-4261</a>
-</div>
 <button class="dc-global-cart-launcher is-empty" id="dc-global-cart-launcher" type="button" aria-label="Open cart with 0 items">
   <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
   <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
@@ -113,13 +105,7 @@ function priceCard(id){let c=document.getElementById(id),p=c.querySelector('.pri
 function addNormalToCart(id){let c=document.getElementById(id),name=c.dataset.itemName,selects=[...c.querySelectorAll('select')],parts=[],price=parseFloat(c.querySelector('.price').dataset.base);for(let s of selects){if(!s.value){s.focus();s.classList.add('selection-needed');setTimeout(()=>s.classList.remove('selection-needed'),1200);return}parts.push(s.dataset.label+': '+s.value);let p=parseFloat(s.selectedOptions[0]?.dataset.price);if(!isNaN(p))price=p}if(isNaN(price)){alert('Please call the shop for current pricing for this item.');return}let key=name+(parts.length?' — '+parts.join(', '):'');addMenuCartItem(key,price,1);selects.forEach(s=>s.selectedIndex=0);priceCard(id);openMenuCart()}
 function renderChips(){chips.innerHTML='';['All',...DC_MENU.map(x=>x.category)].forEach(c=>{let b=document.createElement('button');b.className='chip'+(c===selected?' active':'');b.textContent=c==='All'?'All':(categoryDisplay[c]?.name||c);b.onclick=()=>{selected=c;renderChips();render()};chips.appendChild(b)})}
 function render(){menu.innerHTML='';let q=search.value.trim().toLowerCase(),shown=0;DC_MENU.forEach((g,gi)=>{if(selected!=='All'&&g.category!==selected)return;let raw=g.items.map(norm),individuals=g.category==='Donuts'?raw.filter(i=>typeof i.price==='number'&&!i.options&&!['Dozen Donuts','Half Dozen Donuts','Eight Pack Donuts'].includes(i.name)):[];let items=raw.filter(i=>!individuals.includes(i)).filter(i=>i.name.toLowerCase().includes(q)||(i.options||[]).some(o=>o.choices.some(c=>choiceLabel(c).toLowerCase().includes(q))));if(q&&g.category==='Donuts'&&!individuals.some(i=>i.name.toLowerCase().includes(q)))individuals=[];if(!items.length&&!individuals.length)return;shown+=items.length+(individuals.length?1:0);let s=document.createElement('section'),d=categoryDisplay[g.category]||{name:g.category,tagline:''};let cards=items.map((i,ii)=>isBox(i)?boxCard(i,`b-${gi}-${ii}`):normalCard(i,`m-${gi}-${ii}`)).join('')+(individuals.length?individualCard(individuals):'');s.className='section';s.innerHTML=`<div class="section-banner"><div class="section-banner-icon">${icons[g.category]||'•'}</div><div class="section-banner-copy"><h2 class="section-title">${d.name}</h2><p class="section-tagline">${d.tagline}</p>
-<div class="dc-logo-location">
-  <strong>Donut Connection — MacCorkle Avenue</strong>
-  <a href="https://www.google.com/maps/search/?api=1&query=3509+MacCorkle+Ave+SE+Charleston+WV+25302">
-    3509 MacCorkle Ave SE, Charleston, WV 25302
-  </a>
-  <a href="tel:3049254261">(304) 925-4261</a>
-</div></div><span class="section-line"></span><span class="count">${items.length+(individuals.length?1:0)} items</span></div><div class="grid">${cards}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
+<span class="section-line"></span><span class="count">${items.length+(individuals.length?1:0)} items</span></div><div class="grid">${cards}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
 
 function loadMenuCart(){try{return JSON.parse(localStorage.getItem('dc_cart')||'{}')||{}}catch(e){return {}}}
 function saveMenuCart(){localStorage.setItem('dc_cart',JSON.stringify(menuCart));renderMenuCart()}
