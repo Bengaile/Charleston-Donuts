@@ -280,7 +280,11 @@
     <div class="footer-bottom">
       Donut Connection Charleston &middot; 3509 MacCorkle Ave SE, Charleston, WV 25302<br>
       &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
-      <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+      <span class="footer-legal-links" style="opacity:0.62;font-size:0.78rem;white-space:nowrap;">
+        <a href="privacy.html">Privacy Policy</a> <span aria-hidden="true">|</span>
+        <a href="terms.html">Terms of Use</a> <span aria-hidden="true">|</span>
+        <a href="portal.html">Owner Portal</a>
+      </span>
     </div>
   </div>
 </footer>
@@ -291,7 +295,7 @@
 <script>
   // Placeholder front-end passcode gate.
   // NOT secure — visible in page source. Replace with real server-side auth before launch.
-  var PORTAL_PASSCODE = "DCWV!2026Owner"; // <-- change this placeholder passcode
+  var PORTAL_PASSCODE = "donutowner2026"; // <-- change this placeholder passcode
 
   function checkPortalPasscode() {
     var input = document.getElementById('portal-passcode').value;
