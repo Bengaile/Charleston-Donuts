@@ -1,4 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Browse the Donut Connection Charleston menu: donuts, pastries, coffee, breakfast sandwiches and more."><title>Menu | Donut Connection Charleston</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="menu.css"><link rel="stylesheet" href="assets/css/header-cart.css">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Browse the Donut Connection Charleston menu: donuts, pastries, coffee, breakfast sandwiches and more."><title>Menu | Donut Connection Charleston</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="assets/css/footer-standard.css"><link rel="stylesheet" href="assets/css/header-cart.css">
 <link rel="stylesheet" href="assets/css/location-identity.css">
 <link rel="stylesheet" href="assets/css/logo-location.css">
 
@@ -44,7 +45,50 @@
   <div class="menu-cart-footer" id="menu-cart-footer"></div>
 </aside>
 <button class="menu-cart-mobile" id="menu-cart-mobile" type="button"><span>View Cart</span><strong id="menu-cart-mobile-info">0 items · $0.00</strong></button>
-<footer class="footer">Donut Connection Charleston · 3509 MacCorkle Ave SE · Charleston, WV</footer>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Donut Connection Charleston</h4>
+        <p class="small">3509 MacCorkle Ave SE<br>Charleston, WV 25302</p>
+        <p class="small">Phone: <a href="tel:3049254261">(304) 925-4261</a><br>Email: order.donutconnectionwv@gmail.com</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google Reviews">G</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="menu.html">Menu</a>
+        <a href="wv-favorites.html">WV Favorites</a></li>
+          <li style="border:none;padding:4px 0;"><a href="gallery.html">Gallery</a></li>
+          <li style="border:none;padding:4px 0;"><a href="reviews.html">Wall of Smiles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order &amp; Tradition</h4>
+        <ul class="link-list" style="border:none;">
+          <li style="border:none;padding:4px 0;"><a href="cakes-events.html">Custom Cakes</a></li>
+          <li style="border:none;padding:4px 0;"><a href="catering.html">Catering</a></li>
+          <li style="border:none;padding:4px 0;"><a href="rewards.html">Sweet Rewards</a></li>
+          <li style="border:none;padding:4px 0;"><a href="about.html">Our Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="small">Daily 6:00 AM - 9:00 PM</p>
+        <p class="small"><a href="contact.html">Get directions &rarr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Donut Connection Charleston &middot; 3509 MacCorkle Ave SE, Charleston, WV 25302<br>
+      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      <a href="portal.html" style="opacity:0.55;font-size:0.78rem;">Owner Login</a>
+    </div>
+  </div>
+</footer>
 <script src="menu-data.js"></script><script>
 const menu=document.querySelector('#menu'),chips=document.querySelector('#chips'),search=document.querySelector('#search'),none=document.querySelector('#none');
 let selected='All', builderState={}, menuCart=loadMenuCart(); const icons={'Donuts':'🍩','Fancy Donuts & Pastries':'✨','Donut Holes':'●','Cookies':'🍪','Ice Cream':'🍨','Coffee':'☕','Cappuccinos':'☕','Hot Chocolate':'♨','Cold Brew':'❄','Bagels':'🥯','Grandwiches':'🥪','Milkshakes':'🥤','Seasonal & Special Events':'🎉'};
