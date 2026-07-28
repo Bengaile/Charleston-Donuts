@@ -18,6 +18,50 @@
 .menu-builder[open] + .builder-closed-status + .builder-outside-add {
   display: none;
 }
+
+
+/* Menu header location alignment — matches the other site pages. */
+.dc-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.dc-header .dc-brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+.dc-header .dc-brand-title {
+  font: 700 25px Georgia, serif;
+  color: #efb65c;
+  letter-spacing: .2px;
+}
+.dc-header .dc-brand-copy small {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  color: #cfb8ad;
+}
+.dc-header .dc-brand-location,
+.dc-header .dc-brand-phone {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #fff;
+}
+@media (max-width: 760px) {
+  .dc-header .dc-brand-location,
+  .dc-header .dc-brand-phone {
+    display: none;
+  }
+  .dc-header .dc-brand-title {
+    font-size: 19px;
+  }
+}
+
 </style>
 
 </head><body>
@@ -25,7 +69,15 @@
   <span class="dc-global-cart-icon" aria-hidden="true">🛒</span>
   <span class="dc-global-cart-count" id="dc-global-cart-count">0</span>
 </button>
-<header class="dc-header"><nav class="dc-nav"><a class="brand" href="index.html"><span class="brand-mark"></span><span><b>Donut Connection</b><small>CHARLESTON, WV · EST. LOCAL TRADITION</small></span></a><div class="nav-links"><a href="index.html">Home</a><a class="active" href="menu.html">Menu</a><a href="cakes-events.html">Custom Cakes</a><a href="catering.html">Catering</a><a href="sweet-rewards.html">Sweet Rewards</a><a href="our-story.html">Our Story</a><a href="gallery.html">Gallery</a><a class="order-btn" href="order.html">Order Ahead</a><button class="menu-cart-button" id="menu-cart-desktop-trigger" type="button" aria-label="Open cart">Cart <span id="menu-cart-count">0</span></button></div></nav></header>
+<header class="dc-header"><nav class="dc-nav"><a href="index.html" class="brand">
+  <span class="brand-mark"></span>
+  <span class="dc-brand-copy">
+    <span class="dc-brand-title">Donut Connection</span>
+    <small>CHARLESTON, WV &middot; EST. LOCAL TRADITION</small>
+    <span class="dc-brand-location">3509 MacCorkle Ave SE, Charleston, WV 25302</span>
+    <span class="dc-brand-phone">(304) 925-4261</span>
+  </span>
+</a><div class="nav-links"><a href="index.html">Home</a><a class="active" href="menu.html">Menu</a><a href="cakes-events.html">Custom Cakes</a><a href="catering.html">Catering</a><a href="sweet-rewards.html">Sweet Rewards</a><a href="our-story.html">Our Story</a><a href="gallery.html">Gallery</a><a class="order-btn" href="order.html">Order Ahead</a><button class="menu-cart-button" id="menu-cart-desktop-trigger" type="button" aria-label="Open cart">Cart <span id="menu-cart-count">0</span></button></div></nav></header>
 <main><section class="hero"><div class="eyebrow">Fresh favorites, made daily</div><h1>Our Menu</h1><p>From classic donuts and Charleston favorites to coffee, Grandwiches and celebration treats, there is something here for every kind of craving.</p><div class="hero-ornament"><span class="mini-donut"></span></div></section>
 <section class="controls"><label class="search"><input id="search" type="search" placeholder="Search the menu…" aria-label="Search menu"></label><div class="chips" id="chips"></div></section>
 <div class="menu-wrap" id="menu"></div><div class="no-results" id="none"><h2>No menu items found</h2><p>Try a different search or category.</p></div>
@@ -75,8 +127,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      Donut Connection Charleston &middot; 3509 MacCorkle Ave SE, Charleston, WV 25302<br>
-      &copy; <span class="auto-year">2026</span> Donut Connection Charleston. All rights reserved. &middot;
+      &copy; <span class="auto-year">2026</span> Donut Connection. All Rights Reserved.<br>
+      Website developed by <a href="https://gbipartnersllc.com" target="_blank" rel="noopener noreferrer">GBI Partners</a>.<br>
       <span class="footer-legal-links" style="opacity:0.62;font-size:0.78rem;white-space:nowrap;">
         <a href="privacy.html">Privacy Policy</a> <span aria-hidden="true">|</span>
         <a href="terms.html">Terms of Use</a> <span aria-hidden="true">|</span>
@@ -104,8 +156,7 @@ function normalCard(i,id){let prices=[];(i.options||[]).forEach(o=>o.choices.for
 function priceCard(id){let c=document.getElementById(id),p=c.querySelector('.price'),amt;c.querySelectorAll('select').forEach(s=>{let x=parseFloat(s.selectedOptions[0]?.dataset.price);if(!isNaN(x))amt=x});let b=parseFloat(p.dataset.base);p.textContent=amt!==undefined?money(amt):(isNaN(b)?'Price available in store':'From '+money(b))}
 function addNormalToCart(id){let c=document.getElementById(id),name=c.dataset.itemName,selects=[...c.querySelectorAll('select')],parts=[],price=parseFloat(c.querySelector('.price').dataset.base);for(let s of selects){if(!s.value){s.focus();s.classList.add('selection-needed');setTimeout(()=>s.classList.remove('selection-needed'),1200);return}parts.push(s.dataset.label+': '+s.value);let p=parseFloat(s.selectedOptions[0]?.dataset.price);if(!isNaN(p))price=p}if(isNaN(price)){alert('Please call the shop for current pricing for this item.');return}let key=name+(parts.length?' — '+parts.join(', '):'');addMenuCartItem(key,price,1);selects.forEach(s=>s.selectedIndex=0);priceCard(id);openMenuCart()}
 function renderChips(){chips.innerHTML='';['All',...DC_MENU.map(x=>x.category)].forEach(c=>{let b=document.createElement('button');b.className='chip'+(c===selected?' active':'');b.textContent=c==='All'?'All':(categoryDisplay[c]?.name||c);b.onclick=()=>{selected=c;renderChips();render()};chips.appendChild(b)})}
-function render(){menu.innerHTML='';let q=search.value.trim().toLowerCase(),shown=0;DC_MENU.forEach((g,gi)=>{if(selected!=='All'&&g.category!==selected)return;let raw=g.items.map(norm),individuals=g.category==='Donuts'?raw.filter(i=>typeof i.price==='number'&&!i.options&&!['Dozen Donuts','Half Dozen Donuts','Eight Pack Donuts'].includes(i.name)):[];let items=raw.filter(i=>!individuals.includes(i)).filter(i=>i.name.toLowerCase().includes(q)||(i.options||[]).some(o=>o.choices.some(c=>choiceLabel(c).toLowerCase().includes(q))));if(q&&g.category==='Donuts'&&!individuals.some(i=>i.name.toLowerCase().includes(q)))individuals=[];if(!items.length&&!individuals.length)return;shown+=items.length+(individuals.length?1:0);let s=document.createElement('section'),d=categoryDisplay[g.category]||{name:g.category,tagline:''};let cards=items.map((i,ii)=>isBox(i)?boxCard(i,`b-${gi}-${ii}`):normalCard(i,`m-${gi}-${ii}`)).join('')+(individuals.length?individualCard(individuals):'');s.className='section';s.innerHTML=`<div class="section-banner"><div class="section-banner-icon">${icons[g.category]||'•'}</div><div class="section-banner-copy"><h2 class="section-title">${d.name}</h2><p class="section-tagline">${d.tagline}</p>
-<span class="section-line"></span><span class="count">${items.length+(individuals.length?1:0)} items</span></div><div class="grid">${cards}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
+function render(){menu.innerHTML='';let q=search.value.trim().toLowerCase(),shown=0;DC_MENU.forEach((g,gi)=>{if(selected!=='All'&&g.category!==selected)return;let raw=g.items.map(norm),individuals=g.category==='Donuts'?raw.filter(i=>typeof i.price==='number'&&!i.options&&!['Dozen Donuts','Half Dozen Donuts','Eight Pack Donuts'].includes(i.name)):[];let items=raw.filter(i=>!individuals.includes(i)).filter(i=>i.name.toLowerCase().includes(q)||(i.options||[]).some(o=>o.choices.some(c=>choiceLabel(c).toLowerCase().includes(q))));if(q&&g.category==='Donuts'&&!individuals.some(i=>i.name.toLowerCase().includes(q)))individuals=[];if(!items.length&&!individuals.length)return;shown+=items.length+(individuals.length?1:0);let s=document.createElement('section'),d=categoryDisplay[g.category]||{name:g.category,tagline:''};let cards=items.map((i,ii)=>isBox(i)?boxCard(i,`b-${gi}-${ii}`):normalCard(i,`m-${gi}-${ii}`)).join('')+(individuals.length?individualCard(individuals):'');s.className='section';s.innerHTML=`<div class="section-banner"><div class="section-banner-icon">${icons[g.category]||'•'}</div><div class="section-banner-copy"><h2 class="section-title">${d.name}</h2><p class="section-tagline">${d.tagline}</p></div><span class="section-line"></span><span class="count">${items.length+(individuals.length?1:0)} items</span></div><div class="grid">${cards}</div>`;menu.appendChild(s)});none.style.display=shown?'none':'block'}
 
 function loadMenuCart(){try{return JSON.parse(localStorage.getItem('dc_cart')||'{}')||{}}catch(e){return {}}}
 function saveMenuCart(){localStorage.setItem('dc_cart',JSON.stringify(menuCart));renderMenuCart()}
